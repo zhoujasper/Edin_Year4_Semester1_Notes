@@ -1,9 +1,124 @@
 \documentclass{note}
+\usepackage{amsmath, amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{caption}
+\usepackage{float}
+
+\captionsetup[algorithm]{font=footnotesize,labelfont=bf}
 
 \title{NLA Note}
 \author{}
 
 \begin{document}
 \maketitle
+
+\section{Background}
+
+\begin{MyTh}{Floating Point ($\F$)}
+    A number = mantissa $\times$ base$^{\text{exponent}}$ \quad \comment{(e.g. $2048=1\times 2^{11}$ \ps{mantissa=1, base=2, exponent=11})}
+\end{MyTh}
+
+\begin{MyTh}{Assumptions}
+    \comment{There is $\varepsilon_m>0$ (machine epsilon)} \quad \ok{A1}: $\forall\alpha\in\R$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $fl:\R\to\F$ by $fl(\alpha)=\alpha(1+\varepsilon)$
+    
+    \hspace{7.4cm} \ok{A2}: $\forall\alpha,\beta\in\F$, $\forall *\in\{+,-,\times,\div\}$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $\alpha \circledast \beta= (\alpha* \beta)(1+\varepsilon)$
+
+    \vspace{-0.1cm}\hspace{2.38cm}\ps{A1: The rounding error in $\alpha$ is relative to the size of $\alpha$ ($|\alpha-fl(\alpha)|<|\alpha|\varepsilon_m$) \quad A2: The error in $\alpha \circledast \beta$ is relative to the size of $\alpha * \beta$ ($|\alpha \circledast \beta - \alpha * \beta|\le|\alpha * \beta|\varepsilon_m$)}
+\end{MyTh}
+
+\begin{MyTh}{IEEE 754}
+    \ok{64-bit}: denote $\F$. \quad \comment{1-bit}: sign \quad \comment{52-bit}: mantissa \quad \comment{11-bit}: exponent \ps{(base 2)}. \quad \small{$\varepsilon_m\approx 2.22\times 10^{-16}$}
+\end{MyTh}
+
+\begin{MyTh}{Cost of Algorithm ($C$)}
+    $C:=$ number of floating point operations (FLOPs) \qquad If $C(n)\le\alpha f(n)$, $\Rightarrow$ $C(n)=\Ocal(f(n))$. \ps{n is problem size}
+\end{MyTh}
+
+\begin{MyTh}{Norms}
+    $\|\mathbf{x}\|_p:=(\sum_{i=1}^n|x_i|^p)^{1/p}$, $p\ge1$ \quad $\|\mathbf{x}\|_\infty:=\max_{1\le i\le n}|x_i|$ \quad $\|\mathbf{x}\|_2:=(\sum_{i=1}^n|x_i|^2)^{1/2}$ \quad $\|\mathbf{x}\|_1:=\sum_{i=1}^n|x_i|$
+
+    \vspace{-10pt}
+    \begin{minipage}[t]{0.4\textwidth}
+        \begin{enumerate}
+            \item $\|\mathbf{x}\|_p\ge0$ \quad $\|\mathbf{x}\|_p=0 \Leftrightarrow \mathbf{x}=\mathbf{0}$
+            \item $\|\alpha\mathbf{x}\|_p=|\alpha|\|\mathbf{x}\|_p$ for $\alpha\in\R$
+            \item $\|\mathbf{x}+\mathbf{y}\|_p\le\|\mathbf{x}\|_p+\|\mathbf{y}\|_p$ \quad \ps{(Triangle inequality)}
+            \item \ok{Induced Norm}: $\|\mathbf{A}\|_p:=\max\limits_{\mathbf{x}\ne0}\frac{\|\mathbf{A}\mathbf{x}\|_p}{\|\mathbf{x}\|_p}$
+        \end{enumerate}    
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.6\textwidth}
+        \begin{enumerate}
+            \item $\|\mathbf{A}_{m\times n}\|_\infty:=\max\limits_{1\le j\le m}\sum_{i=1}^n|a_{ij}|$ \quad \comment{(maximum row sum)}
+            \item $\|\mathbf{A}_{m\times n}\|_1:=\max\limits_{1\le i\le n}\sum_{j=1}^m|a_{ij}|$ \quad \comment{(maximum column sum)}
+            \item $\|\mathbf{A}_{m\times n}\|_2:=\sqrt{\rho(\mathbf{A}^\top\mathbf{A})}$ \quad \comment{$\rho(\mathbf{A}^\top\mathbf{A})=\max\{|\lambda|:\lambda \text{ is eigenvalue of } \mathbf{A}^\top\mathbf{A}\}$}
+        \end{enumerate}
+    \end{minipage}
+    
+\end{MyTh}
+
+
+
+
+\section{Algorithms}
+
+\begin{multicols}{3}
+
+% ----- Algorithm DP -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{DP} Dot product \quad \ps{$C = \sum_{i=1}^{n} 2 = 2n=\Ocal(n)$}}
+\textbf{Input:} $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ \\
+\textbf{Output:} $s = \mathbf{x}\cdot\mathbf{y} = \mathbf{x}^\top \mathbf{y}$
+\begin{algorithmic}[1]
+  \State $s = 0$
+  \For{$i = 1, \dots, n$}
+    \State $s = s + x_i y_i$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm MV -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{MV} Matrix-vector multiplication \vspace{-0.1cm} \\ \ps{$C = \sum_{i=1}^{m} 2n = 2nm=\Ocal(mn)$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{m \times n}$, $\mathbf{x} \in \mathbb{R}^n$ \\
+\textbf{Output:} $\mathbf{y} = \mathbf{A}\mathbf{x}$
+\begin{algorithmic}[1]
+  \For{$i = 1, \dots, m$}
+    \State $y_i = \mathbf{a}_i^\top \mathbf{x}$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm MM -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{MM} Matrix-matrix multiplication \vspace{-0.1cm} \\ \ps{$C = \sum_{i=1}^{m} \sum_{j=1}^{p} 2n = 2mnp=\Ocal(mnp)$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{m \times n}$, $\mathbf{B} \in \mathbb{R}^{n \times p}$ \\
+\textbf{Output:} $\mathbf{C} = \mathbf{A} \mathbf{B}$
+\begin{algorithmic}[1]
+  \For{$i = 1, \dots, m$}
+    \For{$j = 1, \dots, p$}
+      \State $c_{ij} = \mathbf{a}_i^\top \mathbf{b}_j$
+    \EndFor
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+
+
+
+\section{Appendix}
+\tiny
+
+\begin{MyTh}{Where the error come from calucation}
+    \begin{enumerate}
+        \item If your calculation involves 15 or more significant digits, you will likely encounter rounding errors. (Since $\varepsilon_m\approx 10^{-16}$ (relative accuracy), which is about 15 significant digits.) 
+    \end{enumerate}
+\end{MyTh}    
+
 
 \end{document}
