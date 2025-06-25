@@ -889,4 +889,47 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 10.00107pt on input line 12.
-LaTeX Font Info: 
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 12.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 12.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 12.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 12.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+ (d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+ (d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 48.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[1
+
+] (./note.aux)
+Package rerunfilecheck Info: File `note.out' has not changed.
+(rerunfilecheck)             Checksum: 9FE699BB9F2495892ECEE8FBFB9CDF94;395.
+ ) 
+Here is how much of TeX's memory you used:
+ 20821 strings out of 476683
+ 414063 string characters out of 5795227
+ 1858012 words of memory out of 5000000
+ 40760 multiletter control sequences out of 15000+600000
+ 516780 words of font info for 97 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 104i,11n,128p,396b,426s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on note.pdf (1 page).
