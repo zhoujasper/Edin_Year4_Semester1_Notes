@@ -7,6 +7,8 @@
 
 \captionsetup[algorithm]{font=footnotesize,labelfont=bf}
 
+\newcommand{\codealg}[1]{\textcolor{gray}{\quad \# \textbf{#1} Algorithm}}
+
 \title{NLA Note}
 \author{}
 
@@ -59,6 +61,71 @@
 \end{MyTh}
 
 
+\section{Methods for Systems of Linear Equations (SLE)}
+
+\qquad \ \ \ok{Ideal:} We want to solve SLE: $\mathbf{A}\mathbf{x}=\mathbf{b}$, where $\mathbf{A}_{n\times n}$ is invertible, $\mathbf{x},\mathbf{b}\in\R^n$
+\vspace{-0.15cm}
+
+\subsection{LU Factorization | Gaussian Elimination}
+
+\begin{MyTh}{Def of LU}
+    If $\mathbf{A}_{n\times n}$ is invertible, then $^1\exists \ \mathbf{L}$: \comment{单位下三角}, $^2\exists \ \mathbf{U}$: \comment{可逆上三角}. \ s.t. \ $\mathbf{A}=\mathbf{L}\mathbf{U}$ \ok{(unique)}
+\end{MyTh}
+
+\begin{MyTh}{LU Factorization}
+    By Gaussian elimination, $\mathbf{A}_{n\times n}=(\prod_{k=1}^{n-1}\mathbf{L}_k)^{-1}\mathbf{U}=:\mathbf{L}\mathbf{U}$ \ \ \ps{$\mathbf{L}_k$: Lower triangular with 1s on the diagonal (by row operation on single column)}
+    
+    \begin{enumerate}
+        \item 如果$\mathbf{L}$是\comment{单位下三角}矩阵,且只有第$k$列有非零元素在对角线下,则$\mathbf{L}^{-1}$矩阵是$\mathbf{L}$对角线不动,其余为相反数.
+        \item 如果$\mathbf{L}_1,\mathbf{L}_2$矩阵是\comment{单位下三角}矩阵,且$\mathbf{L}_1|\mathbf{L}_2$在第$1\sim k|k+1\sim n$列有非零元素在对角线下,则$\mathbf{L}_1\mathbf{L}_2$矩阵是他们的"拼接".
+        \item By LU factorization, $\mathbf{A}=\mathbf{L}\mathbf{U}$ \ \ $\Rightarrow$ \ \ By solving \ok{$\mathbf{L}\mathbf{y}=\mathbf{b}$} and \ok{$\mathbf{U}\mathbf{x}=\mathbf{y}$}, we can solve SLE \ok{$\mathbf{A}\mathbf{x}=\mathbf{b}$}. \quad \ps{用$\mathbf{FS}$和$\mathbf{BS}$算法}
+    \end{enumerate}
+
+    \vspace{-6pt}
+    \begin{minipage}[t]{0.4\textwidth}
+    \[e.g. \ (1) \quad
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    3 & 0 & 1
+    \end{bmatrix}^{-1}
+    =
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    -2 & 1 & 0 \\
+    -3 & 0 & 1
+    \end{bmatrix}
+    \]
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.6\textwidth}
+    \[(2) \quad
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    4 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 5 & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    4 & 5 & 1
+    \end{bmatrix}
+    \]
+    \end{minipage}
+
+\end{MyTh}
+
+\begin{MyTh}{Error Analysis of GE}
+  Gaussian elimination is an \ok{unstable} algorithm. \ps{(i.e. floating point arithmetic can have a disastrous effect on the computed solution.)}
+\end{MyTh}
+
+
 
 
 \section{Algorithms}
@@ -87,7 +154,7 @@
 \textbf{Output:} $\mathbf{y} = \mathbf{A}\mathbf{x}$
 \begin{algorithmic}[1]
   \For{$i = 1, \dots, m$}
-    \State $y_i = \mathbf{a}_i^\top \mathbf{x}$
+    \State $y_i = \mathbf{a}_i^\top \mathbf{x}$ \codealg{DP}
   \EndFor
 \end{algorithmic}
 \end{algorithm}
@@ -101,7 +168,7 @@
 \begin{algorithmic}[1]
   \For{$i = 1, \dots, m$}
     \For{$j = 1, \dots, p$}
-      \State $c_{ij} = \mathbf{a}_i^\top \mathbf{b}_j$
+      \State $c_{ij} = \mathbf{a}_i^\top \mathbf{b}_j$ \codealg{DP}
     \EndFor
   \EndFor
 \end{algorithmic}
@@ -109,14 +176,90 @@
 
 \end{multicols}
 
+\vspace{-0.8cm}
+\begin{multicols}{3}
+
+% ----- Algorithm LU -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{LU} LU factorisation \vspace{-0.1cm} \\ \ps{$C(n) = \sum^{n-1}_{k=1}(n-k)(1+2(n-k+1)) = \frac{2}{3}n^3+\frac{1}{2}n^2-\frac{7}{6}n$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \\
+\textbf{Output:} $\mathbf{L}, \mathbf{U} \in \mathbb{R}^{n \times n}$ \ \ s.t. \ \ $\mathbf{A} = \mathbf{LU}$
+\begin{algorithmic}[1]
+  \State $\mathbf{L} = \mathbf{I},\ \mathbf{U} = \mathbf{A}$
+  \For{$k = 1, \dots, n - 1$}
+    \For{$j = k + 1, \dots, n$}
+      \State $l_{jk} = u_{jk} / u_{kk}$
+      \State $(u_{jk}, \dots, u_{jn}) = (u_{jk}, \dots, u_{jn}) - l_{jk}(u_{kk}, \dots, u_{kn})$
+    \EndFor
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm FS -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{FS} Forward substitution \vspace{-0.1cm} \\ \ps{$C(n) = \sum_{j=1}^{n}[2(j-1)+1]=n^2=\Ocal(n^2)$}}
+\textbf{Input:} $\mathbf{L} \in \mathbb{R}^{n \times n}$ (lower triangular), $\mathbf{b} \in \mathbb{R}^n$ \\
+\textbf{Output:} $\mathbf{y} \in \mathbb{R}^n$ such that $\mathbf{Ly} = \mathbf{b}$
+\begin{algorithmic}[1]
+  \For{$j = 1, \dots, n$}
+    \State $y_j = \frac{1}{l_{jj}} \left( b_j - \sum_{k = 1}^{j - 1} l_{jk} y_k \right)$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm BS -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{BS} Back substitution \vspace{-0.1cm} \\ \ps{$C(n) = \sum_{j=1}^n[2(n-j)+1]=n^2=\Ocal(n^2)$}}
+\textbf{Input:} $\mathbf{U} \in \mathbb{R}^{n \times n}$ (upper triangular), $\mathbf{y} \in \mathbb{R}^n$ \\
+\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ such that $\mathbf{Ux} = \mathbf{y}$
+\begin{algorithmic}[1]
+  \For{$j = n, \dots, 1$}
+    \State $x_j = \frac{1}{u_{jj}} \left( y_j - \sum_{k = j + 1}^{n} u_{jk} x_k \right)$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+
+\vspace{-0.8cm}
+\begin{multicols}{3}
+
+% ----- Algorithm GE -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{GE} Gaussian elimination \vspace{-0.1cm} \\ \ps{$C(n) = \frac{2}{3}n^3 + \frac{5}{2}n^2 - \frac{7}{6}n=\Ocal(n^3)$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n},\ \mathbf{b} \in \mathbb{R}^n$ \\
+\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ \ \ s.t. \ \ $\mathbf{Ax} = \mathbf{b}$
+\begin{algorithmic}[1]
+  \State Find LU factorisation of $\mathbf{A}$. \codealg{LU}
+  \State Solve $\mathbf{Ly} = \mathbf{b}$ using forward substitution. \codealg{FS}
+  \State Solve $\mathbf{Ux} = \mathbf{y}$ using back substitution. \codealg{BS}
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
 
 
 \section{Appendix}
+
+\subsection{Useful Theorems/Formulas}
+\small
+
+\begin{MyTh}{Sum Notation}
+    $\sum_{k=1}^n k = \frac{n(n+1)}{2}=\frac{1}{2}n^2+\frac{1}{2}n$ \qquad $\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}=\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n$ \qquad $\sum_{k=1}^n k^3 = \left(\frac{n(n+1)}{2}\right)^2=\frac{1}{4}n^4+\frac{1}{2}n^3+\frac{1}{4}n^2$
+\end{MyTh}
+
+
+\subsection{Others}
 \tiny
 
 \begin{MyTh}{Where the error come from calucation}
     \begin{enumerate}
         \item If your calculation involves 15 or more significant digits, you will likely encounter rounding errors. (Since $\varepsilon_m\approx 10^{-16}$ (relative accuracy), which is about 15 significant digits.) 
+        \item \textbf{For GE Algorithm}: It is an unstable algorithm. \quad e.g. $\mathbf{A}=[10^{-20} \ \ 1 \ \ \backslash\backslash \ \ 1 \ \ 1] \ \Rightarrow$ By \textbf{GE} Algorithm, $\widehat{\mathbf{L}}\widehat{\mathbf{U}}=\mathbf{A} + [0 \ \ 0 \ \ \backslash\backslash \ \ 0 \ \ -1]$ (error)
     \end{enumerate}
 \end{MyTh}    
 
