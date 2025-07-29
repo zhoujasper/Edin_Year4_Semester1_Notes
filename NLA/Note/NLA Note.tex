@@ -14,6 +14,7 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{fancy}
 
 \section{Background}
 
@@ -22,19 +23,21 @@
 \end{MyTh}
 
 \begin{MyTh}{Assumptions}
-    \comment{There is $\varepsilon_m>0$ (machine epsilon)} \quad \ok{A1}: $\forall\alpha\in\R$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $fl:\R\to\F$ by $fl(\alpha)=\alpha(1+\varepsilon)$
+    \comment{There is $\varepsilon_m>0$ \ok{(machine epsilon)}} \ \ \ok{A1}: $\forall\alpha\in\R$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $fl:\R\to\F$ by $fl(\alpha)=\alpha(1+\varepsilon)$
     
     \hspace{7.4cm} \ok{A2}: $\forall\alpha,\beta\in\F$, $\forall *\in\{+,-,\times,\div\}$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $\alpha \circledast \beta= (\alpha* \beta)(1+\varepsilon)$
 
     \vspace{-0.1cm}\hspace{2.38cm}\ps{A1: The rounding error in $\alpha$ is relative to the size of $\alpha$ ($|\alpha-fl(\alpha)|<|\alpha|\varepsilon_m$) \quad A2: The error in $\alpha \circledast \beta$ is relative to the size of $\alpha * \beta$ ($|\alpha \circledast \beta - \alpha * \beta|\le|\alpha * \beta|\varepsilon_m$)}
 \end{MyTh}
 
-\begin{MyTh}{IEEE 754}
+\begin{MyTh}{IEEE (Double Precision)}
     \ok{64-bit}: denote $\F$. \quad \comment{1-bit}: sign \quad \comment{52-bit}: mantissa \quad \comment{11-bit}: exponent \ps{(base 2)}. \quad \small{$\varepsilon_m\approx 2.22\times 10^{-16}$}
 \end{MyTh}
 
 \begin{MyTh}{Cost of Algorithm ($C$)}
     $C:=$ number of floating point operations (FLOPs) \qquad If $C(n)\le\alpha f(n)$, $\Rightarrow$ $C(n)=\Ocal(f(n))$. \ps{n is problem size}
+
+    \quad $\cdot$ We consider that: \ok{交换/赋值} no cost \ps{(i.e. Permutation $\mathbf{P}$ is free)}, \ \ \ok{比较两数} 1 FLOPs, \ \ \ok{$\sqrt{~~~~}$} 1 FLOPs.
 \end{MyTh}
 
 \begin{MyTh}{Norms}
@@ -66,7 +69,47 @@
 \qquad \ \ \ok{Ideal:} We want to solve SLE: $\mathbf{A}\mathbf{x}=\mathbf{b}$, where $\mathbf{A}_{n\times n}$ is invertible, $\mathbf{x},\mathbf{b}\in\R^n$
 \vspace{-0.15cm}
 
-\subsection{LU Factorization | Gaussian Elimination}
+\subsection{Backward Stable | Condition Number | Error}
+
+\begin{MyTh}{Backward Stable}
+  An algorithm to solve SLE is Backward Stable if: \ \ $\exists \alpha(n)>0$ s.t. $\forall \mathbf{A}, \mathbf{b}$, the computed solution $\widehat{\mathbf{x}}$ satisfies:
+  
+  \hspace{2.85cm} $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b} + \Delta \mathbf{b}$ \ \ and  \ \ $\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p} + \frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p} \leq \alpha \varepsilon_m$ \quad \comment{$\varepsilon_m:$ machine epsilon.} \quad \ps{ps: $\alpha$可以和问题规模$n$相关,但不能和$\mathbf{A}$或$\mathbf{b}$相关.}
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{Condition Number ($\kappa_p(\mathbf{A})$)}
+    $\kappa_p(\mathbf{A}):=$
+    {\tiny
+    $\begin{cases}
+      \|\mathbf{A}\|_p\|\mathbf{A}^{-1}\|_p\geq1 & \text{if } \mathbf{A} \text{ is invertible} \\
+      \infty & \text{otherwise}
+    \end{cases}
+    \qquad\begin{cases}
+      \text{If $\kappa_p(\mathbf{A})$ is large (e.g. $\kappa_p(\mathbf{A})\ge10^{12}\approx\varepsilon_m^{-1}$)}, & \text{$\mathbf{A}$ is \textcolor{green}{ill-conditioned.}} \\
+      \text{If $\kappa_p(\mathbf{A})\leq10^4$}, & \text{$\mathbf{A}$ is \textcolor{green}{well-conditioned.}}
+    \end{cases}$
+    }
+    \qquad \ps{ps: $\kappa_p(\mathbf{A})$ 衡量矩阵奇异性}
+
+    \begin{enumerate}
+      \item For $\mathbf{A}_{n\times n}$ with real eigenvalues $|\lambda_1| \geq |\lambda_2| \geq \cdots \geq |\lambda_n|$ and corresponding eigenvectors $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n$: \quad {\tiny \textcolor{red}{ps:对所有实对称矩阵都满足下面条件}}
+      
+      \qquad If $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n$ are \comment{orthonormal set}. \ \ Then $\kappa_2(\mathbf{A}) = \|\mathbf{A}\|_2\|\mathbf{A}^{-1}\|_2 = \frac{|\lambda_1|}{|\lambda_n|}\geq1$
+    \end{enumerate}
+\end{MyTh}
+
+\vspace{2pt}
+\begin{MyTh}{Relative Error}
+  $\frac{\|\widehat{\mathbf{x}} - \mathbf{x}\|_p}{\|\mathbf{x}\|_p}$ \qquad \textcolor{blue}{\textbf{Actual Error:}} $\|\widehat{\mathbf{x}} - \mathbf{x}\|_p$ \qquad \quad \ps{ps: Relative error gives more information than actual error.}
+
+  \begin{enumerate}
+    \item Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\|\Delta \mathbf{A}\|_p<\|\mathbf{A}\|_p$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$. \quad \ps{此时的$\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$小代表good stability.}
+  \end{enumerate}
+\end{MyTh}
+
+
+\subsection{LU Factorization | Gaussian Elimination (GE)}
 
 \begin{MyTh}{Def of LU}
     If $\mathbf{A}_{n\times n}$ is invertible, then $^1\exists \ \mathbf{L}$: \comment{单位下三角}, $^2\exists \ \mathbf{U}$: \comment{可逆上三角}. \ s.t. \ $\mathbf{A}=\mathbf{L}\mathbf{U}$ \ok{(unique)}
@@ -126,9 +169,39 @@
 \end{MyTh}
 
 
+\subsection{LUPP | LUCP | GEPP | GECP}
+
+\begin{MyTh}{Permutation Matrix}
+    For a permutation $\pi$, $\mathbf{P}_\pi:=[\mathbf{e}_{\pi(1)}, \dots, \mathbf{e}_{\pi(n)}]$ \quad \ps{\tiny ps: 写的时候是对$I$,第$i$行的1移动到第$\pi(i)$行. \ \ 注意: 用另一方式定义的$\mathbf{P}_\pi$会让后面对$\pi$结论不一样}
+    
+    \quad $\cdot$ \ok{左边乘$\mathbf{P}_\pi$: 交换行} \ps{($\mathbf{P}_\pi$的行 \ 代表具体行的交换方法, $\pi$也代表交换行的方法)} \qquad $\cdot$ \ok{右边乘$\mathbf{P}_\pi$: 交换列} \ps{($\mathbf{P}_\pi$的列 \ 代表具体列的交换方法, $\pi^{-1}$才代表交换列的方法)}
+
+    \quad $\cdot$ Proposition: $\mathbf{P}_\pi$ is orthogonal, i.e. $\mathbf{P}_\pi^\top=\mathbf{P}_\pi^{-1}$ ($\mathbf{P}_\pi^\top\mathbf{P}_\pi=\mathbf{I}$) \qquad \ \ \ $\cdot$ \ok{对于二阶置换矩阵(Involution)}: $\mathbf{P}_\pi^2=\mathbf{I}$, i.e. $\mathbf{P}_\pi^{-1}=\mathbf{P}_\pi$
+    
+    \quad $\cdot$ \ok{GEPP}: \comment{交换行使每次$|u_{kk}|$最大} \qquad \ok{GECP}: \comment{交换行和列使每次$|u_{kk}|$最大} \qquad \ps{ps: GEPP and GECP are both \ok{stable algorithms} for SLE.}
+\end{MyTh}
+
+\begin{MyTh}{Backward Stable of GEPP}
+  $\forall$ SLE sol $\widehat{\mathbf{x}}$ by GEPP, \ \ $\exists \Delta \mathbf{A}$ s.t. $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b}$ \ \ and \ \ $\frac{\|\Delta \mathbf{A}\|_{\infty}}{\|\mathbf{A}\|_{\infty}} \leq p(n) 2^{n-1}\varepsilon_m$ \ps{$p(n)$ is a cubic polynomial}
+\end{MyTh}
+
+
+\subsection{QR Method | Householder QR factorisation}
+
+\begin{MyTh}{QR Factorization}
+  QR factorization of $\mathbf{A}_{n\times n}$ is $\mathbf{A} = \mathbf{Q}\mathbf{R}$, where $\mathbf{Q}$ is \comment{orthogonal (i.e. $\mathbf{Q}^T=\mathbf{Q}^{-1}$)} and $\mathbf{R}$ is \comment{non-singular upper triangular.}
+
+  \quad $\cdot$ Def of $\mathbf{Q}$ is orthogonal is equivalent to $\mathbf{Q}^T\mathbf{Q}=\mathbf{I}$. \comment{(i.e. columns of $\mathbf{Q}$ forming an orthonormal set.)}
+
+  \quad $\cdot$ \begin{MyTh}{Orthogonal Projection}
+    $\text{proj}_{\mathbf{u}}(\mathbf{x}) = \frac{\mathbf{x} \cdot \mathbf{u}}{\|\mathbf{u}\|^2_2} \mathbf{u}$ \ \comment{$=(\mathbf{u}^\top\mathbf{x})\mathbf{u}$ if $\|\mathbf{u}\|_2=1$.} \hspace{2cm} $\mathbf{x}=\text{proj}_{\mathbf{u}}(\mathbf{x})^{\text{parallel to }\mathbf{u}} + (\mathbf{x} - \text{proj}_{\mathbf{u}}(\mathbf{x}))^{\text{orthogonal to }\mathbf{u}}$
+  \end{MyTh}
+\end{MyTh}
 
 
 \section{Algorithms}
+
+\subsection{DP MV MM | LU FS BS | GE GEPP GECP | Max GS MGS SQR QR}
 
 \begin{multicols}{3}
 
@@ -240,7 +313,147 @@
 \end{algorithmic}
 \end{algorithm}
 
+% ----- Algorithm GEPP -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{GEPP} Gaussian elimination with partial pivoting \vspace{-0.1cm} \\ \ps{$C(n)=\frac23n^3+3n^2-\frac53n=\Ocal(n^3)$}}
+\textbf{Input:} $\mathbf{A}\in\R^{n\times n},\ \mathbf b\in\R^n$ \textcolor{gray}{\quad \# numpy.linalg.solve use it} \\
+\textbf{Output:} $\mathbf x\in\R^n$ satisfying $\mathbf{A x}=\mathbf b$
+\begin{algorithmic}[1]
+  \State Find $\mathbf P\mathbf A=\mathbf L\mathbf U$ using Algorithm LUPP \codealg{LUPP}
+  \State Solve $\mathbf L\,\mathbf y = \mathbf P\,\mathbf b$ by forward substitution \codealg{FS}
+  \State Solve $\mathbf U\,\mathbf x = \mathbf y$ by back substitution \codealg{BS}
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm GECP -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{GECP} Gaussian elimination with complete pivoting \vspace{-0.1cm} \\ \ps{$C(n)=n^3+3n^2-2n=\Ocal(n^3)$}}
+\textbf{Input:} $\mathbf{A}\in\R^{n\times n},\ \mathbf b\in\R^n$ \\
+\textbf{Output:} $\mathbf x\in\R^n$ satisfying $\mathbf A\,\mathbf x=\mathbf b$
+\begin{algorithmic}[1]
+  \State Find $\mathbf P\,\mathbf A\,\mathbf Q = \mathbf L\,\mathbf U$ using Algorithm LU with complete pivoting
+  \State Solve $\mathbf L\,\mathbf y = \mathbf P\,\mathbf b$ by forward substitution \codealg{FS}
+  \State Solve $\mathbf U\,\mathbf z = \mathbf y$ by back substitution \codealg{BS}
+  \State Compute $\mathbf x = \mathbf Q\,\mathbf z$
+\end{algorithmic}
+\end{algorithm}
+
 \end{multicols}
+
+\vspace{-0.8cm}
+\begin{multicols}{2}
+
+% ----- Algorithm LUPP -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{LUPP} LU factorisation with partial pivoting \ps{(not unique)} \vspace{-0.1cm} \\ \ps{$C(n)=\frac{2}{3}n^3+n^2-\frac{5}{3}n$}}
+\textbf{Input:} $\mathbf{A}\in\R^{n\times n}$ \\
+\textbf{Output:} $\mathbf{L},\ \mathbf{U},\ \mathbf{P}\in\R^{n\times n}$ \ s.t. \ $\mathbf{P}\mathbf{A}=\mathbf{L}\mathbf{U}$ with $\mathbf{L}$ 单位下三角, $\mathbf{U}$ 可逆上三角
+\begin{algorithmic}[1]
+  \State $\mathbf{U} = \mathbf{A},\ \mathbf{L} = \mathbf{I}$,\ $\mathbf{P} = \mathbf{I}$
+  \For{$k = 1, \dots, n - 1$}
+    \State Choose $i\in\{k,\dots,n\}$ which maximizes $|u_{ik}|$ \codealg{Max}
+    \State Exchange row $(u_{kk}, \dots, u_{kn})$ with $(u_{ik}, \dots, u_{in})$ \textcolor{gray}{\quad \# 第$k$行和第$i$行 \ 的$k\sim n$列交换}
+    \State Exchange row $(l_{k1}, \dots, l_{k,k-1})$ with $(l_{i1}, \dots, l_{i,k-1})$ \textcolor{gray}{\quad \# 第$k$行和第$i$行 \ 的$1\sim k-1$列交换}
+    \State Exchange row $(p_{k1}, \dots, p_{kn})$ with $(p_{i1}, \dots, p_{in})$ \textcolor{gray}{\quad \# 第$k$行和第$i$行 \ 的全部列交换}
+    \For{$j = k + 1, \dots, n$}
+      \State $l_{jk} = u_{jk} / u_{kk}$
+      \State $(u_{jk}, \dots, u_{jn}) = (u_{jk}, \dots, u_{jn}) - l_{jk}(u_{kk}, \dots, u_{kn})$
+    \EndFor
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm LUCP -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{LUCP} LU factorisation with complete pivoting \ps{(not unique)} \vspace{-0.1cm} \\ \ps{$C(n)=n^3+n^2-2n$}}
+\textbf{Input:} $\mathbf{A}\in\R^{n\times n}$ \\
+\textbf{Output:} $\mathbf{L},\ \mathbf{U},\ \mathbf{P},\ \mathbf{Q}\in\R^{n\times n}$ \ s.t. \ $\mathbf{P}\mathbf{A}\mathbf{Q}=\mathbf{L}\mathbf{U}$ with $\mathbf{L}$ 单位下三角, $\mathbf{U}$ 可逆上三角
+\begin{algorithmic}[1]
+  \State $\mathbf{U} = \mathbf{A},\ \mathbf{L} = \mathbf{I},\ \mathbf{P} = \mathbf{I},\ \mathbf{Q} = \mathbf{I}$
+  \For{$k = 1, \dots, n - 1$}
+    \State Choose $(i,j)\in\{(k,k),...,(n,n)\}$ which maximizes $|u_{ij}|$ \codealg{Max}
+    \State Exchange row $(u_{k k}, \dots, u_{k n})$ with $(u_{i k}, \dots, u_{i n})$ \textcolor{gray}{\quad \# 第$k$行和第$i$行 \ 的$k\sim n$列交换 $U$}
+    \State Exchange row $(l_{k1}, \dots, l_{k,k-1})$ with $(l_{i1}, \dots, l_{i,k-1})$ \textcolor{gray}{\quad \# 第$k$行和第$i$行 \ 的$1\sim k-1$列交换 $L$}
+    \State Exchange row $(p_{k1}, \dots, p_{kn})$ with $(p_{i1}, \dots, p_{in})$ \textcolor{gray}{\quad \# 第$k$行和第$i$行 \ 的全部列交换 $P$}
+    \State Exchange column $(u_{1 k}, \dots, u_{n k})$ with $(u_{1 j}, \dots, u_{n j})$ \textcolor{gray}{\quad \# 第$k$列和第$j$列 \ 的全部行交换 $U$}
+    \State Exchange column $(q_{1 k}, \dots, q_{n k})$ with $(q_{1 j}, \dots, q_{n j})$ \textcolor{gray}{\quad \# 第$k$列和第$j$列 \ 的全部行交换 $Q$}
+    \For{$m = k + 1, \dots, n$}
+      \State $l_{m k} = u_{m k} / u_{k k}$
+      \State $(u_{m k}, \dots, u_{m n}) = (u_{m k}, \dots, u_{m n}) - l_{m k}(u_{k k}, \dots, u_{k n})$
+    \EndFor
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+
+\vspace{-0.8cm}
+\begin{multicols}{3}
+
+% ----- Algorithm Max -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{Max} Finding index of maximum \quad \ps{$C(m) = m - 1$}}
+\textbf{Input:} $z \in \mathbb{R}^m$\\
+\textbf{Output:} index $i$ with $\lvert z_i\rvert = \max_{j=1,\dots,m}\lvert z_j\rvert$
+\begin{algorithmic}[1]
+  \State $i = 1,\;\mathrm{max}= \lvert z_1\rvert$
+  \For{$j=2,\dots,m$}
+    \If{$\lvert z_j\rvert > \mathrm{max}$}
+      \State $i = j$
+      \State $\mathrm{max} = \lvert z_j\rvert$
+    \EndIf
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm GS -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{GS} Gram-Schmidt \quad \ps{$C(n)=2n^3+n^2+n$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$, with columns $\mathbf{a}_1, \dots, \mathbf{a}_n$ \\
+\textbf{Output:} $\mathbf{Q} \in \mathbb{R}^{n \times n}$, with orthonormal columns $\mathbf{q}_1, \dots, \mathbf{q}_n$
+
+\qquad\qquad $\mathbf{R} \in \mathbb{R}^{n \times n}$ non-singular upper triangular matrix; \ s.t. $\mathbf{A} = \mathbf{Q}\mathbf{R}$
+\begin{algorithmic}[1]
+  \State $\mathbf{R} = \mathbf{0}$
+  \For{$j=1,...,n$}
+    \State $\mathbf{q}_j = \mathbf{a}_j$
+    \For{$k=1,...,j-1$}
+      \State $r_{kj} = \mathbf{q}_k^\top \mathbf{a}_j$
+      \State $\mathbf{q}_j = \mathbf{q}_j - r_{kj} \mathbf{q}_k$ 
+    \EndFor
+    \State $r_{jj} = \|\mathbf{q}_j\|_2=\sqrt{\mathbf{q}_j^\top \mathbf{q}_j}$
+    \State $\mathbf{q}_j = \frac{\mathbf{q}_j}{r_{jj}}$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+
+\vspace{-0.8cm}
+\begin{multicols}{3}
+
+% ----- Algorithm SQR -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{SQR} (SLE) via QR-Factorization \quad \ps{$C(n)=2n^3+4n^2+n$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$, $\mathbf{b} \in \mathbb{R}^n$ \\
+\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ with $\mathbf{A}\mathbf{x} = \mathbf{b}$
+\begin{algorithmic}[1]
+  \State Find QR factorization of $\mathbf{A}$ \codealg{GS}
+  \State Solve $\mathbf{Q}\mathbf{y} = \mathbf{b}$ \codealg{MV} \quad \textcolor{gray}{\# ps: $\mathbf{y} = \mathbf{Q}^{-1}\mathbf{b}= \mathbf{Q}^\top\mathbf{b}$}
+  \State Solve $\mathbf{R}\mathbf{x} = \mathbf{y}$ using Algorithm BS \codealg{BS}
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+
+
 
 
 \section{Appendix}
@@ -261,7 +474,7 @@
         \item If your calculation involves 15 or more significant digits, you will likely encounter rounding errors. (Since $\varepsilon_m\approx 10^{-16}$ (relative accuracy), which is about 15 significant digits.) 
         \item \textbf{For GE Algorithm}: It is an unstable algorithm. \quad e.g. $\mathbf{A}=[10^{-20} \ \ 1 \ \ \backslash\backslash \ \ 1 \ \ 1] \ \Rightarrow$ By \textbf{GE} Algorithm, $\widehat{\mathbf{L}}\widehat{\mathbf{U}}=\mathbf{A} + [0 \ \ 0 \ \ \backslash\backslash \ \ 0 \ \ -1]$ (error)
     \end{enumerate}
-\end{MyTh}    
+\end{MyTh}
 
 
 \end{document}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  1 JUL 2025 00:15
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  25 JUL 2025 23:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -649,13 +649,13 @@ Package fontspec Info: Font family 'LatinModernMath(1)' created for font
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 140.
+(Font)              `operators' in the math version `normal' on input line 141.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/LatinModernMath(1)/m/n on input line 140.
+(Font)                  OT1/cmr/m/n --> TU/LatinModernMath(1)/m/n on input line 141.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 140.
+(Font)              `operators' in the math version `bold' on input line 141.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/LatinModernMath(1)/b/n on input line 140.
+(Font)                  OT1/cmr/bx/n --> TU/LatinModernMath(1)/b/n on input line 141.
 
 Package fontspec Info: Latin Modern Math scale = 1.0001.
 
@@ -714,13 +714,13 @@ Package fontspec Info: Font family 'LatinModernMath(2)' created for font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 140.
+(Font)              `symbols' in the math version `normal' on input line 141.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/LatinModernMath(2)/m/n on input line 140.
+(Font)                  OMS/cmsy/m/n --> TU/LatinModernMath(2)/m/n on input line 141.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 140.
+(Font)              `symbols' in the math version `bold' on input line 141.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/LatinModernMath(2)/b/n on input line 140.
+(Font)                  OMS/cmsy/b/n --> TU/LatinModernMath(2)/b/n on input line 141.
 
 Package fontspec Info: Latin Modern Math scale = 0.9999.
 
@@ -767,13 +767,13 @@ Package fontspec Info: Font family 'LatinModernMath(3)' created for font
 (fontspec)             =6.32362pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 140.
+(Font)              `largesymbols' in the math version `normal' on input line 141.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/m/n on input line 140.
+(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/m/n on input line 141.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 140.
+(Font)              `largesymbols' in the math version `bold' on input line 141.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/b/n on input line 140.
+(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/b/n on input line 141.
  (d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip79
@@ -872,13 +872,13 @@ LaTeX Font Info:    ... okay on input line 15.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * hratio: 1:1
 * vratio: 1:1
-* modes: 
+* modes: includefoot 
 * h-part:(L,W,R)=(22.76228pt, 551.9833pt, 22.76228pt)
-* v-part:(T,H,B)=(22.76228pt, 799.52228pt, 22.76228pt)
+* v-part:(T,H,B)=(22.76228pt, 808.0582pt, 14.22636pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=551.9833pt
-* \textheight=799.52228pt
+* \textheight=778.0582pt
 * \oddsidemargin=-49.5077pt
 * \evensidemargin=-49.5077pt
 * \topmargin=-86.5077pt
@@ -921,53 +921,66 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 20.
+(Font)              scaled to size 10.00107pt on input line 21.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 20.
+(Font)              scaled to size 7.00075pt on input line 21.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 20.
+(Font)              scaled to size 5.00053pt on input line 21.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 20.
+(Font)              scaled to size 9.99893pt on input line 21.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 20.
+(Font)              scaled to size 6.99925pt on input line 21.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 20.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+(Font)              scaled to size 4.99947pt on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
  (d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
  (d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 9.0347pt on input line 21.
+(Font)              scaled to size 9.0347pt on input line 22.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 21.
+(Font)              scaled to size 6.00064pt on input line 22.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 9.03276pt on input line 21.
+(Font)              scaled to size 9.03276pt on input line 22.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 21.
+(Font)              scaled to size 5.99936pt on input line 22.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 6.52505pt on input line 29.
+(Font)              scaled to size 6.52505pt on input line 30.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 6.52367pt on input line 29.
+(Font)              scaled to size 6.52367pt on input line 30.
 
-Overfull \hbox (1.4681pt too wide) in paragraph at lines 44--60
-[][]  [] 
- []
-
-
-Overfull \hbox (1.4681pt too wide) in paragraph at lines 85--121
+Overfull \hbox (1.4681pt too wide) in paragraph at lines 47--63
 [][]  [] 
  []
 
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 5.5212pt on input line 139.
+(Font)              scaled to size 5.5212pt on input line 84.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 5.52002pt on input line 139.
+(Font)              scaled to size 5.52002pt on input line 84.
+
+Overfull \hbox (1.4681pt too wide) in paragraph at lines 128--164
+[][]  [] 
+ []
+
+
+Overfull \vbox (1.9817pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (1.9817pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (1.94547pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (1.94547pt too high) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 267.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 249.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -977,17 +990,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1
 
-] (./NLA Note.aux)
+] [2] (./NLA Note.aux)
 Package rerunfilecheck Info: File `"NLA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 22923 strings out of 476683
- 454627 string characters out of 5795227
- 1939012 words of memory out of 5000000
- 42819 multiletter control sequences out of 15000+600000
- 520694 words of font info for 127 fonts, out of 8000000 for 9000
+ 22934 strings out of 476683
+ 454859 string characters out of 5795227
+ 1940012 words of memory out of 5000000
+ 42828 multiletter control sequences out of 15000+600000
+ 520710 words of font info for 129 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,11n,128p,431b,769s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,13n,128p,546b,769s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on NLA Note.pdf (1 page).
+Output written on NLA Note.pdf (2 pages).
