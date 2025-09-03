@@ -104,7 +104,8 @@
   $\frac{\|\widehat{\mathbf{x}} - \mathbf{x}\|_p}{\|\mathbf{x}\|_p}$ \qquad \textcolor{blue}{\textbf{Actual Error:}} $\|\widehat{\mathbf{x}} - \mathbf{x}\|_p$ \qquad \quad \ps{ps: Relative error gives more information than actual error.}
 
   \begin{enumerate}
-    \item Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\|\Delta \mathbf{A}\|_p<\|\mathbf{A}\|_p$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$. \quad \ps{此时的$\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$小代表good stability.}
+    \item Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}<1$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$. \quad \ps{ps: $\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$ \ \ $\frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p}$ 小代表 good stability.}
+    \item Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b} + \Delta\mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}<1$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot(\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}+\frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p})$.
   \end{enumerate}
 \end{MyTh}
 
@@ -186,22 +187,41 @@
 \end{MyTh}
 
 
-\subsection{QR Method | Householder QR factorisation}
+\subsection{QR Factorization Method}
 
 \begin{MyTh}{QR Factorization}
   QR factorization of $\mathbf{A}_{n\times n}$ is $\mathbf{A} = \mathbf{Q}\mathbf{R}$, where $\mathbf{Q}$ is \comment{orthogonal (i.e. $\mathbf{Q}^T=\mathbf{Q}^{-1}$)} and $\mathbf{R}$ is \comment{non-singular upper triangular.}
 
   \quad $\cdot$ Def of $\mathbf{Q}$ is orthogonal is equivalent to $\mathbf{Q}^T\mathbf{Q}=\mathbf{I}$. \comment{(i.e. columns of $\mathbf{Q}$ forming an orthonormal set.)}
+  \quad $\cdot$ QR produce \ok{large errors}
 
   \quad $\cdot$ \begin{MyTh}{Orthogonal Projection}
     $\text{proj}_{\mathbf{u}}(\mathbf{x}) = \frac{\mathbf{x} \cdot \mathbf{u}}{\|\mathbf{u}\|^2_2} \mathbf{u}$ \ \comment{$=(\mathbf{u}^\top\mathbf{x})\mathbf{u}$ if $\|\mathbf{u}\|_2=1$.} \hspace{2cm} $\mathbf{x}=\text{proj}_{\mathbf{u}}(\mathbf{x})^{\text{parallel to }\mathbf{u}} + (\mathbf{x} - \text{proj}_{\mathbf{u}}(\mathbf{x}))^{\text{orthogonal to }\mathbf{u}}$
   \end{MyTh}
+
+\end{MyTh}
+
+\begin{MyTh}{Error Analysis of MGS}
+  The matrices $\widehat{\mathbf{Q}}$ and $\widehat{\mathbf{Q}}$ computed by MGS satisfies: \quad $\widehat{\mathbf{Q}}^\top\widehat{\mathbf{Q}}=\mathbf{I}+\Delta\mathbf{I}$ \ \ $\widehat{\mathbf{Q}}\widehat{\mathbf{R}}=\mathbf{A}+\Delta\mathbf{A}$ where:
+
+  \hspace{3.45cm} $\| \Delta\mathbf{I}\|_2 \leq \frac{\alpha_1(n) \varepsilon_m\kappa_2(\mathbf{A})}{1-\alpha_1(n)\varepsilon_m\kappa_2(\mathbf{A})}$, if $1-\alpha_1(n)\varepsilon_m\kappa_2(\mathbf{A})>0$ \qquad $\|\Delta\mathbf{A}\|_2\leq\alpha_2(n)\varepsilon_m\|\mathbf{A}\|_2$ \ps{ps: $\alpha_1(n),\alpha_2(n)$ 只由$n$决定}
 \end{MyTh}
 
 
+\subsection{Householder QR factorisation}
+
+\begin{MyTh}  {Householder QR}
+  \comment{(Most)} \ok{stable} algorithm \qquad \textbf{Householder Reflection Matrix}: $\mathbf{H}(\mathbf{w}):=\mathbf{I}-2\frac{\mathbf{w}\mathbf{w}^\top}{\|\mathbf{w}\|_2^2}$ \quad \ok{$\mathbf{H}(\mathbf{w})\mathbf{x}=\mathbf{x}-2\text{proj}_{\mathbf{w}}(\mathbf{x})$}
+
+  \quad $\cdot$ $\mathbf{H}(\mathbf{w})$ is \ok{orthogonal} and \ok{symmetric} \comment{(In the Algorithm is $\mathbf{Q}_k,\mathbf{H}_k$)} \qquad $\cdot$ $\mathbf{H}(\mathbf{w})\mathbf{x}$ \comment{作用为让$\mathbf{x}$向量对于\textit{法向量为$\mathbf{w}$的超平面} 上进行反射}
+\end{MyTh}
+
+
+\newpage
+
 \section{Algorithms}
 
-\subsection{DP MV MM | LU FS BS | GE GEPP GECP | Max GS MGS SQR QR}
+\subsection{DP MV MM}
 
 \begin{multicols}{3}
 
@@ -248,8 +268,11 @@
 \end{algorithm}
 
 \end{multicols}
+\vspace{-0.9cm}
 
-\vspace{-0.8cm}
+
+\subsection{LU FS BS | GE GEPP GECP | LUPP LUCP}
+
 \begin{multicols}{3}
 
 % ----- Algorithm LU -----
@@ -333,7 +356,7 @@
 \textbf{Input:} $\mathbf{A}\in\R^{n\times n},\ \mathbf b\in\R^n$ \\
 \textbf{Output:} $\mathbf x\in\R^n$ satisfying $\mathbf A\,\mathbf x=\mathbf b$
 \begin{algorithmic}[1]
-  \State Find $\mathbf P\,\mathbf A\,\mathbf Q = \mathbf L\,\mathbf U$ using Algorithm LU with complete pivoting
+  \State Find $\mathbf P\,\mathbf A\,\mathbf Q = \mathbf L\,\mathbf U$ using Algorithm LUCP \codealg{LUCP}
   \State Solve $\mathbf L\,\mathbf y = \mathbf P\,\mathbf b$ by forward substitution \codealg{FS}
   \State Solve $\mathbf U\,\mathbf z = \mathbf y$ by back substitution \codealg{BS}
   \State Compute $\mathbf x = \mathbf Q\,\mathbf z$
@@ -390,8 +413,76 @@
 \end{algorithm}
 
 \end{multicols}
+\vspace{-0.9cm}
 
-\vspace{-0.8cm}
+
+\subsection{Max GS MGS SQR | Householder-QR}
+
+\begin{multicols}{3}
+
+% ----- Algorithm SQR -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{SQR} (SLE) via QR-Factorization \quad \ps{$C(n)=2n^3+4n^2+n$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$, $\mathbf{b} \in \mathbb{R}^n$ \\
+\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ with $\mathbf{A}\mathbf{x} = \mathbf{b}$
+\begin{algorithmic}[1]
+  \State Find QR factorization of $\mathbf{A}$ \codealg{GS|MGS}
+  \State Solve $\mathbf{Q}\mathbf{y} = \mathbf{b}$ \codealg{MV} \quad \textcolor{gray}{\# ps: $\mathbf{y} = \mathbf{Q}^{-1}\mathbf{b}= \mathbf{Q}^\top\mathbf{b}$}
+  \State Solve $\mathbf{R}\mathbf{x} = \mathbf{y}$ using Algorithm BS \codealg{BS}
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm (M)GS -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{(M)GS} (Modified) Gram-Schmidt \quad \ps{$C(n)=2n^3+n^2+n$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$, with columns $\mathbf{a}_1, \dots, \mathbf{a}_n$ \\
+\textbf{Output:} $\mathbf{Q} \in \mathbb{R}^{n \times n}$, with orthonormal columns $\mathbf{q}_1, \dots, \mathbf{q}_n$
+
+\qquad\qquad $\mathbf{R} \in \mathbb{R}^{n \times n}$ non-singular upper triangular matrix; \ s.t. $\mathbf{A} = \mathbf{Q}\mathbf{R}$
+\begin{algorithmic}[1]
+  \State $\mathbf{R} = \mathbf{0}$
+  \For{$j=1,...,n$}
+    \State $\mathbf{q}_j = \mathbf{a}_j$
+    \For{$k=1,...,j-1$}
+      \State $r_{kj} = \mathbf{q}_k^\top \mathbf{a}_j$ \quad | \quad ($r_{kj} = \mathbf{q}_k^\top \mathbf{q}_j$)
+      \State $\mathbf{q}_j = \mathbf{q}_j - r_{kj} \mathbf{q}_k$ 
+    \EndFor
+    \State $r_{jj} = \|\mathbf{q}_j\|_2=\sqrt{\mathbf{q}_j^\top \mathbf{q}_j}$
+    \State $\mathbf{q}_j = \frac{\mathbf{q}_j}{r_{jj}}$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm QR -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{QR} Householder QR factorization \quad \ps{$C(n)=$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \\
+\textbf{Output:} $\mathbf{Q} \in \mathbb{R}^{n \times n}$ orthogonal
+
+\qquad\qquad $\mathbf{R} \in \mathbb{R}^{n \times n}$ non-singular upper triangular matrix; \ s.t. $\mathbf{A} = \mathbf{Q}\mathbf{R}$
+\begin{algorithmic}[1]
+  \State $\mathbf{Q} = \mathbf{I}$,\ $\mathbf{R} = \mathbf{A}$
+  \For{$k = 1, \dots, n - 1$}
+    \State $\mathbf{u} = (r_{kk}, \dots, r_{nk})\in \mathbb{R}^{n-k+1}$
+    \State $\mathbf{v} = \mathbf{u} + \mathrm{sign}(u_1)\|\mathbf{u}\|_2 \mathbf{e}_1$
+    \State $\mathbf{w} = \frac{\mathbf{v}}{\|\mathbf{v}\|_2}$
+    \State $\mathbf{H}_k = \mathbf{I} - 2\mathbf{w}\mathbf{w}^\top\in \mathbb{R}^{(n-k+1) \times (n-k+1)}$
+    \State $\mathbf{Q}_k = \mathbf{I}_{k-1} \oplus \mathbf{H}_k$
+    \State $\mathbf{R} = \mathbf{Q}_k \mathbf{R}$
+    \State $\mathbf{Q} = \mathbf{Q} \mathbf{Q}_k$
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+\vspace{-0.9cm}
+
+
+\subsection{Other | Max}
+
 \begin{multicols}{3}
 
 % ----- Algorithm Max -----
@@ -408,46 +499,6 @@
       \State $\mathrm{max} = \lvert z_j\rvert$
     \EndIf
   \EndFor
-\end{algorithmic}
-\end{algorithm}
-
-% ----- Algorithm GS -----
-\begin{algorithm}[H]
-\tiny
-\caption*{\textbf{GS} Gram-Schmidt \quad \ps{$C(n)=2n^3+n^2+n$}}
-\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$, with columns $\mathbf{a}_1, \dots, \mathbf{a}_n$ \\
-\textbf{Output:} $\mathbf{Q} \in \mathbb{R}^{n \times n}$, with orthonormal columns $\mathbf{q}_1, \dots, \mathbf{q}_n$
-
-\qquad\qquad $\mathbf{R} \in \mathbb{R}^{n \times n}$ non-singular upper triangular matrix; \ s.t. $\mathbf{A} = \mathbf{Q}\mathbf{R}$
-\begin{algorithmic}[1]
-  \State $\mathbf{R} = \mathbf{0}$
-  \For{$j=1,...,n$}
-    \State $\mathbf{q}_j = \mathbf{a}_j$
-    \For{$k=1,...,j-1$}
-      \State $r_{kj} = \mathbf{q}_k^\top \mathbf{a}_j$
-      \State $\mathbf{q}_j = \mathbf{q}_j - r_{kj} \mathbf{q}_k$ 
-    \EndFor
-    \State $r_{jj} = \|\mathbf{q}_j\|_2=\sqrt{\mathbf{q}_j^\top \mathbf{q}_j}$
-    \State $\mathbf{q}_j = \frac{\mathbf{q}_j}{r_{jj}}$
-  \EndFor
-\end{algorithmic}
-\end{algorithm}
-
-\end{multicols}
-
-\vspace{-0.8cm}
-\begin{multicols}{3}
-
-% ----- Algorithm SQR -----
-\begin{algorithm}[H]
-\tiny
-\caption*{\textbf{SQR} (SLE) via QR-Factorization \quad \ps{$C(n)=2n^3+4n^2+n$}}
-\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$, $\mathbf{b} \in \mathbb{R}^n$ \\
-\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ with $\mathbf{A}\mathbf{x} = \mathbf{b}$
-\begin{algorithmic}[1]
-  \State Find QR factorization of $\mathbf{A}$ \codealg{GS}
-  \State Solve $\mathbf{Q}\mathbf{y} = \mathbf{b}$ \codealg{MV} \quad \textcolor{gray}{\# ps: $\mathbf{y} = \mathbf{Q}^{-1}\mathbf{b}= \mathbf{Q}^\top\mathbf{b}$}
-  \State Solve $\mathbf{R}\mathbf{x} = \mathbf{y}$ using Algorithm BS \codealg{BS}
 \end{algorithmic}
 \end{algorithm}
 
@@ -473,6 +524,7 @@
     \begin{enumerate}
         \item If your calculation involves 15 or more significant digits, you will likely encounter rounding errors. (Since $\varepsilon_m\approx 10^{-16}$ (relative accuracy), which is about 15 significant digits.) 
         \item \textbf{For GE Algorithm}: It is an unstable algorithm. \quad e.g. $\mathbf{A}=[10^{-20} \ \ 1 \ \ \backslash\backslash \ \ 1 \ \ 1] \ \Rightarrow$ By \textbf{GE} Algorithm, $\widehat{\mathbf{L}}\widehat{\mathbf{U}}=\mathbf{A} + [0 \ \ 0 \ \ \backslash\backslash \ \ 0 \ \ -1]$ (error)
+        \item \textbf{MGS vs. GS}:In floating point arithmetic, the computed vectors $\{\hat{q}_1, . . . , \hat{q}_{j−1}\}$ will not be orthonormal. Algorithm MGS takes this into account when computing $\hat{q}_j$; Algorithm GS does not.
     \end{enumerate}
 \end{MyTh}
 
