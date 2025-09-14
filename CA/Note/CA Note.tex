@@ -7,6 +7,62 @@
 \maketitle
 \thispagestyle{fancy}
 
+\section{Basic Knowledge}
 
+\begin{MyTh}{Group $(G,*)$}
+    \ok{G1}: Closure \quad \ok{G2}: Associativity \quad \ok{G3}: Identity element \quad \ok{G4}: Inverse element
+\end{MyTh}
+
+\begin{MyTh}{Ring $(R,+,\cdot)$}
+    \ok{R1}: $(R,+)$ is an abelian group \quad \ok{R2}: $(R,\cdot)$ is monoid. \ps{(no inverse)} \quad \ok{R3}: Distributive law \ps{(left and right)}
+\end{MyTh}
+
+\begin{MyTh}{Ideal $(I)$}
+    \ok{I1}: $\ne\emptyset$ \quad \ok{I2}: $\forall a,b\in I, a-b\in I$ \quad \ok{I3}: $\forall r\in R,i\in I, ri,ir\in I$ \qquad
+\end{MyTh}
+\begin{MyTh}{Lemma}
+    $I=R$ \ $\Leftrightarrow$ \ $1\in I$ \ $\Leftrightarrow$ \ $I\cap R^\times \ne \emptyset$
+\end{MyTh}
+
+{\footnotesize\vspace{-3pt}
+\begin{MyTh}{Subgroup $(H)$}
+    \ok{H1}: $e\in H$ \quad \ok{H2}: $\forall a,b\in H, ab\in H$ \quad \ok{H3}: $\forall a\in H, a^{-1}\in H$ \qquad
+\end{MyTh}
+\begin{MyTh}{Subring $(S)$}
+    \ok{S1}: $1\in S$ \quad \ok{S2}: $\forall a,b\in S, a-b\in S$ \quad \ok{S3}: $\forall a,b\in S, ab\in S$
+\end{MyTh}
+}
+
+\begin{MyTh}{Integral Domain (ID)}
+    \ok{ID1}: communative ring \quad \ok{ID2}: no zero divisors \qquad
+\end{MyTh}
+\begin{MyTh}{Lemma}
+    Finite ID $\Rightarrow$ field \quad \comment{ID $\Rightarrow$ Cancellation Law}
+\end{MyTh}
+
+\begin{MyTh}{Factor Ring $(R/I)$}
+    $a+I=b+I \Leftrightarrow a-b\in I$ \quad $(R/I,\oplus,\odot)$ is a ring. \ps{($1_{R/I}=1_R+I$, $0_{R/I}=0_R+I$, $I$ ideal)}
+\end{MyTh}
+
+\begin{MyTh}{Ring Homomorphism}
+    $\varphi:R\to S$ s.t. \ok{RH1}: $\varphi(a+b)=\varphi(a)+\varphi(b)$ \quad \ok{RH2}: $\varphi(ab)=\varphi(a)\varphi(b)$ \quad \ok{RH3}: $\varphi(1_R)=1_S$
+
+    \quad $\cdot$ \ok{1}: $\Ker(\varphi)$ is an ideal. \quad \ok{2}: $\Ima(\varphi)$ is a subring. \quad \ok{3}: $\varphi$ is 1-1 $\Leftrightarrow \Ker(\varphi)=\{0_R\}$. \quad \ok{FIT}: $R/\Ker(\varphi)\cong \Ima(\varphi)$ \ps{(First Isomorphism Theorem)}
+
+    \quad $\cdot$ \begin{MyTh}{Canonical Homomorphism}
+        $can:R\to R/I$ s.t. $can(r)=r+I$ is a onto ring Homomorphism. \quad $\Ker(can)=I$
+    \end{MyTh}
+
+    \quad $\cdot$ \begin{MyTh}{Lemma}
+            If $\varphi:R\to S$ ring Homomorphism s.t. $I\subseteq \Ker(\varphi)$, \ \ then \ \ $\exists! \tilde{\varphi}:R/I\to S$ s.t. $\varphi=\tilde{\varphi}\circ can$ \ \ \comment{(i.e. $\tilde{\varphi}(r+I)=\varphi(r)$)}
+    \end{MyTh}
+\end{MyTh}
+
+
+\begin{MyTh}{Lagrange's Theorem}
+    $G$ finite group, $H\le G$ subgroup, then $|H| \mid |G|$
+\end{MyTh}
+
+\section{Types of Ideals}
 
 \end{document}

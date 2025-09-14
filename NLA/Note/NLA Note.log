@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  25 AUG 2025 23:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  11 SEP 2025 21:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -956,8 +956,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
  (d:/windows/ProgramFiles/TeX Live/texlive/2025/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-))
-No file "NLA Note".aux.
+)) (./NLA Note.aux)
 \openout1 = `"NLA Note.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -980,6 +979,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1017,11 +1017,9 @@ LaTeX Font Info:    ... okay on input line 15.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 15.
+(./NLA Note.out) (./NLA Note.out)
 \@outlinefile=\write3
 \openout3 = `"NLA Note.out"'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  TU/LatinModernMath(1)/m/n --> TU/Cambria(0)/m/n on input line 15.
@@ -1052,7 +1050,7 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 21.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
-(d:/windows/ProgramFiles/TeX Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (d:/windows/ProgramFiles/TeX Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
@@ -1147,6 +1145,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 [2]
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 7.52892pt on input line 528.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 7.52731pt on input line 528.
+
 
 [3] (./NLA Note.aux)
  ***********
@@ -1157,11 +1160,11 @@ Package rerunfilecheck Info: File `"NLA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 22845 strings out of 468441
- 445947 string characters out of 5435450
+ 22866 strings out of 468441
+ 446446 string characters out of 5435450
  1092973 words of memory out of 5000000
- 50966 multiletter control sequences out of 15000+600000
- 635264 words of font info for 139 fonts, out of 8000000 for 9000
+ 50978 multiletter control sequences out of 15000+600000
+ 636237 words of font info for 145 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,13n,125p,627b,796s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
