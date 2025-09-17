@@ -7,4 +7,84 @@
 \maketitle
 \thispagestyle{fancy}
 
+\section{Intro to PDE}
+
+\subsection{Basic Concepts}
+
+\begin{MyTh}{Notation}
+    Using \ok{$x^1,...,x^n$} to denote $x_1,...,x_n$. Sometimes using \ok{$x,y,z,t$} to denote variables.
+    \quad \ok{$\frac{\partial}{\partial x^i}u=u_{x^i}=\partial_i u=\partial_{x^i} u$}
+\end{MyTh}
+
+\begin{MyTh}{PDE}
+    \ok{Order}: highest order of derivative. \quad \ok{Linearity}: linear in $u$ and its derivatives. \quad \ok{variable|constant coeff}: {\footnotesize 是否函数系数有变量.}
+\end{MyTh}
+
+\begin{MyTh}{Linear differential operator ($\Lcal$)}
+    If $\Lcal(\alpha u+\beta v)=\alpha \Lcal(u)+\beta \Lcal(v)$. \quad \ps{ps: $\Lcal$ 不含函数本身 (e.g. $\Lcal = \partial_t - \Delta$); $\Lcal$ 作用的$u,v$ 是函数, $\alpha,\beta\in\R$ 是常数.}
+\end{MyTh}
+
+\begin{MyTh}{Superposition Principle}
+    If $u_1,...,u_m$ are sols of \comment{linear homogeneous PDE}: $\Lcal(u)=0$, then $u=\sum_{i=1}^m c_i u_i$ is also a sol.
+\end{MyTh}
+
+\begin{MyTh}{Relating non-|homogeneous PDE}
+    \small If $S_H$ sols of $\Lcal(u)=0$, $u_p$ particular sol of $\Lcal(u)=f$, then sols of $\Lcal(u)=f$ is $S=\{u_p+u_h:u_h\in S_H\}$.
+\end{MyTh}
+
+\begin{MyTh}{Direction Derivative}
+    For $u:\R^n\to\R$, $\nabla u=(u_{x^1},...,u_{x^n})$. \quad Directional derivative of $u$ in direction $v$ \ps{(usually unit vector)} is $\nabla u\cdot v$.
+\end{MyTh}
+
+\begin{MyTh}{Const.|variable Coeff. Transport Equation}
+    $^1$\ok{$a\partial_x u(x,y) + b \partial_y u(x,y) = 0$} \quad | \quad $^2$\ok{$a(x,y)\partial_x u(x,y) + b(x,y) \partial_y u(x,y) = 0$}
+
+    \quad $^1\Leftrightarrow \nabla u \cdot (a,b) = 0$ \quad | \quad $^2\Leftrightarrow \nabla u \cdot (a(x,y),b(x,y)) = 0$ \qquad \ps{(i.e. $u$ 在随时斜率为 $(a,b)$ 的直/曲线上为常数 $\Rightarrow$ 减少一个变量, $u$ 可写为"由直/曲线"决定的函数)}
+    
+    \quad $\Rightarrow$ $^1$ $u(x,y)=f(ax-by)=f(c), ax-by=c$ \quad | \quad $^2$ $\frac{dy}{dx}=\frac{b(x,y)}{a(x,y)}$ $\Rightarrow$ {\scriptsize 解出曲线方程得类似 $g(x,y)=c$ \ps{(一定要constant $c$)}} $\Rightarrow$ $u(x,y)=f(g(x,y))$
+\end{MyTh}
+
+
+\subsection{Norms and Divergence Theorem}
+
+\vspace{-8pt}
+\begin{MyTh}{$C^k$ norms}
+    Let $f:\Omega\to\R$ \ps{($Omega$ is domain:open+connected)}. Then $\|f\|_{C^k(\Omega)}:=\sum\limits_{\alpha=0}^k\sup\limits_{x\in\Omega}|f^{(\alpha)}(x)|$ \ps{(ps: $0-k$阶级导函数,每一个在$\Omega$上sup的绝对值之和)}.
+
+    \vspace{-3pt}
+    \quad $\cdot$ If $\Omega\subseteq\R^n$, $\|f\|_{C^k(\Omega)}:=${\footnotesize $0-k$阶偏导函数在$\Omega$上sup绝对值之和}. \ps{(e.g. $\|f\|_{C^2(\Omega)}:=\sup\limits_{(x,y)\in\Omega}|f|+\sup\limits_{(x,y)\in\Omega}|f_x|+\sup\limits_{(x,y)\in\Omega}|f_y|+\sup\limits_{(x,y)\in\Omega}|f_{xy}|+\sup\limits_{(x,y)\in\Omega}|f_{xx}|+\sup\limits_{(x,y)\in\Omega}|f_{yy}|$)}
+
+    \vspace{-3pt}
+    \quad $\cdot$ For $f=f(x,y)$ Using $\|f\|_{C^{1,2}}:=\sum_{\alpha=0}^1\sup_{(x,y)\in\Omega}|\partial_x^\alpha f|+\sum_{\beta=1}^2\sup_{(x,y)\in\Omega}|\partial_y^\beta f|$
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{$L^p$ norms}
+    Let $f:\Omega\to\R$ \ps{($Omega$ is domain, $\Omega\subseteq\R^n$)}. Then {\small $\|f\|_{L^p(\Omega)}:=\left(\int_\Omega |f(x)|^p d^nx\right)^{1/p}$ for $1\le p<\infty$} \quad \ps{ps:$d^nx=dx_1\cdots dx_n$}
+\end{MyTh}
+
+\begin{MyTh}{Norms Properties}
+    \ok{$^1$Non-negative}: $\|f\|_{L^p(\Omega)}\ge 0$; {\footnotesize ($\|f\|_{L^p(\Omega)}=0\Leftrightarrow f=0$ almost everywhere.)}
+    
+    \hspace{87pt} \ok{$^2$Scaling}: $\|\lambda f\|_{L^p(\Omega)}=|\lambda|\|f\|_{L^p(\Omega)}$ \quad \ok{$^3$Triangle inequality}: $\|f+g\|_{L^p(\Omega)}\le \|f\|_{L^p(\Omega)}+\|g\|_{L^p(\Omega)}$
+\end{MyTh}
+
+\begin{MyTh}{Divergence Theorem}
+    Let $\mathbf{F}:\Omega\to\R^n$ \ps{($\Omega\subseteq\R^n$ is domain)}. Then $\int_\Omega \nabla \cdot \mathbf{F} \, dxdydz = \int_{\partial \Omega} \mathbf{F} \cdot \widehat{\mathbf{N}} \, d\sigma$ \quad \ps{(ps: $\widehat{\mathbf{N}}$ 单位\textbf{\underline{外}}法向量 on surface $\partial \Omega$; $\text{div}(\mathbf{F})=\nabla \cdot \mathbf{F}$)}
+
+    \quad {\footnotesize $\cdot$ \ok{Surface integral}: If $\partial\Omega=\{(x,y,z):z=\phi(x,y)\}$: $\int_{\partial \Omega} \mathbf{F} \cdot \widehat{\mathbf{N}} \, d\sigma = \int_D \mathbf{F} \cdot \widehat{\mathbf{N}}\sqrt{1+|\nabla \phi|^2} dxdy=\int_D \mathbf{F}\cdot (-\phi_x,-\phi_y,1) dxdy$} \quad \ps{(ps: $D$是$\partial\Omega$在$xy$平面的投影)}
+\end{MyTh}
+
+
+\section{Heat Equation}
+
+
+\section{Laplace's and Poisson's equations}
+
+
+\section{Wave Equation}
+
+
+
+
 \end{document}
