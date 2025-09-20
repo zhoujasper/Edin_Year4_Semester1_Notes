@@ -21,7 +21,7 @@
     \ok{I1}: $\ne\emptyset$ \quad \ok{I2}: $\forall a,b\in I, a-b\in I$ \quad \ok{I3}: $\forall r\in R,i\in I, ri,ir\in I$ \qquad
 \end{MyTh}
 \begin{MyTh}{Lemma}
-    $I=R$ \ $\Leftrightarrow$ \ $1\in I$ \ $\Leftrightarrow$ \ $I\cap R^\times \ne \emptyset$
+    \ok{$I=R$ \ $\Leftrightarrow$ \ $1\in I$ \ $\Leftrightarrow$ \ $I\cap R^\times \ne \emptyset$}
 \end{MyTh}
 
 {\footnotesize\vspace{-3pt}
@@ -34,7 +34,7 @@
 }
 
 \begin{MyTh}{Integral Domain (ID)}
-    \ok{ID1}: communative ring \quad \ok{ID2}: no zero divisors \qquad
+    \ok{ID1}: communicative ring \quad \ok{ID2}: no zero divisors \qquad
 \end{MyTh}
 \begin{MyTh}{Lemma}
     Finite ID $\Rightarrow$ field \quad \comment{ID $\Rightarrow$ Cancellation Law}
@@ -47,10 +47,10 @@
 \begin{MyTh}{Ring Homomorphism}
     $\varphi:R\to S$ s.t. \ok{RH1}: $\varphi(a+b)=\varphi(a)+\varphi(b)$ \quad \ok{RH2}: $\varphi(ab)=\varphi(a)\varphi(b)$ \quad \ok{RH3}: $\varphi(1_R)=1_S$
 
-    \quad $\cdot$ \ok{1}: $\Ker(\varphi)$ is an ideal. \quad \ok{2}: $\Ima(\varphi)$ is a subring. \quad \ok{3}: $\varphi$ is 1-1 $\Leftrightarrow \Ker(\varphi)=\{0_R\}$. \quad \ok{FIT}: $R/\Ker(\varphi)\cong \Ima(\varphi)$ \ps{(First Isomorphism Theorem)}
+    \quad $\cdot$ \ok{1}: $\Ker(\varphi)$ is an ideal. \quad \ok{2}: $\Ima(\varphi)$ is a subring. \quad \ok{3}: $\varphi$ is 1-1 $\Leftrightarrow \Ker(\varphi)=\{0_R\}$. \quad \imp{FIT: $R/\Ker(\varphi)\cong \Ima(\varphi)$} \ps{(First Isomorphism Theorem)}
 
     \quad $\cdot$ \begin{MyTh}{Canonical Homomorphism}
-        $can:R\to R/I$ s.t. $can(r)=r+I$ is a onto ring Homomorphism. \quad $\Ker(can)=I$
+        $can:R\to R/I$ s.t. $can(r)=r+I$ is a onto ring Homomorphism. \quad $\Ker(can)=I$ \qquad $\updownarrow$ \ps{($\exists!\tilde{\varphi}$双射)}
     \end{MyTh}
 
     \quad $\cdot$ \begin{MyTh}{Lemma}
@@ -63,6 +63,39 @@
     $G$ finite group, $H\le G$ subgroup, then $|H| \mid |G|$
 \end{MyTh}
 
+
 \section{Types of Ideals}
+
+\begin{MyTh}{Division}
+    If $R$ ring, then: \ \ $\forall f,g\in R[x],${\scriptsize $g$首相系数可逆} \ \ $\Rightarrow$ \ \ $\exists q,r\in R[x]$ s.t. $f(x)=g(x)q(x)+r(x)$ and $\deg(r)<\deg(g)$ or $r=0$.
+
+    \quad \begin{MyTh}{Lemma}
+        If $R$ ring, $g\in R[x],g\ne0$, $I=(g)$. \ $\Rightarrow$ \ $^1$ $\forall i\in R[x]/I,i=f+I,\deg(f)<\deg(g)$
+        
+        \hspace{212pt}$^2$ If $a,b\in R[x],\deg(a,b)<\deg(g)$ and $a+I=b+I$, then $a=b$. \ps{(系数也相同)}
+    \end{MyTh}
+\end{MyTh}
+
+\begin{MyTh}{Irreducible}
+    If $R$ in ID, $0\ne a\in R$ (not unit) is irreducible \ $\Leftrightarrow$ \ $a\ne bc$ for any non-units $b,c\in R$
+\end{MyTh}
+
+\begin{MyTh}{Principal Ideal}
+    Ideal $I$: Iff $I=aR$ \quad
+\end{MyTh}
+\begin{MyTh}{Prime Ideal}
+    Ideal $I\ok{\ne R}$: $ab\in I\Rightarrow a\in I$ or $b\in I$. \ \ {\scriptsize (\comment{\scriptsize OR}: If $a\notin I$ and $b\notin I$, then $ab\notin I$)} \quad
+\end{MyTh}
+
+\begin{MyTh}{Maximal Ideal}
+    
+\end{MyTh}
+
+\begin{MyTh}{Properties}
+    \begin{enumerate}
+        \item $R$ communicative ring, $I$ ideal. \ \ \imp{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}.
+        \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \ok{$(R/I)/J\cong R/T$}}
+    \end{enumerate}
+\end{MyTh}
 
 \end{document}
