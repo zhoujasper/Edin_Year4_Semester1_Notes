@@ -72,7 +72,7 @@
     \quad \begin{MyTh}{Lemma}
         If $R$ ring, $g\in R[x],g\ne0$, $I=(g)$. \ $\Rightarrow$ \ $^1$ $\forall i\in R[x]/I,i=f+I,\deg(f)<\deg(g)$
         
-        \hspace{212pt}$^2$ If $a,b\in R[x],\deg(a,b)<\deg(g)$ and $a+I=b+I$, then $a=b$. \ps{(系数也相同)}
+        \qquad\qquad\qquad {\scriptsize $g$首相系数可逆} \hspace{104pt} $^2$ If $a,b\in R[x],\deg(a,b)<\deg(g)$ and $a+I=b+I$, then $a=b$. \ps{(系数也相同)}
     \end{MyTh}
 \end{MyTh}
 
@@ -88,14 +88,26 @@
 \end{MyTh}
 
 \begin{MyTh}{Maximal Ideal}
-    
+    Ideal $I\ok{\ne R}$: If $J$ ideal and $I\subseteq J\subseteq R$, then $J=I$ or $J=R$.
+\end{MyTh}
+
+\begin{MyTh}{Radical|Radical Ideal}
+    $I$: \ok{Radical}: $\sqrt{I}=\{r\in R:r^n\in I \text{ for some } n\in\N\}$ \quad \ok{Radical Ideal}: If $I=\sqrt{I}$ \qquad $I\subseteq \sqrt{I}$ always.
 \end{MyTh}
 
 \begin{MyTh}{Properties}
+    Relationship between these kinds of ideals: \quad \textbf{Maximal Ideals $\subseteq$ Prime Ideals $\subseteq$ Radical Ideals $\subseteq$ Ideals}
     \begin{enumerate}
-        \item $R$ communicative ring, $I$ ideal. \ \ \imp{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}.
+        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}. \qquad \ok{$I$ maximal $\Leftrightarrow$ $R/I$ is a field} \qquad \ok{$I$ maximal $\Rightarrow$ $I$ prime}
         \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \ok{$(R/I)/J\cong R/T$}}
+        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nilpotent elements {\tiny except $0$}} \qquad \ok{$I$ prime $\Rightarrow$ $I$ radical} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
+        \item If $R$ (commutative with \textit{unity}), then any ideal $I\ne R$ is contained in a \textit{maximal} ideal. \qquad \comment{If $r$ is \textit{not a unit}, then $1\notin \langle r\rangle=rR$}
     \end{enumerate}
 \end{MyTh}
+
+
+\section{Polynomial Rings}
+
+
 
 \end{document}
