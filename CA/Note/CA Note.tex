@@ -74,6 +74,8 @@
         
         \qquad\qquad\qquad {\scriptsize $g$首相系数可逆} \hspace{104pt} $^2$ If $a,b\in R[x],\deg(a,b)<\deg(g)$ and $a+I=b+I$, then $a=b$. \ps{(系数也相同)}
     \end{MyTh}
+
+    \quad \ok{Remark}: {\scriptsize 有些时候我们能用 $\gcd,\text{lcm}$ 计算 $<a,b>=<\gcd(a,b)>$ 和 $a\cap b=<\text{lcm}(a,b)>$ [If $R$ communicative ring] 但注意! 要在能够用 Division Algorithm | 有 $\gcd,\text{lcm}$ 的环里用.}
 \end{MyTh}
 
 \begin{MyTh}{Irreducible}
@@ -105,9 +107,16 @@
     \end{enumerate}
 \end{MyTh}
 
-
+\vspace{2pt}
 \section{Polynomial Rings}
 
+\begin{MyTh}{Polynomial Ring}
+    $R$ \textit{communicative} ring. $R[x_1,...,x_n]$ is a ring. \quad The elements of it: $\sum_\alpha a_\alpha x^\alpha$ \ \ \ps{$\alpha=(\alpha_1,...,\alpha_n),a\in R, x^\alpha=x_1^{\alpha_1}...x_n^{\alpha_n}$}
+
+    \quad - \ok{Degree}: $\deg(f)=\max\{\sum_i\alpha_i:a_\alpha\ne0\}$ \ \ If $f=0$, $\deg(f)=-\infty$. \quad \ok{2nd Definition}: $R[x,y]=R[x][y]$ and so on. \ps{\tiny (induction 喜欢)}
+
+    \quad - \comment{$\deg(fg)\leq \deg(f)+\deg(g)$} unless $R$ is an ID. \qquad \comment{If $R$ is an ID, then $R[x_1,...,x_n]$ is an ID.}
+\end{MyTh}
 
 
 \end{document}
