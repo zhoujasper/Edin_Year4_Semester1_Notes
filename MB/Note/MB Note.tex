@@ -1,0 +1,84 @@
+\documentclass{note}
+
+\title{MB Note}
+\author{}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\section{Population Models for Single Species}
+
+\begin{MyTh}{Logistic Growth Model (Population)}
+    \ok{Model}: $\frac{dN}{dt}=rN(1-\frac{N}{K})$ \quad {\scriptsize \comment{N}: population at time $t$; \comment{K}: carrying capacity \ps{(depends on resources)}; \comment{r,K}: $>0$.}
+
+    \vspace{-2pt}
+    {\footnotesize \quad \ok{Sol}: $N(t)=\frac{N_0Ke^{rt}}{K+N_0(e^{rt}-1)}\stackrel{\infty}{\to}K$ \qquad \ok{Equilibrium points}: $N=0$ (unstable), $N=K$ (stable). \qquad \ok{Quickest:$N=\frac{K}{2}$} \ps{(<:凹; >:凸)}}
+\end{MyTh}
+
+\begin{MyTh}{General Population Model}
+    \ok{Model}: $\frac{dN}{dt}=f(N)$ \quad \comment{$f(N)$}: \textit{nonlinear} function. \quad \imp{\scriptsize No limit cycle periodic sol.}
+
+    {\footnotesize \quad $\cdot$ $N^*$ equilibrium point \ps{($f(N^*)=0$)} $\Rightarrow$ $^1$\ok{$f'(N^*)<0$} \ps{\tiny (stable for small perturbations)}; $^2$\ok{$f'(N^*)>0$} (unstable) \quad \imp{Time-Independent}: {\scriptsize Equilibrium|$\frac{dN}{dt}=0$ $\Rightarrow$ $N(t)=N(t-T)=N^*$.}}
+
+    {\footnotesize \quad \imp{Linearise at $N^*$}: Consider $N(t)=N^*+n(t), |n(t)|\ll1$ \ $\Rightarrow$ $\frac{dn}{dt}=\frac{dN}{dt}=${\tiny\textbf{(单)}$f(N^*)+f'(N^*)n(t)=f'(N^*)n(t)$|\textbf{(Delay)}带入$f$ $\approx$(求2次以上)} \quad {\tiny \imp{Small Perturbations:}: $n(t)$}}
+
+    {\footnotesize \quad \imp{Stability $N^*$}}: {\tiny 计算扰动$n(t)$的$\frac{dn}{dt}$ $\to$ 假设$n(t)=e^{\lambda t}|ce^{\lambda t}$求解$\lambda$隐式表达 $\to$ $\lambda=u+iw$带入解出$u$和$w$. $\to$ $u<0$ asy.stabl; $u>0$ unstable. \imp{Find $T_c$}: {\tiny 令(delay)$T=0$,验稳定性,如稳,$u=0$($\lambda=iw$)为$T_c$}}
+\end{MyTh}
+
+\begin{MyTh}{Delay Model}
+    \ok{Model}: $\frac{dN}{dt}=f(N(t),N(t-T))$ \quad {\scriptsize \comment{T}: delay time $> 0$ \quad \comment{\scriptsize 周期解|与初始值无关}} \quad \ps{ps: To consider e.g. gestation period, maturation time etc.}
+
+    {\scriptsize \quad \ok{$^1$Ext. of Logistic Model}: $\frac{dN}{dt}=rN(t)\left[1-\frac{N(t-T)}{K}\right]$ \ps{\tiny (用"ave. pop."估计,准用"Convolution Type")}  \ $\Rightarrow$ \ \ok{$^2$Dimensionless}: $\frac{dN^*}{dt^*}=N^*(t^*)\left[1-N^*(t^*-T^*)\right]$ \ps{\tiny ($N^*=\frac{N}{K}, t^*=rt, T^*=rT$)}}
+
+    {\scriptsize \quad \ok{$^{1,2}$} \ok{Periodic sol}: stable limit cycle $N(t+t_p)=N(t)$, $t_p$: period. \ok{Amplitude}: $rT$ \ok{Equilibrium Points}: $N=0|N^*=0$ {\tiny (unstable)}; $N=K|N^*=1$ {\tiny (Stable: $0<T^*=rT<\frac{\pi}{2}$; Unstable: $T^*>\frac{\pi}{2}$)}}
+\end{MyTh}
+
+\begin{MyTh}{Continuous Population Model {\scriptsize (EN)}}
+    \ok{Model}: $\frac{dN}{dt}=rN(1-\frac{N}{K})-EN=f(N)$ \quad {\scriptsize \comment{r,K,E}: $>0$; \comment{EN}: harvesting rate/unit time; \comment{E}: effort measure.}
+
+    {\scriptsize \quad \ok{Equilibrium}: $N=0$ {\tiny (unstable)}; $N=N_h(E)=K(1-\frac{E}{r})>0$ {\tiny \ps{(need $E<r$, Stable)}} \ok{Yield}: $Y(E)=EN$ \ \ $\cdot$ \ok{$E>r$}:die out; else: \ok{Max Yield}: $Y_M=\frac{rK}{4}$ {\tiny ($E=\frac{r}{2}$)} \ok{Steady State}: $N_{h|Y_M}=\frac{K}{2}$}
+\end{MyTh}
+
+\begin{MyTh}{Continuous Population Model {\scriptsize ($Y_0$)}}
+    \ok{Model}: $\frac{dN}{dt}=rN(1-\frac{N}{K})-Y_0=f(N;r,K,Y_0)$ \quad {\scriptsize \comment{$Y_0$}: constant yield rate/unit time.}
+
+    {\scriptsize \quad \ok{Max Yield}: $Y_M=\frac{rK}{4}$ \quad \ok{Equilibrium}: $^1$$0<Y_0<Y_M$: Two positive points \ps{(unstable(小) and stable(大))}. \ \ \ok{Sensitivity}: {\tiny 对于fluctuation此模型和EN模型都不稳定,但此模型更敏感sensitive.}}
+\end{MyTh}
+
+
+\section{Discrete Population Models}
+
+\begin{MyTh}{Discrete Model}
+    \ok{Model}: $N_{t+1}=N_tF(N_t)=f(N_t)$ \quad {\scriptsize $\cdot$ e.g. If $F(N_t)=r>0$: sol will decays|grows geometrically for $r<1|r>1$.}
+
+    {\footnotesize \quad \ok{Max|Min}: It's \textit{expected} has max at $N_m$ {\tiny ($N_{\max}=f(N_m);\frac{df}{dN_t}|_{N_m}=0$)}; \ \ then $N_{\min}=f(N_{\max})=f^2(N_m)$; \ \ If $N_{\min}\leq 1$, \ok{species extinction}. \quad \ok{Equilibrium}: $N^*=f(N^*)$}
+
+    {\footnotesize \quad \ok{Eigenvalue}: $\lambda=f'(N^*)$ \ \ \ok{$N^*>N_m$}: \ok{$|\lambda|<1$}: stable \ps{\tiny (critical bifuraction)}; \ok{$|\lambda|=1$}: periodic \ps{\tiny (attracting ($+:$tangent, $-$:period-doubling) bifuraction)}; \ok{$|\lambda|>1$}: unstable. \ps{\tiny (chaotic)}}
+
+    {\footnotesize \quad \ok{Perturbations at $N^*$}: \tiny \ok{A.(stable)} 扰动$\to 0$ by \ok{a1.$0<\lambda<1$} $\downarrow$ monotone; \ \ \ok{a2.$-1<\lambda<0$} decreasing oscillations; \quad \ok{B.(unstable)} 扰动$\to\infty$ by \ok{b1.$\lambda>1$} $\uparrow$ monotone; \ \ \ok{b2.$\lambda<-1$} increasing oscillations.}
+
+    {\footnotesize \quad \ok{Periodic}: \ok{$^1$} Equilibrium: $f^p(N^*)=N^*$ \ps{\tiny (指迭代$p$次)} is $p$-periodic for original eq. $^2$ $\forall$ even $p$-periodic $N^*$ with $\lambda=-1$ \textit{branches into} $2p$-periodic $N^*$; {\tiny 后续分支间隔越来越短}.}
+
+    {\footnotesize \quad \ok{Sarkovskii's Theorem}: If a $3$-periodic $N^*$ exists, then $\forall p\ge1$, $p$-periodic $N^*$ exists. \ps{\tiny (i.e. chaos)} \quad {\tiny \ok{Verhulst}: $N_{t+1}=rN_t(1-\frac{N_t}{K});r,K>0$. \ \ Better: \ok{Ricker curve}: $N_{t+1}=N_t e^{r(1-\frac{N_t}{K})}$}}
+
+    {\footnotesize \quad \ok{Linearise at $N^*$}: Consider $N_t=N^*+n_t, |n_t|\ll1$ \ \ $\to$ \ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ \ $\to$ \ \ $n_{t+1}=f'(N^*)n_t=\lambda n_t$ \ \ $\to$ \ \ $n_t=\lambda^t n_0$.{\tiny 分析$t\to\infty$}}
+\end{MyTh}
+
+
+\section{Appendix}
+
+\begin{MyTh}{$y'+p(x)y=q(x)$}
+    \ok{Integrating Factor}: $I(x)=e^{\int p(x)dx}$ \ \ $\Rightarrow$ \ \ $I(x)y=\int I(x)q(x)dx$
+\end{MyTh}
+
+\begin{MyTh}{Binomial Series}
+    $(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots$ \quad
+\end{MyTh}
+\begin{MyTh}{Linerisation}
+    $f(x+\Delta x)=f(x)+f'(x)\Delta x+\cdots$
+\end{MyTh}
+
+
+
+\end{document}
