@@ -10,7 +10,7 @@
 \section{Basic Knowledge}
 
 \begin{MyTh}{Group $(G,*)$}
-    \ok{G1}: Closure \quad \ok{G2}: Associativity \quad \ok{G3}: Identity element \quad \ok{G4}: Inverse element
+    \ok{G1}: Closure \quad \ok{G2}: Associativity \quad \ok{G3}: Identity element \quad \ok{G4}: Inverse element \quad\quad $\downarrow$ \ps{\tiny \ok{Division ring}: $R^{\times}=R\setminus\{0\}$; $R^\times$ group (under $\cdot$)}
 \end{MyTh}
 
 \begin{MyTh}{Ring $(R,+,\cdot)$}
@@ -41,7 +41,7 @@
 \end{MyTh}
 
 \begin{MyTh}{Factor Ring $(R/I)$}
-    $a+I=b+I \Leftrightarrow a-b\in I$ \quad $(R/I,\oplus,\odot)$ is a ring. \ps{($1_{R/I}=1_R+I$, $0_{R/I}=0_R+I$, $I$ ideal)}
+    $a+I=b+I \Leftrightarrow a-b\in I$ \quad $(R/I,\oplus,\odot)$ is a ring. \ps{($1_{R/I}=1_R+I$, $0_{R/I}=0_R+I$, $I$ ideal)} \qquad \imp{$\Z_n\cong \Z/n\Z$}
 \end{MyTh}
 
 \begin{MyTh}{Ring Homomorphism}
@@ -75,11 +75,9 @@
         \qquad\qquad\qquad {\scriptsize $g$首相系数可逆} \hspace{104pt} $^2$ If $a,b\in R[x],\deg(a,b)<\deg(g)$ and $a+I=b+I$, then $a=b$. \ps{(系数也相同)}
     \end{MyTh}
 
-    \quad \ok{Remark}: {\scriptsize 有些时候我们能用 $\gcd,\text{lcm}$ 计算 $<a,b>=<\gcd(a,b)>$ 和 $a\cap b=<\text{lcm}(a,b)>$ [If $R$ communicative ring] 但注意! 要在能够用 Division Algorithm | 有 $\gcd,\text{lcm}$ 的环里用.}
-\end{MyTh}
+    \quad \ok{Remark}: {\tiny If \ps{$I=(g)$, $g$首相系数不可逆}: Find a polynomial $g_1$ s.t. $g_1=hg,h\in R[x]$首相系数可逆, 那么可满足$^1$条件,$^2$只能subset但不能唯一表达.}
 
-\begin{MyTh}{Irreducible}
-    If $R$ in ID, $0\ne a\in R$ (not unit) is irreducible \ $\Leftrightarrow$ \ $a\ne bc$ for any non-units $b,c\in R$
+    \quad \ok{Remark}: {\scriptsize 有些时候我们能用 $\gcd,\text{lcm}$ 计算 $<a,b>=<\gcd(a,b)>$ 和 $a\cap b=<\text{lcm}(a,b)>$ [If $R$ communicative ring] 但注意! 要在能够用 Division Algorithm | 有 $\gcd,\text{lcm}$ 的环里用.}
 \end{MyTh}
 
 \begin{MyTh}{Principal Ideal}
@@ -90,7 +88,7 @@
 \end{MyTh}
 
 \begin{MyTh}{Maximal Ideal}
-    Ideal $I\ok{\ne R}$: If $J$ ideal and $I\subseteq J\subseteq R$, then $J=I$ or $J=R$.
+    Ideal $I\ok{\ne R}$: If $J$ ideal and $I\subseteq J\subseteq R$, then $J=I$ or $J=R$. \qquad\qquad \ps{$\downarrow$ $I$ not radical $\Leftrightarrow$ $\exists a\notin I$ s.t. $a^n\in I$ for some $n\in\N$}
 \end{MyTh}
 
 \begin{MyTh}{Radical|Radical Ideal}
@@ -101,22 +99,57 @@
     Relationship between these kinds of ideals: \quad \textbf{Maximal Ideals $\subseteq$ Prime Ideals $\subseteq$ Radical Ideals $\subseteq$ Ideals}
     \begin{enumerate}
         \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}. \qquad \ok{$I$ maximal $\Leftrightarrow$ $R/I$ is a field} \qquad \ok{$I$ maximal $\Rightarrow$ $I$ prime}
-        \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \ok{$(R/I)/J\cong R/T$}}
+        \item {\footnotesize $R$ ring, $I_1,I_2,...,I_n\triangleleft R$, \ok{$I_1\cap I_2\cap\cdots\cap I_n=\{0\}$} \ \ $\Rightarrow$ \ \ $R$ isomorphic to a subring of $R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$. \ps{\scriptsize \imp{$R\cong R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$} if $I_i+I_j=R$ for $i\ne j$}}
+        \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \imp{$(R/I)/J\cong R/T$}}
+        \qquad {\small If $J=\langle j_1+I,...,j_n+I\rangle$ then $T=\langle j_1,...,j_n\rangle+I=\langle j_1,...,j_n,I\rangle$ \quad Moreover, if $I=\langle i_1,...,i_m\rangle$, then $T=\langle j_1,...,j_n,i_1,...,i_m\rangle$}
         \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nilpotent elements {\tiny except $0$}} \qquad \ok{$I$ prime $\Rightarrow$ $I$ radical} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
         \item If $R$ (commutative with \textit{unity}), then any ideal $I\ne R$ is contained in a \textit{maximal} ideal. \qquad \comment{If $r$ is \textit{not a unit}, then $1\notin \langle r\rangle=rR$}
     \end{enumerate}
 \end{MyTh}
 
-\vspace{2pt}
-\section{Polynomial Rings}
+%\vspace{2pt}
+%\section{Polynomial Rings}
 
-\begin{MyTh}{Polynomial Ring}
-    $R$ \textit{communicative} ring. $R[x_1,...,x_n]$ is a ring. \quad The elements of it: $\sum_\alpha a_\alpha x^\alpha$ \ \ \ps{$\alpha=(\alpha_1,...,\alpha_n),a\in R, x^\alpha=x_1^{\alpha_1}...x_n^{\alpha_n}$}
+%\begin{MyTh}{Polynomial Ring}
+%    $R$ \textit{communicative} ring. $R[x_1,...,x_n]$ is a ring. \quad The elements of it: $\sum_\alpha a_\alpha x^\alpha$ \ \ \ps{$\alpha=(\alpha_1,...,\alpha_n),a\in R, x^\alpha=x_1^{\alpha_1}...x_n^{\alpha_n}$}
+%
+%    \quad - \ok{Degree}: $\deg(f)=\max\{\sum_i\alpha_i:a_\alpha\ne0\}$ \ \ If $f=0$, $\deg(f)=-\infty$. \quad \ok{2nd Definition}: $R[x,y]=R[x][y]$ and so on. \ps{\tiny (induction 喜欢)}
+%
+%    \quad - \comment{$\deg(fg)\leq \deg(f)+\deg(g)$} unless $R$ is an ID. \qquad \comment{If $R$ is an ID, then $R[x_1,...,x_n]$ is an ID.}
+%\end{MyTh}
 
-    \quad - \ok{Degree}: $\deg(f)=\max\{\sum_i\alpha_i:a_\alpha\ne0\}$ \ \ If $f=0$, $\deg(f)=-\infty$. \quad \ok{2nd Definition}: $R[x,y]=R[x][y]$ and so on. \ps{\tiny (induction 喜欢)}
 
-    \quad - \comment{$\deg(fg)\leq \deg(f)+\deg(g)$} unless $R$ is an ID. \qquad \comment{If $R$ is an ID, then $R[x_1,...,x_n]$ is an ID.}
+\vspace{4pt}
+\section{PID | UFD | Euclidean Domain}
+\vspace{-13pt}\hspace{160pt} \textbf{(ED $\Rightarrow$ PID $\Rightarrow$ UFD $\Rightarrow$ ID)}
+
+\begin{MyTh}{Irreducible}
+    $0\ne a\in R\setminus R^\times$ is \ok{Irreducible}: If $a=bc$, then $b\in R^\times$ or $c\in R^\times$.
 \end{MyTh}
+
+\begin{MyTh}{Prime}
+    $0\ne a\in R\setminus R^\times$ is \ok{Prime}: If $a\mid bc$, then $a\mid b$ or $a\mid c$. \ \ \ps{\tiny (If $R$ communicative ring, then prime $\Rightarrow$ irreducible)}
+\end{MyTh}
+
+\begin{enumerate}
+    \item $F$ field, $0\ne g\in F[x]$ non-constant: \ \ $^1$ \ok{$F[x]/\langle g\rangle$ is a field} \ $\Leftrightarrow$ \ $^2$ \ok{$g$ is irreducible in $F[x]$} \ $\Leftrightarrow$ \ $^3$ \ok{$F[x]/\langle g\rangle$ is a domain}
+    \item If $R$ is ID: \ \ \ok{Prime $\Rightarrow$ Irreducible} \qquad If $0\ne a\in R$, then: \ \ \ok{$a$ prime $\Leftrightarrow$ $aR$ prime ideal}
+    \item If $R$ is PID, $a\ne 0$: \ \ $^1$ \ok{$aR$ is prime ideal} \ $\Leftrightarrow$ \ $^2$ \ok{$a$ is prime} \ $\Leftrightarrow$ \ $^3$ \ok{$aR$ is maximal ideal} \ $\Rightarrow$ \ $^4$ \ok{$a$ is irreducible}
+\end{enumerate}
+\vspace{4pt}
+
+\begin{MyTh}{PID}
+    $R$ communicative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$F,F[x]$ field is PID.}
+\end{MyTh}
+
+\begin{MyTh}{ED}
+    {\small $R$ is \textit{ID}. \ $R$ is \textit{Euclidean Domain} if: \ \ \ok{\scriptsize (Euclidean Function)} $\exists v:R\setminus\{0\}\to \N_0$ s.t. $\forall a,b\in R,b\ne0$, $\exists q,r\in R$ s.t. $a=bq+r$ and $r=0$ or $v(r)<v(b)$.}
+
+    \quad \ok{Common ED}: $\Z,F[x]$, $\Z[i]${\tiny Gaussian Integers} are ED, with $v(a)=|a|,v(f)=\deg(f),v(a+bi)=a^2+b^2$ respectively.
+
+    \quad \ok{Euclidean Algorithm}: If $R$ ED, $a,b\in R\setminus\{0\}$, then $\gcd(a,b)=xa+yb$ for some $x,y\in R$. \ps{\tiny (extended of Bezout's Identity)}
+\end{MyTh}
+
 
 
 \end{document}

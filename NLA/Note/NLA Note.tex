@@ -7,6 +7,7 @@
 
 \captionsetup[algorithm]{font=footnotesize,labelfont=bf}
 
+
 \newcommand{\codealg}[1]{\textcolor{gray}{\quad \# \textbf{#1} Algorithm}}
 
 \title{NLA Note}
@@ -25,17 +26,13 @@
 \begin{MyTh}{Assumptions}
     \comment{There is $\varepsilon_m>0$ \ok{(machine epsilon)}} \ \ \ok{A1}: $\forall\alpha\in\R$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $fl:\R\to\F$ by $fl(\alpha)=\alpha(1+\varepsilon)$
     
-    \hspace{7.4cm} \ok{A2}: $\forall\alpha,\beta\in\F$, $\forall *\in\{+,-,\times,\div\}$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $\alpha \circledast \beta= (\alpha* \beta)(1+\varepsilon)$
+    \qquad\qquad\qquad\quad {\small $\varepsilon_m\approx 2.22\times 10^{-16}$} \hspace{65pt} \ok{A2}: $\forall\alpha,\beta\in\F$, $\forall *\in\{+,-,\times,\div\}$, $\exists \varepsilon\in(-\varepsilon_m,\varepsilon_m)$ s.t. $\alpha \circledast \beta= (\alpha* \beta)(1+\varepsilon)$
 
-    \vspace{-0.1cm}\hspace{2.38cm}\ps{A1: The rounding error in $\alpha$ is relative to the size of $\alpha$ ($|\alpha-fl(\alpha)|<|\alpha|\varepsilon_m$) \quad A2: The error in $\alpha \circledast \beta$ is relative to the size of $\alpha * \beta$ ($|\alpha \circledast \beta - \alpha * \beta|\le|\alpha * \beta|\varepsilon_m$)}
-\end{MyTh}
-
-\begin{MyTh}{IEEE (Double Precision)}
-    \ok{64-bit}: denote $\F$. \quad \comment{1-bit}: sign \quad \comment{52-bit}: mantissa \quad \comment{11-bit}: exponent \ps{(base 2)}. \quad \small{$\varepsilon_m\approx 2.22\times 10^{-16}$}
+    \vspace{-0.09cm}\hspace{2cm}\ps{A1: The rounding error in $\alpha$ is relative to the size of $\alpha$ ($|\alpha-fl(\alpha)|<|\alpha|\varepsilon_m$) \quad A2: The error in $\alpha \circledast \beta$ is relative to the size of $\alpha * \beta$ ($|\alpha \circledast \beta - \alpha * \beta|\le|\alpha * \beta|\varepsilon_m$)}
 \end{MyTh}
 
 \begin{MyTh}{Cost of Algorithm ($C$)}
-    $C:=$ number of floating point operations (FLOPs) \qquad If $C(n)\le\alpha f(n)$, $\Rightarrow$ $C(n)=\Ocal(f(n))$. \ps{n is problem size}
+    $C:=$ number of floating point operations (FLOPs) \qquad If $C(n)\le\alpha f(n)$, $\Rightarrow$ $C(n)=\Ocal(f(n))$.
 
     \quad $\cdot$ We consider that: \ok{交换/赋值/相反数} no cost \ps{(i.e. Permutation $\mathbf{P}$ is free)}, \ \ \ok{比较两数} 1 FLOPs, \ \ \ok{$\sqrt{~~~~}$} 1 FLOPs.
 \end{MyTh}
@@ -59,10 +56,12 @@
             \item $\|\mathbf{A}_{m\times n}\|_1:=\max\limits_{1\le i\le n}\sum_{j=1}^m|a_{ij}|$ \quad \comment{(maximum column sum)}
             \item $\|\mathbf{A}_{m\times n}\|_2:=\sqrt{\rho(\mathbf{A}^\top\mathbf{A})}$ \quad \comment{$\rho(\mathbf{A}^\top\mathbf{A})=\max\{|\lambda|:\lambda \text{ is eigenvalue of } \mathbf{A}^\top\mathbf{A}\}$}
         \end{enumerate}
+        
+        \vspace{10pt}
+        \qquad{\scriptsize \ok{For Matrix}: $\|\mathbf{A}\mathbf{x}\|_p\le\|\mathbf{A}\|_p\|\mathbf{x}\|_p$ \quad $\|\mathbf{A}\mathbf{B}\|_p\le\|\mathbf{A}\|_p\|\mathbf{B}\|_p$ \quad $\|\mathbf{A}^k\|_p\le\|\mathbf{A}\|_p^k$ \quad $\|\mathbf{A}+\mathbf{B}\|_p\leq \|\mathbf{A}\|_p+\|\mathbf{B}\|_p$}
     \end{minipage}
-    
 \end{MyTh}
-
+\vspace{-5pt}
 
 \section{Methods for Systems of Linear Equations (SLE)}
 
@@ -140,9 +139,9 @@
     
     \quad $\cdot$ \ok{左边乘$\mathbf{P}_\pi$: 交换行} \ps{($\mathbf{P}_\pi$的行 \ 代表具体行的交换方法, $\pi$也代表交换行的方法)} \qquad $\cdot$ \ok{右边乘$\mathbf{P}_\pi$: 交换列} \ps{($\mathbf{P}_\pi$的列 \ 代表具体列的交换方法, $\pi^{-1}$才代表交换列的方法)}
 
-    \quad $\cdot$ Proposition: $\mathbf{P}_\pi$ is orthogonal, i.e. $\mathbf{P}_\pi^\top=\mathbf{P}_\pi^{-1}$ ($\mathbf{P}_\pi^\top\mathbf{P}_\pi=\mathbf{I}$) \qquad \ \ \ $\cdot$ \ok{对于二阶置换矩阵(Involution)}: $\mathbf{P}_\pi^2=\mathbf{I}$, i.e. $\mathbf{P}_\pi^{-1}=\mathbf{P}_\pi$
-    
-    \quad $\cdot$ \ok{GEPP}: \comment{交换行使每次$|u_{kk}|$最大} \qquad \ok{GECP}: \comment{交换行和列使每次$|u_{kk}|$最大} \qquad \ps{ps: GEPP and GECP are both \ok{stable algorithms} for SLE.}
+    \quad $\cdot$ Proposition: $\mathbf{P}_\pi$ is orthogonal, i.e. $\mathbf{P}_\pi^\top=\mathbf{P}_\pi^{-1}$
+    \quad $\cdot$ \ok{对于二阶置换矩阵(Involution)}: $\mathbf{P}_\pi^2=\mathbf{I}$, i.e. $\mathbf{P}_\pi^{-1}=\mathbf{P}_\pi$
+    \quad $\cdot$ \ok{GEPP|GECP}: {\tiny \ps{交换行(行和列)使每次$|u_{kk}|$最大\ok{(stable)}}}
 \end{MyTh}
 
 \begin{MyTh}{Backward Stable of GEPP}
@@ -173,14 +172,25 @@
 
 \subsection{Householder QR factorisation}
 
-\begin{MyTh}  {Householder QR}
+\begin{MyTh}{Householder QR}
   \comment{(Most)} \ok{stable} algorithm \qquad \textbf{Householder Reflection Matrix}: $\mathbf{H}(\mathbf{w}):=\mathbf{I}-2\frac{\mathbf{w}\mathbf{w}^\top}{\|\mathbf{w}\|_2^2}$ \quad \ok{$\mathbf{H}(\mathbf{w})\mathbf{x}=\mathbf{x}-2\text{proj}_{\mathbf{w}}(\mathbf{x})$}
 
-  \quad $\cdot$ $\mathbf{H}(\mathbf{w})$ is \ok{orthogonal} and \ok{symmetric} \comment{(In the Algorithm is $\mathbf{Q}_k,\mathbf{H}_k$)} \qquad $\cdot$ $\mathbf{H}(\mathbf{w})\mathbf{x}$ \comment{作用为让$\mathbf{x}$向量对于\textit{法向量为$\mathbf{w}$的超平面} 上进行反射}
+  \vspace{-2pt}
+  \quad $\cdot$ $\mathbf{H}(\mathbf{w})$ is \ok{orthogonal} and \ok{symmetric} \comment{(In the Algorithm is $\mathbf{Q}_k,\mathbf{H}_k$)} \qquad $\cdot$ $\mathbf{H}(\mathbf{w})\mathbf{x}$ \comment{\tiny 作用为让$\mathbf{x}$向量对\textit{$\mathbf{w}$的法向量(超平面)} 上进行反射}
+\end{MyTh}
+
+\begin{MyTh}{Error Analysis of Householder QR}
+    Let $\widehat{\mathbf{x}}$ denote sol of $\mathbf{Ax}=\mathbf{b}$ by Householder QR+SQR. \quad Then $(\mathbf{A}+\Delta\mathbf{A})=\mathbf{b}$, where $\|\Delta\mathbf{A}\|_2\leq \alpha n^{\frac{5}{2}}\varepsilon_m\|\mathbf{A}\|_2$ \ps{$\alpha$ small constant} 
 \end{MyTh}
 
 
+\section{Iterative Methods for SLE}
+
+
+
+
 \newpage
+
 
 \section{Algorithms}
 
@@ -414,12 +424,12 @@
     $\mathbf{A}_{m\times n}, m\geq n$: [$\mathbf{Ax}=\mathbf{0}$ iff $\mathbf{x}=\mathbf{0}$] $\Leftrightarrow$ [$\rank(\mathbf{A})=n$]
 \end{MyTh}
 
-\vspace{-3pt}
+\vspace{-2pt}
 \begin{MyTh}{Cauchy-Schwarz Inequality}
     For $\mathbf{x},\mathbf{y}\in\R^n$, $|\mathbf{x}\cdot\mathbf{y}|=|\mathbf{x}^\top\mathbf{y}|\leq\|\mathbf{x}\|_2\|\mathbf{y}\|_2$
 \end{MyTh}
 
-\vspace{-3pt}
+\vspace{-2pt}
 \begin{MyTh}{Determinant}
     $\det(\mathbf{A}\mathbf{B})=\det(\mathbf{A})\det(\mathbf{B})$ \quad
 \end{MyTh}
@@ -427,7 +437,7 @@
     If $\mathbf{Q}^\top\mathbf{Q}=\mathbf{I}$ \quad
 \end{MyTh}
 
-\vspace{-7pt}
+\vspace{-5pt}
 \begin{MyTh}{Eigen}
     $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ \quad $\xi_{\mathbf{A}}(\lambda)=\det(\mathbf{A}-\lambda \mathbf{I})=\prod_{i}(\lambda_i-\lambda)$ \quad
 \end{MyTh}
@@ -460,7 +470,7 @@
 % ----- Algorithm QR -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{QR} Householder QR factorization \quad \ps{$C(n)=$}}
+\caption*{\textbf{QR} Householder QR factorization \quad \ps{$C(n)=\frac{8}{3}n^3+\Ocal(n^2)$}}
 \textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \\
 \textbf{Output:} $\mathbf{Q} \in \mathbb{R}^{n \times n}$ orthogonal
 
@@ -469,25 +479,40 @@
   \State $\mathbf{Q} = \mathbf{I}$,\ $\mathbf{R} = \mathbf{A}$
   \For{$k = 1, \dots, n - 1$}
     \State $\mathbf{u} = (r_{kk}, \dots, r_{nk})\in \mathbb{R}^{n-k+1}$
-    \State $\mathbf{v} = \mathbf{u} + \mathrm{sign}(u_1)\|\mathbf{u}\|_2 \mathbf{e}_1$
-    \State $\mathbf{w} = \frac{\mathbf{v}}{\|\mathbf{v}\|_2}$
-    \State $\mathbf{H}_k = \mathbf{I} - 2\mathbf{w}\mathbf{w}^\top\in \mathbb{R}^{(n-k+1) \times (n-k+1)}$
-    \State $\mathbf{Q}_k = \mathbf{I}_{k-1} \oplus \mathbf{H}_k$
-    \State $\mathbf{R} = \mathbf{Q}_k \mathbf{R}$
-    \State $\mathbf{Q} = \mathbf{Q} \mathbf{Q}_k$
+    \State $\mathbf{v} = \mathbf{u} + \mathrm{sign}(u_1)\|\mathbf{u}\|_2 \mathbf{e}_1$  \quad \textcolor{gray}{\tiny \quad \ \# line.4-7 得到的$\mathbf{Q}_k$:}
+    \State $\mathbf{w} = \frac{\mathbf{v}}{\|\mathbf{v}\|_2}$  \qquad\qquad\qquad\quad \textcolor{gray}{\tiny \qquad \# 使得$\mathbf{Q}_k\mathbf{u}=-\text{sign}(u_1)\|\mathbf{u}\|_2\mathbf{e}_1$}
+    \State $\mathbf{H}_k = \mathbf{I} - 2\mathbf{w}\mathbf{w}^\top\in \mathbb{R}^{(n-k+1) \times (n-k+1)}$ \quad \textcolor{gray}{\scalebox{0.9}{\tiny \# line.6-8 一起算,见下}}
+    \State $\mathbf{Q}_k = \mathbf{I}_{n-k} \oplus \mathbf{H}_k\in\R^{n\times n}$ \ \textcolor{gray}{\scalebox{0.75}{\tiny \# $\downarrow$ line.6-8 $C=4(n-k+1)^2+(n-k+1)$}}
+    \State $\mathbf{R} = \mathbf{Q}_k \mathbf{R}$ \ \ \textcolor{gray}{\scalebox{0.8}{\tiny \# 用矩阵分块,只有右下角$\mathbf{H}_k\mathbf{R}_{k:n,k:n}$要算$\to$用$H_k$定义Alg. MV+OP}}
+    \State $\mathbf{Q} = \mathbf{Q} \mathbf{Q}_k$ \ \ \textcolor{gray}{\scalebox{0.8}{\tiny \# If using in Alg. \imp{SQR}, then $9':$ $\mathbf{y}=\mathbf{Q}_k\mathbf{y}$; \quad $C=\frac{4}{3}n^3+\Ocal(n^2)$ (SQR/QR)}}
   \EndFor
 \end{algorithmic}
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.9cm}
+\vspace{-0.8cm}
 
 
 \subsection{Other | Max}
 
-\vspace{-9pt}
+\vspace{-8pt}
 
 \begin{multicols}{3}
+
+% ----- Algorithm OP -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{OP} Outer product \quad \ps{$C = \sum_{i=1}^{n}\sum_{j=1}^{n} 1 = n^2=\Ocal(n^2)$}}
+\textbf{Input:} $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ \\
+\textbf{Output:} $A = \mathbf{x}\mathbf{y}^\top$
+\begin{algorithmic}[1]
+  \For{$i = 1, \dots, n$}
+    \For{$j = 1, \dots, n$}
+      \State $a_{ij} = x_i y_j$
+    \EndFor
+  \EndFor
+\end{algorithmic}
+\end{algorithm}
 
 % ----- Algorithm Max -----
 \begin{algorithm}[H]

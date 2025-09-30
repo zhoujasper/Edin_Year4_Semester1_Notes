@@ -65,18 +65,41 @@
     {\footnotesize \quad \ok{Linearise at $N^*$}: Consider $N_t=N^*+n_t, |n_t|\ll1$ \ \ $\to$ \ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ \ $\to$ \ \ $n_{t+1}=f'(N^*)n_t=\lambda n_t$ \ \ $\to$ \ \ $n_t=\lambda^t n_0$.{\tiny 分析$t\to\infty$}}
 \end{MyTh}
 
+\section{Bifuraction}
+
+\begin{MyTh}{Bifuraction}
+    Qualitative changes in dynamics are called \textit{bifuractions}. \ps{\tiny (当平衡点发生变化时)} \qquad \ok{Bifuraction Diagram}: {\tiny y轴:平衡点; x轴:控制参数; 虚线unstable,实线stable. 画图判别}
+
+    {\footnotesize \quad \ok{Tangency Condition}: If $\dot{x}=f(x,r)$, at bifuraction point $(x^*,r_c)$: $\frac{\partial f}{\partial x}|_{(x^*,r_c)}=0$ \ {\tiny (Basic: $f(x^*,r_c)=0$)} \quad $\cdot$ At bifuraction point: 2 equilibrium \imp{coalesce}.}
+
+    {\footnotesize \quad \ok{Normal Forms|Saddle-Note}: $\dot{x}=r\pm x^2$ \ps{\tiny ($r_c=0$; $r\ne0$时两个$x^*$)} \ \ \ok{Normal Forms|Transcritical}: $\dot{x}=rx-x^2$ \ps{\tiny ($r_c=0$; if $r\ne0$, $x^*=\{0,r\}$,大stable,小unstable)}} \  \imp{\scalebox{0.7}{}}
+
+    {\footnotesize \quad \ok{Normal Forms|Pitchfork}: $\dot{x}=rx-x^3$ \ps{\tiny ($r_c=0$; if $r<0$, $x^*=0$ stable; if $r=0$, $x^*=0$ stable (weakly|critical slowing down); if $r>0$, $x^*=\pm\sqrt{r}$ stable, $x^*=0$ unstable)} \quad $\cdot$ Has symmetry.}
+
+    {\footnotesize \quad \ok{Normal Forms|Subcritical Pitchfork}: $\dot{x}=rx+x^3$ \ps{\tiny ($r_c=0$; if $r<0$, $x^*=0$ stable, $\pm\sqrt{-r}$ unstable; if $r=0$, $x^*=0$ stable (weakly); if $r>0$, $x^*=0$ unstable)}} \ \ \scalebox{0.8}{\imp{\tiny (其他: linearisation 后对比normal forms 判别)}}
+\end{MyTh}
+
+\begin{MyTh}{Imperfect Bifuraction}
+    $\dot{x}=rx-x^3+h$ \scalebox{0.8}{\ps{\tiny (codimension-2 bifuraction)}} \ \ \scalebox{0.8}{\tiny If $r\leq0$, $x^*$ unique. If $r>0$, $|h|>h_c$, $x^*$ unique; $|h|<h_c$, $x^*$ three. (两边stable,中unstable). Bifuraction points: $h=\pm h_c=\pm\frac{2r}{3}\sqrt{\frac{r}{3}}$. \ \textbf{cusp point}: $(r,h)=(0,0)$}
+\end{MyTh}
+
 
 \section{Appendix}
 
+\tiny
+
 \begin{MyTh}{$y'+p(x)y=q(x)$}
     \ok{Integrating Factor}: $I(x)=e^{\int p(x)dx}$ \ \ $\Rightarrow$ \ \ $I(x)y=\int I(x)q(x)dx$
+\end{MyTh}
+\begin{MyTh}{Taylor Expansion}
+    $f(x,r)$ at $(x_0,r_0)$: $f(x,r)=f(x_0,r_0)+(x-x_0)f_x|_{(x_0,r_0)}+(r-r_0)f_r|_{(x_0,r_0)}+\frac{1}{2}\cdots$
 \end{MyTh}
 
 \begin{MyTh}{Binomial Series}
     $(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots$ \quad
 \end{MyTh}
 \begin{MyTh}{Linerisation}
-    $f(x+\Delta x)=f(x)+f'(x)\Delta x+\cdots$
+    $f(x+\Delta x)=f(x)+f'(x)\Delta x+\cdots$ \quad $e^{bx}=1+bx+\frac{(bx)^2}{2!}+\cdots$
 \end{MyTh}
 
 
