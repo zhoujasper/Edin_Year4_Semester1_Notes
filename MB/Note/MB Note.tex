@@ -1,4 +1,5 @@
 \documentclass{note}
+\usepackage{diagbox}
 
 \title{MB Note}
 \author{}
@@ -7,23 +8,15 @@
 \maketitle
 \thispagestyle{fancy}
 
-\section{Population Models for Single Species}
+\section{Dinamical Systems}
+
+\subsection{Models of Biological Systems}
 
 \begin{MyTh}{Logistic Growth Model (Population)}
     \ok{Model}: $\frac{dN}{dt}=rN(1-\frac{N}{K})$ \quad {\scriptsize \comment{N}: population at time $t$; \comment{K}: carrying capacity \ps{(depends on resources)}; \comment{r,K}: $>0$.}
 
     \vspace{-2pt}
     {\footnotesize \quad \ok{Sol}: $N(t)=\frac{N_0Ke^{rt}}{K+N_0(e^{rt}-1)}\stackrel{\infty}{\to}K$ \qquad \ok{Equilibrium points}: $N=0$ (unstable), $N=K$ (stable). \qquad \ok{Quickest:$N=\frac{K}{2}$} \ps{(<:凹; >:凸)}}
-\end{MyTh}
-
-\begin{MyTh}{General Population Model}
-    \ok{Model}: $\frac{dN}{dt}=f(N)$ \quad \comment{$f(N)$}: \textit{nonlinear} function. \quad \imp{\scriptsize No limit cycle periodic sol.}
-
-    {\footnotesize \quad $\cdot$ $N^*$ equilibrium point \ps{($f(N^*)=0$)} $\Rightarrow$ $^1$\ok{$f'(N^*)<0$} \ps{\tiny (stable for small perturbations)}; $^2$\ok{$f'(N^*)>0$} (unstable) \quad \imp{Time-Independent}: {\scriptsize Equilibrium|$\frac{dN}{dt}=0$ $\Rightarrow$ $N(t)=N(t-T)=N^*$.}}
-
-    {\footnotesize \quad \imp{Linearise at $N^*$}: Consider $N(t)=N^*+n(t), |n(t)|\ll1$ \ $\Rightarrow$ $\frac{dn}{dt}=\frac{dN}{dt}=${\tiny\textbf{(单)}$f(N^*)+f'(N^*)n(t)=f'(N^*)n(t)$|\textbf{(Delay)}带入$f$ $\approx$(求2次以上)} \quad {\tiny \imp{Small Perturbations:}: $n(t)$}}
-
-    {\footnotesize \quad \imp{Stability $N^*$}}: {\tiny 计算扰动$n(t)$的$\frac{dn}{dt}$ $\to$ 假设$n(t)=e^{\lambda t}|ce^{\lambda t}$求解$\lambda$隐式表达 $\to$ $\lambda=u+iw$带入解出$u$和$w$. $\to$ $u<0$ asy.stabl; $u>0$ unstable. \imp{Find $T_c$}: {\tiny 令(delay)$T=0$,验稳定性,如稳,$u=0$($\lambda=iw$)为$T_c$}}
 \end{MyTh}
 
 \begin{MyTh}{Delay Model}
@@ -46,43 +39,96 @@
     {\scriptsize \quad \ok{Max Yield}: $Y_M=\frac{rK}{4}$ \quad \ok{Equilibrium}: $^1$$0<Y_0<Y_M$: Two positive points \ps{(unstable(小) and stable(大))}. \ \ \ok{Sensitivity}: {\tiny 对于fluctuation此模型和EN模型都不稳定,但此模型更敏感sensitive.}}
 \end{MyTh}
 
-
-\section{Discrete Population Models}
-
-\begin{MyTh}{Discrete Model}
-    \ok{Model}: $N_{t+1}=N_tF(N_t)=f(N_t)$ \quad {\scriptsize $\cdot$ e.g. If $F(N_t)=r>0$: sol will decays|grows geometrically for $r<1|r>1$.}
-
-    {\footnotesize \quad \ok{Max|Min}: It's \textit{expected} has max at $N_m$ {\tiny ($N_{\max}=f(N_m);\frac{df}{dN_t}|_{N_m}=0$)}; \ \ then $N_{\min}=f(N_{\max})=f^2(N_m)$; \ \ If $N_{\min}\leq 1$, \ok{species extinction}. \quad \ok{Equilibrium}: $N^*=f(N^*)$}
-
-    {\footnotesize \quad \ok{Eigenvalue}: $\lambda=f'(N^*)$ \ \ \ok{$N^*>N_m$}: \ok{$|\lambda|<1$}: stable \ps{\tiny (critical bifuraction)}; \ok{$|\lambda|=1$}: periodic \ps{\tiny (attracting ($+:$tangent, $-$:period-doubling) bifuraction)}; \ok{$|\lambda|>1$}: unstable. \ps{\tiny (chaotic)}}
-
-    {\footnotesize \quad \ok{Perturbations at $N^*$}: \tiny \ok{A.(stable)} 扰动$\to 0$ by \ok{a1.$0<\lambda<1$} $\downarrow$ monotone; \ \ \ok{a2.$-1<\lambda<0$} decreasing oscillations; \quad \ok{B.(unstable)} 扰动$\to\infty$ by \ok{b1.$\lambda>1$} $\uparrow$ monotone; \ \ \ok{b2.$\lambda<-1$} increasing oscillations.}
-
-    {\footnotesize \quad \ok{Periodic}: \ok{$^1$} Equilibrium: $f^p(N^*)=N^*$ \ps{\tiny (指迭代$p$次)} is $p$-periodic for original eq. $^2$ $\forall$ even $p$-periodic $N^*$ with $\lambda=-1$ \textit{branches into} $2p$-periodic $N^*$; {\tiny 后续分支间隔越来越短}.}
-
-    {\footnotesize \quad \ok{Sarkovskii's Theorem}: If a $3$-periodic $N^*$ exists, then $\forall p\ge1$, $p$-periodic $N^*$ exists. \ps{\tiny (i.e. chaos)} \quad {\tiny \ok{Verhulst}: $N_{t+1}=rN_t(1-\frac{N_t}{K});r,K>0$. \ \ Better: \ok{Ricker curve}: $N_{t+1}=N_t e^{r(1-\frac{N_t}{K})}$}}
-
-    {\footnotesize \quad \ok{Linearise at $N^*$}: Consider $N_t=N^*+n_t, |n_t|\ll1$ \ \ $\to$ \ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ \ $\to$ \ \ $n_{t+1}=f'(N^*)n_t=\lambda n_t$ \ \ $\to$ \ \ $n_t=\lambda^t n_0$.{\tiny 分析$t\to\infty$}}
-\end{MyTh}
-
-\section{Bifuraction}
-
-\begin{MyTh}{Bifuraction}
-    Qualitative changes in dynamics are called \textit{bifuractions}. \ps{\tiny (当平衡点发生变化时)} \qquad \ok{Bifuraction Diagram}: {\tiny y轴:平衡点; x轴:控制参数; 虚线unstable,实线stable. 画图判别}
-
-    {\footnotesize \quad \ok{Tangency Condition}: If $\dot{x}=f(x,r)$, at bifuraction point $(x^*,r_c)$: $\frac{\partial f}{\partial x}|_{(x^*,r_c)}=0$ \ {\tiny (Basic: $f(x^*,r_c)=0$)} \quad $\cdot$ At bifuraction point: 2 equilibrium \imp{coalesce}.}
-
-    {\footnotesize \quad \ok{Normal Forms|Saddle-Note}: $\dot{x}=r\pm x^2$ \ps{\tiny ($r_c=0$; $r\ne0$时两个$x^*$)} \ \ \ok{Normal Forms|Transcritical}: $\dot{x}=rx-x^2$ \ps{\tiny ($r_c=0$; if $r\ne0$, $x^*=\{0,r\}$,大stable,小unstable)}} \  \imp{\scalebox{0.7}{}}
-
-    {\footnotesize \quad \ok{Normal Forms|Pitchfork}: $\dot{x}=rx-x^3$ \ps{\tiny ($r_c=0$; if $r<0$, $x^*=0$ stable; if $r=0$, $x^*=0$ stable (weakly|critical slowing down); if $r>0$, $x^*=\pm\sqrt{r}$ stable, $x^*=0$ unstable)} \quad $\cdot$ Has symmetry.}
-
-    {\footnotesize \quad \ok{Normal Forms|Subcritical Pitchfork}: $\dot{x}=rx+x^3$ \ps{\tiny ($r_c=0$; if $r<0$, $x^*=0$ stable, $\pm\sqrt{-r}$ unstable; if $r=0$, $x^*=0$ stable (weakly); if $r>0$, $x^*=0$ unstable)}} \ \ \scalebox{0.8}{\imp{\tiny (其他: linearisation 后对比normal forms 判别)}}
+\begin{MyTh}{Examples of $N_{t+1}=f(N_t)$}
+    \ok{Verhulst}: $N_{t+1}=rN_t(1-\frac{N_t}{K});r,K>0$. \ \ Better: \ok{Ricker curve}: $N_{t+1}=N_t e^{r(1-\frac{N_t}{K})}$
 \end{MyTh}
 
 \begin{MyTh}{Imperfect Bifuraction}
     $\dot{x}=rx-x^3+h$ \scalebox{0.8}{\ps{\tiny (codimension-2 bifuraction)}} \ \ \scalebox{0.8}{\tiny If $r\leq0$, $x^*$ unique. If $r>0$, $|h|>h_c$, $x^*$ unique; $|h|<h_c$, $x^*$ three. (两边stable,中unstable). Bifuraction points: $h=\pm h_c=\pm\frac{2r}{3}\sqrt{\frac{r}{3}}$. \ \textbf{cusp point}: $(r,h)=(0,0)$}
 \end{MyTh}
 
+
+\subsection{Summary - Stability and Bifuraction}
+
+{\tiny
+\begin{tabular}{|@{\hskip 2pt}c@{\hskip 2pt}||l|l|l|l||l|l|l|l|}
+    \hline
+    & \multicolumn{4}{c||}{$\frac{dN}{dt}=f(N)$ \quad \ok{No Limit cycle periodic solutions} \qquad $S$: stable; $U$:unstable.} & \multicolumn{4}{c|}{$N_{t+1}=N_tF(N_t)=f(N_t)$ \quad \ok{Eigenvalue}: $\lambda=f'(N^*)$} \\
+    \hline
+    Stability & \multicolumn{2}{l|}{Stable: $f'(N^*)<0$} & \multicolumn{2}{l||}{Unstable: $f'(N^*)>0$} & Stable: $|\lambda|<1$ & Unstable: $|\lambda|>1$ \scalebox{0.8}{\ps{(chaotic)}} & \multicolumn{2}{l|}{Periodic: $|\lambda|=1$ \scalebox{0.8}{$\begin{cases}+:\text{tangent bifurcation} \\ -:\text{period-doubling bifurcation}\end{cases}$}} \\
+    \hline
+    Linearise & \multicolumn{4}{l||}{$N(t)=N^*+n(t), |n(t)|\ll1$ \ $\Rightarrow$ \ $\frac{dn}{dt}=\frac{dN}{dt}=$\scalebox{0.8}{$\begin{cases}\text{\ps{(general)}}=f(N^*)+f'(N^*)n(t) \\ \text{\ps{(delay)}=直接带入f后近似}\end{cases}$}} & \multicolumn{4}{l|}{Let $N_t=N^*+n_t, |n_t|\ll1$ \ $\Rightarrow$ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ $\Rightarrow$ \ $n_{t+1}=\lambda n_t$} \\
+    \hline
+    \multirow{2}{*}{\scalebox{0.9}{\makecell{Bifuraction \backslash\backslash \\ Perturbations \\ at $N^*$ | Periodic}}} & \multirow{2}{*}{\makecell{\scalebox{0.8}{Saddle-Note} \scalebox{0.7}{\ok{(Normal Form)}} \\ $\dot{x}=r\pm x^2$ \\ 0$\to$S$\to$S-S}} & \multirow{2}{*}{\makecell{Transcritical \\ $\dot{x}=rx-x^2$ \\ S-U$\to$U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{(super-)Pitchfork} \\ $\dot{x}=rx-x^3$ \\ S$\to$S-U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{Sub-critical Pitchfork} \\ $\dot{x}=r+x^3$ \\ U$\to$U-S-U}} & $\lambda<-1$: $\uparrow$ oscillations & $-1<\lambda<0$: $\downarrow$ oscillations & $0<\lambda<1$: $\downarrow$ Monotone & $\lambda>1$: $\uparrow$ Monotone \\
+    \cline{6-9}
+    & & & & & \multicolumn{4}{l|}{If $f^p(N^*)=N^*$, $N^*$ is $p$-periodic. \quad | \quad $\forall$ even $p$-periodic $N^*$ with $\lambda=-1$ branches into $2p$-periodic} \\
+    \cline{6-9}
+    & & & & & \multicolumn{3}{l|}{\textbf{Sarkovskii's Theorem}: If a $3$-periodic $N^*$ exists, then $\forall p\ge1$, $p$-periodic $N^*$ exists.} & \scalebox{0.9}{\ok{Species extinction}: $N_{\min}<1$} \\
+    \hline
+    Other & \multicolumn{4}{l||}{\textbf{Time-Independent}: At $N^*$: \ok{$\frac{dN}{dt}=0$} \ \ \ok{$N(t)=N(t-T)=N^*$} \ \ \ok{$f(N^*)=0$}} & \multicolumn{4}{l|}{\ok{Max/Min}: \scalebox{0.8}{\ps{[如果单峰(unimodal)|2-periodic]}} $f'(N_m)=0$, $N_{\max}=f(N_m)$ \ ; \ $N_{\min}=f(N_{\max})$} \\
+    \hline
+    Other & \multicolumn{8}{l|}{\ok{Tangency Condition}: If $\dot{x}=f(x,r)$, 分岔点 $(x^*,r_c)$: \ok{$\frac{\partial f}{\partial x}|_{(x^*,r_c)}=0$ \ \ $f(x^*,r_c)=0$} \quad | \quad 两点合并:\imp{coalesce}.} \\
+    \hline
+\end{tabular}
+}
+
+\vspace{-2pt}
+\begin{MyTh}{Bifuraction}
+    Qualitative changes in dynamics are called \textit{bifuractions}. \imp{\tiny (当平衡点性质|个数发生变化时)} \quad \ok{Bifuraction Diagram}: {\tiny y轴:平衡点; x轴:控制参数; 虚线unstable,实线stable.}
+\end{MyTh}
+
+\begin{MyTh}{稳定性Stability判别|For Continuous Model}
+    Find perturbation: $n(t)$ and $\frac{dn}{dt}$ \ $\Rightarrow$ \ Assume $n(t)=e^{\lambda t}|ce^{\lambda t}$ \ $\to$ \ Find $\lambda=g(\lambda)$ \ $\Rightarrow$ \ Let $\lambda=u+iw$ $\to$ $u=g_1(u)$ and $w=g_2(w)$ \ $\Rightarrow$ \ $u<0$ asy.stable; $u>0$ unstable. \quad \imp{Find $T_c$}: \ps{\tiny (如要寻找 参数(e.g. $T$) 范围/临界值 \ 使得平衡点稳定)} Check $T=0$ stable. $\Rightarrow$ Using $u=0$ \ps{\tiny (i.e. $\lambda=iw$)} to find $T_c$.
+\end{MyTh}
+
+\section{Interacting Populations}
+
+\begin{MyTh}{Lotka-Volterra Model {\tiny (Predator-Prey)}}
+    $\frac{dN}{dt}=N(a-bP); \frac{dP}{dt}=P(cN-d)$ \ $\Rightarrow$ \ nondim: $\frac{du}{d\tau}=u(1-v); \frac{dv}{d\tau}=\alpha v(u-1)$ \quad \ok{Equilibrium}: $(u^*,v^*)=(0,0),(1,1)$
+
+    {\footnotesize \quad \ok{Exact sol}: $\alpha u+v-\ln(u^\alpha v)=H$, $H>H_{min}=\alpha+1$ constant. \ \ \ps{\tiny (closed phase)}  \ \ \ok{Conservation Law}: $\frac{dH}{d\tau}=0$, here it satisfies.\ \ps{\tiny (By chain rule)}}
+
+    {\footnotesize \quad \ok{Show Level curves \ps{\tiny (constant of motion)} closed}: If $H(u,v)$ is level curve, Look $\left[\begin{smallmatrix}H_{uu} & H_{uv} \\ H_{vu} & H_{vv}\end{smallmatrix}\right]_{(u^*,v^*)}$ $\Rightarrow$ If $+/-$ definite (i.e. $\forall\lambda_i>0(<0)$) }
+
+    \vspace{-3pt}
+    {\footnotesize \quad\qquad $\Rightarrow$ It's local min/max at $(u^*,v^*)$ \& strictly convex/concave $\Rightarrow$ closed curves. \qquad \ps{Closed curves $\Rightarrow$ periodic sol.}}
+\end{MyTh}
+
+\begin{MyTh}{Determinant Stability}
+    \scriptsize
+    For model: $\left[\begin{smallmatrix}u(t) \\ v(t)\end{smallmatrix}\right]=\left[\begin{smallmatrix}f(u,v) \\ g(u,v)\end{smallmatrix}\right]${\tiny at equilibrium $(u^*,v^*)$}. Let $\left[\begin{smallmatrix}x \\ y\end{smallmatrix}\right]=\left[\begin{smallmatrix}u-u^* \\ v-v^*\end{smallmatrix}\right]$, then $\left[\begin{smallmatrix}x' \\ y'\end{smallmatrix}\right]=\left[\begin{smallmatrix}f_u & f_v \\ g_u & g_v\end{smallmatrix}\right]_{(u^*,v^*)}\left[\begin{smallmatrix}x \\ y\end{smallmatrix}\right]$
+    \ \ $\Rightarrow$ \ \ Find eigenvalues $\lambda$ of $J$ by $\det(J-\lambda I)=0$
+
+    \quad $^1$ $\det(J)>0, \text{tr}(J)<0$ $\Leftrightarrow$ $\Re(\lambda)<0$ $\rightarrow$ stable node \scalebox{0.7}{\ps{\tiny $Im(\lambda)=0$}}; stable focus=spiral point \scalebox{0.7}{\ps{\tiny $Im(\lambda)\ne0$}}; $^2$ $\det(J)>0, \text{tr}(J)>0$ $\Leftrightarrow$ $\Re(\lambda)>0$ $\rightarrow$ unstable node \scalebox{0.7}{\ps{\tiny $Im(\lambda)=0$}}; unstable focus=spiral point \scalebox{0.7}{\ps{\tiny $Im(\lambda)\ne0$}}
+
+    \quad $^3$ $\det(J)<0$ $\Leftrightarrow$ $Im(\lambda)=0$, $\lambda_1<0<\lambda_2$ $\rightarrow$ saddle point (unstable); $^4$ $\det(J)>0, \text{tr}(J)=0$ $\Leftrightarrow$ $\lambda=\pm iw$ (pure imaginary) $\rightarrow$ center (neutrally stable)
+
+    \quad \ok{Null clines}: $f(u,v)=0$ or $g(u,v)=0$ \ $\to$ \ {\tiny 得u,v表达线条是nullclines.}
+    \quad \ok{Trapping Region}: {\tiny A closed region $R$ \tiny{可以用直线/null clines构成} \ \ s.t. \ \ 所有 \ 边界的\textit{外}法线方向$\mathbf{n}$, 在对应边界上的点, 满足$\mathbf{n}\cdot\left[\begin{smallmatrix}f(u,v) \\ g(u,v)\end{smallmatrix}\right]<0$}
+\end{MyTh}
+
+\begin{MyTh}{Poincare-Bendixson Theorem}
+    One unstable node/focus/spiral point + it's in \textit{trapping region} $\Rightarrow$ A \ok{stable limit cycle} exists. \ \ \ps{\tiny (Cannot be a saddle (since $\det(J)$ cannot be $<0$))}
+\end{MyTh}
+
+\begin{MyTh}{Competition Model}
+    \ok{principal of competitive exclusion}: {\tiny If two species compete for the same limited resource, one will eventually outcompete and exclude the other.} \ps{\tiny (具体四种情况看图)}
+\end{MyTh}
+
+\begin{minipage}{0.75\textwidth}
+    \includegraphics[width=1\textwidth]{graph1.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.25\textwidth}
+    \begin{MyTh}{Mutualism|Symbiosis}(共生)
+
+        {\tiny Case I: 图(a) \ps{coexist: competition not aggressive.}}
+
+        {\tiny Case II: 两条射线 \ps{both species grow unboundedly.(all unstable)}}
+
+        {\tiny Case II: 两条向外的线相交在一点 \ps{both species tend to a stable coexistence.}}
+    \end{MyTh}
+\end{minipage}
 
 \section{Appendix}
 
@@ -99,8 +145,13 @@
     $(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots$ \quad
 \end{MyTh}
 \begin{MyTh}{Linerisation}
-    $f(x+\Delta x)=f(x)+f'(x)\Delta x+\cdots$ \quad $e^{bx}=1+bx+\frac{(bx)^2}{2!}+\cdots$
+    $f(x+\Delta x)=f(x)+f'(x)\Delta x+\cdots$ \quad $e^{bx}=1+bx+\frac{(bx)^2}{2!}+\cdots$ \quad $\ln(a+x)=\ln(a)+\frac{x}{a}-\frac{x^2}{2a^2}+\frac{x^3}{3a^3}-\cdots$
 \end{MyTh}
+
+\begin{MyTh}{Hyperbolic Functions}
+    $\sinh x=\frac{e^x-e^{-x}}{2}$ \ \ $\cosh x=\frac{e^x+e^{-x}}{2}$ \ \ $\tanh x=\frac{\sinh x}{\cosh x}$ \quad $\sinh(x)=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots$ \ \ $\cosh(x)=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots$ \ \ $\tanh(x)=x-\frac{x^3}{3}+\frac{2x^5}{15}-\cdots$
+\end{MyTh}
+
 
 
 
