@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  30 SEP 2025 17:31
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  2 OCT 2025 20:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1024,7 +1024,7 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 155.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 160.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1043,10 +1043,10 @@ Package rerunfilecheck Info: File `"CA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 20784 strings out of 468441
- 407597 string characters out of 5435450
- 1067964 words of memory out of 5000000
- 48929 multiletter control sequences out of 15000+600000
+ 20785 strings out of 468441
+ 407607 string characters out of 5435450
+ 1069964 words of memory out of 5000000
+ 48930 multiletter control sequences out of 15000+600000
  636189 words of font info for 139 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,11n,125p,542b,377s stack positions out of 10000i,1000n,20000p,200000b,200000s

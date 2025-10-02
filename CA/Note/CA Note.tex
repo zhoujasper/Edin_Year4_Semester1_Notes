@@ -133,6 +133,7 @@
 
 \begin{enumerate}
     \item $F$ field, $0\ne g\in F[x]$ non-constant: \ \ $^1$ \ok{$F[x]/\langle g\rangle$ is a field} \ $\Leftrightarrow$ \ $^2$ \ok{$g$ is irreducible in $F[x]$} \ $\Leftrightarrow$ \ $^3$ \ok{$F[x]/\langle g\rangle$ is a domain}
+    \item $F$ field, $0\ne g\in F[x]$: \ \ \ok{$g$ is irreducible \ $\Leftrightarrow$ \ $\langle g\rangle$ is prime ideal}
     \item If $R$ is ID: \ \ \ok{Prime $\Rightarrow$ Irreducible} \qquad If $0\ne a\in R$, then: \ \ \ok{$a$ prime $\Leftrightarrow$ $aR$ prime ideal}
     \item If $R$ is PID, $a\ne 0$: \ \ $^1$ \ok{$aR$ is prime ideal} \ $\Leftrightarrow$ \ $^2$ \ok{$a$ is prime} \ $\Leftrightarrow$ \ $^3$ \ok{$aR$ is maximal ideal} \ $\Rightarrow$ \ $^4$ \ok{$a$ is irreducible}
 \end{enumerate}
@@ -148,6 +149,10 @@
     \quad \ok{Common ED}: $\Z,F[x]$, $\Z[i]${\tiny Gaussian Integers} are ED, with $v(a)=|a|,v(f)=\deg(f),v(a+bi)=a^2+b^2$ respectively.
 
     \quad \ok{Euclidean Algorithm}: If $R$ ED, $a,b\in R\setminus\{0\}$, then $\gcd(a,b)=xa+yb$ for some $x,y\in R$. \ps{\tiny (extended of Bezout's Identity)}
+\end{MyTh}
+
+\begin{MyTh}{\imp{Bezout's Identity}}
+    $R$ is \textit{PID}, then $\forall a,b\in R$, $\exists x,y\in R$ s.t. $ax+by=\gcd(a,b)$.
 \end{MyTh}
 
 
