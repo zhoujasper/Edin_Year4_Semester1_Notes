@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  30 SEP 2025 13:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  4 OCT 2025 13:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1077,7 +1077,7 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 190.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 204.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1086,17 +1086,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 10.54048pt on input line 190.
+(Font)              scaled to size 10.54048pt on input line 204.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 7.37834pt on input line 190.
+(Font)              scaled to size 7.37834pt on input line 204.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 5.27023pt on input line 190.
+(Font)              scaled to size 5.27023pt on input line 204.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 10.53824pt on input line 190.
+(Font)              scaled to size 10.53824pt on input line 204.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 7.37677pt on input line 190.
+(Font)              scaled to size 7.37677pt on input line 204.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 5.26912pt on input line 190.
+(Font)              scaled to size 5.26912pt on input line 204.
 [1
 
 ]
@@ -1130,12 +1130,12 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 
 
 
-Overfull \hbox (6.50821pt too wide) in paragraph at lines 484--485
+Overfull \hbox (6.50821pt too wide) in paragraph at lines 498--499
 [] $[] [] [][][]$   [][][] 
  []
 
 
-Overfull \hbox (11.00758pt too wide) in paragraph at lines 485--486
+Overfull \hbox (11.00758pt too wide) in paragraph at lines 499--500
 [] $[] [] [][][]$   [][][] 
  []
 
@@ -1159,9 +1159,9 @@ Overfull \hbox (11.00758pt too wide) in paragraph at lines 485--486
 
 [2]
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 7.52892pt on input line 545.
+(Font)              scaled to size 7.52892pt on input line 575.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 7.52731pt on input line 545.
+(Font)              scaled to size 7.52731pt on input line 575.
 
 
 [3] (./NLA Note.aux)
@@ -1173,12 +1173,12 @@ Package rerunfilecheck Info: File `"NLA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 22887 strings out of 468441
- 447231 string characters out of 5435450
- 1091965 words of memory out of 5000000
- 50990 multiletter control sequences out of 15000+600000
- 638841 words of font info for 161 fonts, out of 8000000 for 9000
+ 22897 strings out of 468441
+ 447475 string characters out of 5435450
+ 1097965 words of memory out of 5000000
+ 50998 multiletter control sequences out of 15000+600000
+ 638857 words of font info for 163 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,13n,125p,627b,804s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,13n,125p,627b,964s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on NLA Note.pdf (3 pages).

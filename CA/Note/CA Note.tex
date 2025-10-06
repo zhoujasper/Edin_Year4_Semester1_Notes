@@ -65,9 +65,10 @@
 
 
 \section{Types of Ideals}
+\vspace{-13pt}\hspace{90pt} \imp{(Maximal Ideals $\Rightarrow$ Prime Ideals $\Rightarrow$ Radical Ideals $\Rightarrow$ Ideals)}
 
 \begin{MyTh}{Division}
-    If $R$ ring, then: \ \ $\forall f,g\in R[x],${\scriptsize $g$首相系数可逆} \ \ $\Rightarrow$ \ \ $\exists q,r\in R[x]$ s.t. $f(x)=g(x)q(x)+r(x)$ and $\deg(r)<\deg(g)$ or $r=0$.
+    If $R$ ring, then: \ \ $\forall f,g\in R[x],${\scriptsize $g$首相系数可逆} \ \ $\Rightarrow$ \ \ \ok{$\exists q,r\in R[x]$ s.t. $f(x)=g(x)q(x)+r(x)$ and $\deg(r)<\deg(g)$ or $r=0$.}
 
     \quad \begin{MyTh}{Lemma}
         If $R$ ring, $g\in R[x],g\ne0$, $I=(g)$. \ $\Rightarrow$ \ $^1$ $\forall i\in R[x]/I,i=f+I,\deg(f)<\deg(g)$
@@ -80,6 +81,7 @@
     \quad \ok{Remark}: {\scriptsize 有些时候我们能用 $\gcd,\text{lcm}$ 计算 $<a,b>=<\gcd(a,b)>$ 和 $a\cap b=<\text{lcm}(a,b)>$ [If $R$ communicative ring] 但注意! 要在能够用 Division Algorithm | 有 $\gcd,\text{lcm}$ 的环里用.}
 \end{MyTh}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \begin{MyTh}{Principal Ideal}
     Ideal $I$: Iff $I=aR$ \quad
 \end{MyTh}
@@ -94,16 +96,17 @@
 \begin{MyTh}{Radical|Radical Ideal}
     $I$: \ok{Radical}: $\sqrt{I}=\{r\in R:r^n\in I \text{ for some } n\in\N\}$ \quad \ok{Radical Ideal}: If $I=\sqrt{I}$ \qquad $I\subseteq \sqrt{I}$ always.
 \end{MyTh}
+}}
 
 \begin{MyTh}{Properties}
-    Relationship between these kinds of ideals: \quad \textbf{Maximal Ideals $\subseteq$ Prime Ideals $\subseteq$ Radical Ideals $\subseteq$ Ideals}
+    Relationship between these kinds of ideals:
     \begin{enumerate}
-        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}. \qquad \ok{$I$ maximal $\Leftrightarrow$ $R/I$ is a field} \qquad \ok{$I$ maximal $\Rightarrow$ $I$ prime}
+        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}. \qquad \ok{$I$ maximal $\Leftrightarrow$ $R/I$ is a field}
         \item {\footnotesize $R$ ring, $I_1,I_2,...,I_n\triangleleft R$, \ok{$I_1\cap I_2\cap\cdots\cap I_n=\{0\}$} \ \ $\Rightarrow$ \ \ $R$ isomorphic to a subring of $R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$. \ps{\scriptsize \imp{$R\cong R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$} if $I_i+I_j=R$ for $i\ne j$}}
         \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \imp{$(R/I)/J\cong R/T$}}
         \qquad {\small If $J=\langle j_1+I,...,j_n+I\rangle$ then $T=\langle j_1,...,j_n\rangle+I=\langle j_1,...,j_n,I\rangle$ \quad Moreover, if $I=\langle i_1,...,i_m\rangle$, then $T=\langle j_1,...,j_n,i_1,...,i_m\rangle$}
-        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nilpotent elements {\tiny except $0$}} \qquad \ok{$I$ prime $\Rightarrow$ $I$ radical} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
-        \item If $R$ (commutative with \textit{unity}), then any ideal $I\ne R$ is contained in a \textit{maximal} ideal. \qquad \comment{If $r$ is \textit{not a unit}, then $1\notin \langle r\rangle=rR$}
+        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nilpotent elements {\tiny except $0$}} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
+        \item If $R$ (commutative with \textit{unity}), then \ok{any ideal $I\ne R$ is contained in a \textit{maximal} ideal.} \qquad \comment{If $r$ is \textit{not a unit}, then $1\notin \langle r\rangle=rR$}
     \end{enumerate}
 \end{MyTh}
 
@@ -121,8 +124,9 @@
 
 \vspace{4pt}
 \section{PID | UFD | Euclidean Domain}
-\vspace{-13pt}\hspace{160pt} \textbf{(ED $\Rightarrow$ PID $\Rightarrow$ UFD $\Rightarrow$ ID)}
+\vspace{-13pt}\hspace{160pt} \imp{(ED $\Rightarrow$ PID $\Rightarrow$ UFD $\Rightarrow$ ID)}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \begin{MyTh}{Irreducible}
     $0\ne a\in R\setminus R^\times$ is \ok{Irreducible}: If $a=bc$, then $b\in R^\times$ or $c\in R^\times$.
 \end{MyTh}
@@ -140,16 +144,17 @@
 \vspace{4pt}
 
 \begin{MyTh}{PID}
-    $R$ communicative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$F,F[x]$ field is PID.}
+    $R$ communicative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$\Z,F,F[x]$ field is PID.}
 \end{MyTh}
 
 \begin{MyTh}{ED}
-    {\small $R$ is \textit{ID}. \ $R$ is \textit{Euclidean Domain} if: \ \ \ok{\scriptsize (Euclidean Function)} $\exists v:R\setminus\{0\}\to \N_0$ s.t. $\forall a,b\in R,b\ne0$, $\exists q,r\in R$ s.t. $a=bq+r$ and $r=0$ or $v(r)<v(b)$.}
+    {\small $R$ is \textit{ID}. \ $R$ is \textit{Euclidean Domain} if: \ \ \ok{\scriptsize (Euclidean func)} $\exists v:R\setminus\{0\}\to \N_0$ s.t. $\forall a,b\in R,b\ne0$, $\exists q,r\in R$ s.t. $a=bq+r$ and $r=0$ or $v(r)<v(b)$.}
 
     \quad \ok{Common ED}: $\Z,F[x]$, $\Z[i]${\tiny Gaussian Integers} are ED, with $v(a)=|a|,v(f)=\deg(f),v(a+bi)=a^2+b^2$ respectively.
 
     \quad \ok{Euclidean Algorithm}: If $R$ ED, $a,b\in R\setminus\{0\}$, then $\gcd(a,b)=xa+yb$ for some $x,y\in R$. \ps{\tiny (extended of Bezout's Identity)}
 \end{MyTh}
+}}
 
 \begin{MyTh}{\imp{Bezout's Identity}}
     $R$ is \textit{PID}, then $\forall a,b\in R$, $\exists x,y\in R$ s.t. $ax+by=\gcd(a,b)$.

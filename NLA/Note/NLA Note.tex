@@ -186,6 +186,18 @@
 
 \section{Iterative Methods for SLE}
 
+\begin{MyTh}{Iterative Method}
+  For SLE $\mathbf{Ax}=\mathbf{b}$, if $\mathbf{A}=\mathbf{M}+\mathbf{N}$ with $\mathbf{M}$ is \textit{simpler structure} than $\mathbf{A}$. \ps{\tiny (例如: 对角/三角/对称矩阵)} \ \ $\Rightarrow$ \ \ {\scriptsize 迭代求解近似解} \ \ \ps{\tiny Diff choices $\mathbf{M},\mathbf{N}\to$ different iterative methods.}
+\end{MyTh}
+
+\begin{MyTh}{Error Analysis}
+  Error $\mathbf{e}_k:=\mathbf{x}-\mathbf{x}_k$ $\Rightarrow$ $\mathbf{e}_k=\mathbf{R}^k\mathbf{e}_0$ \ \ps{\tiny $\mathbf{R}:=-\mathbf{M}^{-1}\mathbf{N}$} \quad \ok{Theorem}: If $\|\mathbf{R}\|_p<1$, then $\lim\limits_{k\to\infty}\|\mathbf{e}_k\|_p=0$ \ \ $\Leftrightarrow$ \ \ $\lim\limits_{k\to\infty}\mathbf{x}_k=\mathbf{x}$ \ps{\tiny(Convergence)} \quad \ok{\scriptsize GAU 收敛快于 JAC}
+
+  \vspace{-2pt}
+  \quad \ok{JAC|GAU}: If $\mathbf{A}$ is \ok{strictly diagonally dominant} [i.e. $|a_{ii}|>\sum_{j\ne i}|a_{ij}|$ $\forall i$ \ps{\tiny (对角线元素大于该行其他元素之和)}], then converges for $p=\infty$. \quad \ps{\tiny For $p=1$ 看列和/转置.}
+\end{MyTh}
+
+
 
 
 
@@ -242,7 +254,7 @@
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.9cm}
+\vspace{-0.8cm}
 
 
 \subsection{LU FS BS | GE GEPP GECP | LUPP LUCP}
@@ -295,7 +307,7 @@
 
 \end{multicols}
 
-\vspace{-0.9cm}
+\vspace{-0.8cm}
 \begin{multicols}{3}
 
 % ----- Algorithm GE -----
@@ -340,7 +352,7 @@
 
 \end{multicols}
 
-\vspace{-0.9cm}
+\vspace{-0.8cm}
 \begin{multicols}{2}
 
 % ----- Algorithm LUPP -----
@@ -388,10 +400,10 @@
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.9cm}
+\vspace{-0.8cm}
 
 
-\subsection{Max GS MGS SQR | Householder-QR}
+\subsection{(M)GS SQR Householder-QR}
 
 \vspace{-9pt}
 
@@ -490,14 +502,30 @@
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.8cm}
+\vspace{-0.75cm}
 
 
-\subsection{Other | Max}
+\subsection{Iterative Method | OP  MAX}
 
 \vspace{-8pt}
 
 \begin{multicols}{3}
+
+% ----- Algorithm GI -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{\ok{GI}|JAC|GAU} \quad \ok{\tiny JAC:$C=\Ocal(k_{\max} n^2)$} \quad | \quad \ok{\tiny GAU:$C=\Ocal(k_{\max} n^2)$}}
+\textbf{Input:} $\mathbf{A} = \mathbf{M} + \mathbf{N} \in \mathbb{R}^{n \times n}$, $\mathbf{b} \in \mathbb{R}^n$, $\mathbf{x}_0\in \mathbb{R}^n$, $\eps_r>0$ \\
+\textbf{Output:} $\mathbf{x}_k \in \mathbb{R}^n$ with $\mathbf{Ax}_k \approx \mathbf{b}$
+\begin{algorithmic}[1]
+  \State $k = 0$ \ \ \textcolor{gray}{\tiny \# JAC: $C=2n^2$/it \quad GAU: $C=2n^2$/it}
+  \While{$\|\mathbf{Ax}_k - \mathbf{b}\|_p > \eps_r $} \quad \textcolor{gray}{\tiny \# e.g. $\eps_r=10^{-3}\|\mathbf{b}\|_p$}
+    \State $k = k + 1$ \quad \textcolor{green}{\tiny \# 上面给的$C$不含这步}
+    \State Compute $\mathbf{y}_k = \mathbf{b}-\mathbf{N}\mathbf{x}_{k-1}$
+    \State Solve $\mathbf{M}\mathbf{x}_k = \mathbf{y}_k$ \quad \textcolor{gray}{\tiny \# $\downarrow$ $\mathbf{A}=\mathbf{D}+\mathbf{L}+\mathbf{U}$}
+  \EndWhile \quad \textcolor{red}{\tiny \# JAC: $M=D$, $N=L+U$; \ GAU:$M=D+L$, $N=U$}
+\end{algorithmic}
+\end{algorithm}
 
 % ----- Algorithm OP -----
 \begin{algorithm}[H]
