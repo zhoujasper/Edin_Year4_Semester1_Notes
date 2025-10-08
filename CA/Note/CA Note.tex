@@ -134,17 +134,19 @@
 \begin{MyTh}{Prime}
     $0\ne a\in R\setminus R^\times$ is \ok{Prime}: If $a\mid bc$, then $a\mid b$ or $a\mid c$. \ \ \ps{\tiny (If $R$ communicative ring, then prime $\Rightarrow$ irreducible)}
 \end{MyTh}
+}}
 
 \begin{enumerate}
     \item $F$ field, $0\ne g\in F[x]$ non-constant: \ \ $^1$ \ok{$F[x]/\langle g\rangle$ is a field} \ $\Leftrightarrow$ \ $^2$ \ok{$g$ is irreducible in $F[x]$} \ $\Leftrightarrow$ \ $^3$ \ok{$F[x]/\langle g\rangle$ is a domain}
     \item $F$ field, $0\ne g\in F[x]$: \ \ \ok{$g$ is irreducible \ $\Leftrightarrow$ \ $\langle g\rangle$ is prime ideal}
-    \item If $R$ is ID: \ \ \ok{Prime $\Rightarrow$ Irreducible} \qquad If $0\ne a\in R$, then: \ \ \ok{$a$ prime $\Leftrightarrow$ $aR$ prime ideal}
-    \item If $R$ is PID, $a\ne 0$: \ \ $^1$ \ok{$aR$ is prime ideal} \ $\Leftrightarrow$ \ $^2$ \ok{$a$ is prime} \ $\Leftrightarrow$ \ $^3$ \ok{$aR$ is maximal ideal} \ $\Rightarrow$ \ $^4$ \ok{$a$ is irreducible}
+    \item If $R$ is \comment{ID}: \ \ \ok{Prime $\Rightarrow$ Irreducible} \qquad If $0\ne a\in R$, then: \ \ \ok{$a$ prime $\Leftrightarrow$ $aR$ prime ideal}
+    \item If $R$ is \comment{PID}, $a\ne 0$: \ \ $^1$ \ok{$aR$ is prime ideal} \ $\Leftrightarrow$ \ $^2$ \ok{$a$ is prime} \ $\Leftrightarrow$ \ $^3$ \ok{$aR$ is maximal ideal} \ \imp{$\Rightarrow$} \ $^4$ \ok{$a$ is irreducible}
 \end{enumerate}
 \vspace{4pt}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \begin{MyTh}{PID}
-    $R$ communicative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$\Z,F,F[x]$ field is PID.}
+    $R$ communicative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$\Z,F,F[x]$ is PID.}
 \end{MyTh}
 
 \begin{MyTh}{ED}
@@ -154,12 +156,81 @@
 
     \quad \ok{Euclidean Algorithm}: If $R$ ED, $a,b\in R\setminus\{0\}$, then $\gcd(a,b)=xa+yb$ for some $x,y\in R$. \ps{\tiny (extended of Bezout's Identity)}
 \end{MyTh}
-}}
 
-\begin{MyTh}{\imp{Bezout's Identity}}
-    $R$ is \textit{PID}, then $\forall a,b\in R$, $\exists x,y\in R$ s.t. $ax+by=\gcd(a,b)$.
+\begin{MyTh}{UFD (Def 1)}
+    $R$ ID is \textit{unique factorization domain} if: \ok{UFD 1}: $\forall a\in R\setminus\{0\}$, $\exists$ irreducibles $p_1,...,p_n\in R$ s.t. $a=p_1p_2...p_n$
+
+    \quad \ok{UFD 2}: Any other irreducibles $q_1,...,q_m\in R$ s.t. $a=q_1q_2...q_m$, \ \ then \comment{$n=m$ and $p_i=u_iq_i$ for some $u_i\in R^\times$} after reordering.
 \end{MyTh}
 
+\begin{MyTh}{Acending Chain Condition (ACC)}
+    A sequence of ideals $I_1\subseteq I_2\subseteq I_3\subseteq...$ \textit{satisfies ACC} if: \comment{$\exists n\in\N$ s.t. $I_n=I_{n+1}=I_{n+2}=...$}
+\end{MyTh}
+
+\begin{MyTh}{UFD (Def 2)}
+    $R$ ID is \textit{UFD} if: \ok{UFD 1}: Every sequence of \textit{Principal Ideals} satisfies \comment{Ascending Chain Condition (ACC)}
+    
+    \quad \ok{UFD 2}: If $a$ irreducible, \ \ then $a$ is prime \comment{($\Leftrightarrow$ $aR$ is a prime ideal.)} \qquad\qquad\quad \ok{Causs's Theorem: If $R$ is UFD, then $R[x]$ is UFD.}
+\end{MyTh}
+}}
+
+\begin{enumerate}
+    \item \begin{MyTh}{\imp{Bezout's Identity}}
+              $R$ is \textit{PID}, then $\forall a,b\in R$, $\exists x,y\in R$ s.t. $ax+by=\gcd(a,b)$.
+          \end{MyTh}
+    \item $R$ UFD: \ \ \ok{$a$ prime $\Leftrightarrow$ $a$ irreducible} \qquad \qquad $\cdot$ \ok{$R$ PID: Every sequence of ideals satisfies ACC.}
+\end{enumerate}
+\vspace{4pt}
+
+
+\section{Localisation}
+
+\fbox{\parbox[c]{0.98\textwidth}{
+\begin{MyTh}{Field of Fractions ($F_R$)}
+    $R$ is ID, $S=R\setminus\{0\}$. \ \ Def \textit{equivalence relation} $\sim$ on $R\times S$ by: \ \ $(a,b)\sim(c,d)$ $\Leftrightarrow$ $ad=bc$. \ \ \comment{\footnotesize (Like $\frac{a}{b}=\frac{c}{d}$)}
+
+    \quad Then the \textit{field of fractions} $F_R$ of $R$: \ \ \ok{$F_R=(R\times S)/\sim \ =\{\frac{a}{b} : a\in R,b\in S\}$} \ \ \comment{where \ $\frac{a}{b}:=\{(a',b'):(a',b')\sim(a,b)\}$}
+
+    \quad \ok{Operations}: \ \ $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$, \ \ $\frac{a}{b}\cdot\frac{c}{d}=\frac{ac}{bd}$, \ \ \comment{Identity}: $0_{F_R}=\frac{0}{1},1_{F_R}=\frac{1}{1}$ \ \ \comment{Inverse}: $-\frac{a}{b}=\frac{-a}{b},(\frac{a}{b})^{-1}=\frac{b}{a}$ if $a\ne0$.
+
+    \quad \ok{Remark}: $\tau:R\to F_R$ by $\tau(r)=\frac{r}{1}$ is a 1-1 ring homomorphism. \quad \ps{ps:Isomorphism to $\{\frac{r}{1}:r\in R\}\subseteq F_R$.} \qquad \ok{$F_R$ is a field.}
+\end{MyTh}
+
+\begin{MyTh}{Multiplicative Set}
+    $R$ communicative ring. \ \ $X \subseteq R$ is a \textit{multiplicative set} if: \ok{1}: $1_R\in X$ \quad \ok{2}: {\footnotesize 乘法封闭} \quad ( option *\ok{3}: $0_R\notin X$ )
+\end{MyTh}
+
+\begin{MyTh}{Ring of Fractions ($X^{-1}R$)}
+    $R$ {\tiny 交换环}, $X\subseteq R$ multiplicative set. \ \ Def \textit{e.r.} $\sim$ on $R\times X$ by: \ \ {\footnotesize $(a,x)\sim(b,y)$ $\Leftrightarrow$ $\exists s\in X$ s.t. $s(ay-bx)=0$.}
+
+    \quad Then the \textit{ring of fractions} $X^{-1}R$: \ \ \ok{$X^{-1}R=(R\times X)/\sim \ =\{\frac{a}{x} : a\in R,x\in X\}$} \ \ \comment{where \ $\frac{a}{x}:=\{(a',x'):(a',x')\sim(a,x)\}$}
+
+    \quad \ok{Operations}: \ \ $\frac{a}{x}+\frac{b}{y}=\frac{ay+bx}{xy}$, \ \ $\frac{a}{x}\cdot\frac{b}{y}=\frac{ab}{xy}$, \ \ \comment{Identity}: $0_{X^{-1}R}=\frac{0}{1},1_{X^{-1}R}=\frac{1}{1}$ \ \ \comment{Inverse}: $-\frac{a}{x}=\frac{-a}{x}$ If $a\in X$, then $(\frac{a}{x})^{-1}=\frac{x}{a}$.
+
+    \quad \ok{Remark}: $\varphi:R\to X^{-1}R$ by $\tau(r)=\frac{r}{1}$ is a ring homomorphism. \quad \ps{ps:Isomorphism to $\{\frac{r}{1}:r\in R\}\subseteq X^{-1}R$.} \qquad \ok{$X^{-1}R$ is a ring.}
+\end{MyTh}
+
+\begin{MyTh}{Localisation}
+    $P$ prime ideal of $A$. \ $\Rightarrow$ \ $^1$\ok{$S=A\setminus P$} is a \textit{multiplicative set}. \ \ $^2$\textit{Localisation of $A$ at $P$}: \ \ \ok{$A_P=S^{-1}A$}
+\end{MyTh}
+}}
+
+\begin{MyTh}{Theorem}
+    $A$ communicative ring, then: \ \ $A_p=S^{-1}A$ has \ok{only one maximal ideal}, which is \ok{$S^{-1}P$}. \ \ \comment{ps: $S=A\setminus P$}
+\end{MyTh}
+
+
+\subsection{Nil and Jacobson Radical Ideals}
+
+\fbox{\parbox[c]{0.98\textwidth}{
+\begin{MyTh}{Nil Ideal}
+    $I$ ideal of $R$. \ \ $I$ is a \textit{nil ideal} if: \ \ $\forall x\in I$, $\exists n\in\N$ s.t. $x^n=0$. \ \ \comment{i.e. every element of $I$ is nilpotent.} \qquad\quad \ps{$\downarrow$ 用geometric series证明}
+\end{MyTh}
+
+\begin{MyTh}{Jacobson Radical Ideal (JRI)}
+    $I$ ideal of $R$. \ \ $I$ is a \textit{Jacobson radical ideal} if: \ \ $\forall x\in R$, $1-rx$ is a \textit{unit} in $R$. \qquad \ok{*Nil ideal $\Rightarrow$ JRI}
+\end{MyTh}
+}}
 
 
 \end{document}

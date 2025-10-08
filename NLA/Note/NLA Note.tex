@@ -82,7 +82,7 @@
     $\kappa_p(\mathbf{A}):=$
     {\tiny
     $\begin{cases}
-      \|\mathbf{A}\|_p\|\mathbf{A}^{-1}\|_p\geq1 & \text{if } \mathbf{A} \text{ is invertible} \\
+      \|\mathbf{A}\|_p\|\mathbf{A}^{-1}\|_p=\|\mathbf{A}\|_p\|\mathbf{A}^{\dagger}\|_p\geq1 & \text{if } \mathbf{A} \text{ is invertible} \\
       \infty & \text{otherwise}
     \end{cases}
     \qquad\begin{cases}
@@ -184,7 +184,7 @@
 \end{MyTh}
 
 
-\section{Iterative Methods for SLE}
+\section{Iterative Methods for SLE \& Polynomial Fitting}
 
 \begin{MyTh}{Iterative Method}
   For SLE $\mathbf{Ax}=\mathbf{b}$, if $\mathbf{A}=\mathbf{M}+\mathbf{N}$ with $\mathbf{M}$ is \textit{simpler structure} than $\mathbf{A}$. \ps{\tiny (例如: 对角/三角/对称矩阵)} \ \ $\Rightarrow$ \ \ {\scriptsize 迭代求解近似解} \ \ \ps{\tiny Diff choices $\mathbf{M},\mathbf{N}\to$ different iterative methods.}
@@ -197,6 +197,21 @@
   \quad \ok{JAC|GAU}: If $\mathbf{A}$ is \ok{strictly diagonally dominant} [i.e. $|a_{ii}|>\sum_{j\ne i}|a_{ij}|$ $\forall i$ \ps{\tiny (对角线元素大于该行其他元素之和)}], then converges for $p=\infty$. \quad \ps{\tiny For $p=1$ 看列和/转置.}
 \end{MyTh}
 
+\vspace{-2pt}
+\begin{MyTh}{Vandermonde Matrix}
+  $A\in \R^{n\times m}$ s.t. $a_{ij}=a_i^{j-1}$
+\end{MyTh}
+\begin{MyTh}{Poly}
+  Deg $m-1$ poly fit to points: $\{(a_i,b_i)\}_{i=1}^n$ by solving \textit{$\mathbf{Ax}=\mathbf{b}$} $\Rightarrow$ \ps{\tiny sol $\mathbf{x}$ is coeff. of poly $p(x)=\sum_{j=1}^m x_j x^{j-1}$}
+\end{MyTh}
+
+\begin{MyTh}{LSP}
+  Finding \textit{line} which best fits $\{(a_i,b_i)\}_{i=1}^n$ by \textit{minimise} \comment{$\|\mathbf{Ax}-\mathbf{b}\|_2$}, $A\in\R^{n\times 2}$ vandermonde. \quad
+  \textbf{Thm}: \textit{minimises} \ok{$\|\mathbf{Ax}-\mathbf{b}\|_2$ $\Leftrightarrow$} solve \ok{\scriptsize Normal Equations} \ok{$\mathbf{A}^\top\mathbf{Ax}=\mathbf{A}^\top\mathbf{b}$}
+
+  \quad \ok{Moore-Penrose Pseudo-inverse of $A$}: $\mathbf{A}^\dagger = (\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top$ \quad $\cdot$ \textit{Normal Equations} has \ok{unique sol} if $\mathbf{A}\mathbf{A}^\top$ invertible. \quad $\cdot$ If $\mathbf{A}$ invertible, \ok{$\mathbf{A}^\dagger=\mathbf{A}^{-1}$}
+  \ps{\tiny ps:范德蒙德矩阵ill-cond.}
+\end{MyTh}
 
 
 

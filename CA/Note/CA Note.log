@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  6 OCT 2025 11:28
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  7 OCT 2025 19:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -766,13 +766,13 @@ Package fontspec Info:
 (fontspec)             Modern Math/OT:script=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 153.
+(Font)              `operators' in the math version `normal' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/LatinModernMath(1)/m/n on input line 153.
+(Font)                  OT1/cmr/m/n --> TU/LatinModernMath(1)/m/n on input line 154.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 153.
+(Font)              `operators' in the math version `bold' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/LatinModernMath(1)/b/n on input line 153.
+(Font)                  OT1/cmr/bx/n --> TU/LatinModernMath(1)/b/n on input line 154.
 
 Package fontspec Info: 
 (fontspec)             Latin Modern Math scale = 1.0001.
@@ -825,13 +825,13 @@ Package fontspec Info:
 (fontspec)             Modern Math/OT:script=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 153.
+(Font)              `symbols' in the math version `normal' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/LatinModernMath(2)/m/n on input line 153.
+(Font)                  OMS/cmsy/m/n --> TU/LatinModernMath(2)/m/n on input line 154.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 153.
+(Font)              `symbols' in the math version `bold' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/LatinModernMath(2)/b/n on input line 153.
+(Font)                  OMS/cmsy/b/n --> TU/LatinModernMath(2)/b/n on input line 154.
 
 Package fontspec Info: 
 (fontspec)             Latin Modern Math scale = 0.9999.
@@ -878,13 +878,13 @@ Package fontspec Info:
 (fontspec)             Modern Math/OT:script=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 153.
+(Font)              `largesymbols' in the math version `normal' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/m/n on input line 153.
+(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/m/n on input line 154.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 153.
+(Font)              `largesymbols' in the math version `bold' on input line 154.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/b/n on input line 153.
+(Font)                  OMX/cmex/m/n --> TU/LatinModernMath(3)/b/n on input line 154.
  (d:/windows/ProgramFiles/TeX Live/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip79
@@ -937,18 +937,18 @@ LaTeX Font Info:    ... okay on input line 6.
 * vratio: 1:1
 * modes: includefoot 
 * h-part:(L,W,R)=(22.76228pt, 551.9833pt, 22.76228pt)
-* v-part:(T,H,B)=(22.76228pt, 808.0582pt, 14.22636pt)
+* v-part:(T,H,B)=(17.07182pt, 816.5941pt, 11.38092pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=551.9833pt
-* \textheight=778.0582pt
+* \textheight=786.5941pt
 * \oddsidemargin=-49.5077pt
 * \evensidemargin=-49.5077pt
-* \topmargin=-86.5077pt
+* \topmargin=-92.19817pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
-* \footskip=30.0pt
+* \footskip=0.0pt
 * \marginparwidth=57.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
@@ -1024,7 +1024,7 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 165.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 236.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1032,9 +1032,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\footskip}{12.64723pt}.
+
 [1
 
-] (./CA Note.aux)
+]
+
+[2] (./CA Note.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1043,12 +1050,12 @@ Package rerunfilecheck Info: File `"CA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 20787 strings out of 468441
- 407694 string characters out of 5435450
- 1070964 words of memory out of 5000000
- 48931 multiletter control sequences out of 15000+600000
- 636197 words of font info for 140 fonts, out of 8000000 for 9000
+ 20796 strings out of 468441
+ 407923 string characters out of 5435450
+ 1111965 words of memory out of 5000000
+ 48938 multiletter control sequences out of 15000+600000
+ 636213 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,11n,125p,542b,431s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,11n,125p,542b,421s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on CA Note.pdf (1 page).
+Output written on CA Note.pdf (2 pages).

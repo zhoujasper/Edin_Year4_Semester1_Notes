@@ -143,12 +143,25 @@
 
 \vspace{-5pt}
 \begin{MyTh}{Enzyme Kinetics}
-    {\footnotesize e.g. $S+E\underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}}SE\stackrel{k_2}{\rightarrow}P+E$} \quad \comment{$K_i$}: rate of reaction; \comment{$S$}: substrate; \comment{$E$}: enzyme; \comment{$SE$}: complex; \comment{$P$}: product.
-
-    
+    {\footnotesize e.g. $S+E\underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}}SE\stackrel{k_2}{\rightarrow}P+E$} \quad \comment{$K_i$}: rate of reaction; \comment{$S$}: substrate; \comment{$E$}: enzyme; \comment{$SE$}: complex; \comment{$P$}: product.    
 \end{MyTh}
 
+\vspace{-5pt}
+\begin{MyTh}{Singular Perturbations Analysis}
+    For $\frac{du}{d\tau}=f(u,v)$, $\eps\frac{dv}{d\tau}=g(u,v)$, $0<\eps\ll1$ \ $\Rightarrow$ \ $v$ fast \ps{\tiny (when $g\not\to0$)}, $u$ slow. \ \ {\scriptsize \ok{Quasi-steady-state approximation}: $\eps\to0$ $\Rightarrow$ $g(u,v)=0$}
 
+    \vspace{-3pt}
+    {\footnotesize \quad \ok{Taylor: $u(\tau,\eps)=\sum\limits_{n=0}^\infty \eps^n u_n(\tau)$; $v(\tau,\eps)=\sum\limits_{n=0}^\infty \eps^n v_n(\tau)$}} \quad \ok{Outer solution}: {\scriptsize Taylor带入原方程组$\to$保留$\Ocal(1)|\eps=0$} \ \ \ps{\tiny Valid for $\tau>0$ (slow time); $v_0(0)$ unvalid.$\to$not uniformly valid for $\tau\geq0$}
+    
+    \vspace{-3pt}
+    {\footnotesize \quad \ok{Inner solution}: $\sigma = \frac{\tau}{\eps}$, $\begin{smallmatrix}U(\sigma;\eps)=u(\tau;\eps) \\ V(\sigma;\eps)=v(\tau;\eps)\end{smallmatrix}$ $\Rightarrow$ $\frac{dU}{d\sigma}=\eps f(u,v)$, $\frac{dV}{d\sigma}=g(u,v)$ $\to$ {\scriptsize Taylor 带入原方程组$\to$保留$\Ocal(1)|\eps=0$} \ps{\tiny (known as \ok{boundary layer} ($\tau=0$处)); Valid $\tau=0$ (fast time)}}
+
+    {\footnotesize \quad \ok{Asymptotic Matching}: {\scriptsize $\lim\limits_{\sigma\to\infty}[U_0(\sigma),V_0(\sigma)]=\lim\limits_{\tau\to0^+}[u_0(\tau),v_0(\tau)]$} \qquad \ok{Uniformly Valid Solution}: {\scriptsize $u(\tau;\eps)=u_0(\tau)+\Ocal(\eps)$; $v(\tau;\eps)=\left\{ \begin{smallmatrix} v_0(\tau)+\Ocal(\eps), & 0<\eps\ll \tau \\ V_0(\sigma)+\Ocal(\eps), & 0<\tau\ll 1 \end{smallmatrix}\right.$}}
+\end{MyTh}
+
+\begin{MyTh}{Activator-Inhibitor Model}
+    
+\end{MyTh}
 
 
 
