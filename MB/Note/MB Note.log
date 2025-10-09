@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  8 OCT 2025 22:27
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  9 OCT 2025 11:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1093,14 +1093,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--74
 File: graph1.png Graphic file (type bmp)
 <graph1.png>
 
-Overfull \hbox (1.17447pt too wide) in paragraph at lines 118--140
+Overfull \hbox (1.17447pt too wide) in paragraph at lines 118--145
 []$[]$  $[]$ 
  []
 
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 194.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 199.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1126,7 +1126,7 @@ Package rerunfilecheck Info: File `"MB Note".out' has not changed.
 Here is how much of TeX's memory you used:
  21184 strings out of 468441
  414442 string characters out of 5435450
- 1128966 words of memory out of 5000000
+ 1129966 words of memory out of 5000000
  49307 multiletter control sequences out of 15000+600000
  635980 words of font info for 141 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

@@ -96,7 +96,7 @@
 
 \begin{MyTh}{Determinant Stability}
     \scriptsize
-    For model: $\left[\begin{smallmatrix}u(t) \\ v(t)\end{smallmatrix}\right]=\left[\begin{smallmatrix}f(u,v) \\ g(u,v)\end{smallmatrix}\right]${\tiny at equilibrium $(u^*,v^*)$}. Let $\left[\begin{smallmatrix}x \\ y\end{smallmatrix}\right]=\left[\begin{smallmatrix}u-u^* \\ v-v^*\end{smallmatrix}\right]$, then $\left[\begin{smallmatrix}x' \\ y'\end{smallmatrix}\right]=\left[\begin{smallmatrix}f_u & f_v \\ g_u & g_v\end{smallmatrix}\right]_{(u^*,v^*)}\left[\begin{smallmatrix}x \\ y\end{smallmatrix}\right]$
+    For model: $\left[\begin{smallmatrix}u'(t) \\ v'(t)\end{smallmatrix}\right]=\left[\begin{smallmatrix}f(u,v) \\ g(u,v)\end{smallmatrix}\right]${\tiny at equilibrium $(u^*,v^*)$}. Let $\left[\begin{smallmatrix}x \\ y\end{smallmatrix}\right]=\left[\begin{smallmatrix}u-u^* \\ v-v^*\end{smallmatrix}\right]$, then $\left[\begin{smallmatrix}x' \\ y'\end{smallmatrix}\right]=\left[\begin{smallmatrix}f_u & f_v \\ g_u & g_v\end{smallmatrix}\right]_{(u^*,v^*)}\left[\begin{smallmatrix}x \\ y\end{smallmatrix}\right]$
     \ \ $\Rightarrow$ \ \ Find eigenvalues $\lambda$ of $J$ by $\det(J-\lambda I)=0$
 
     \quad $^1$ $\det(J)>0, \text{tr}(J)<0$ $\Leftrightarrow$ $\Re(\lambda)<0$ $\rightarrow$ stable node \scalebox{0.7}{\ps{\tiny $Im(\lambda)=0$}}; stable focus=spiral point \scalebox{0.7}{\ps{\tiny $Im(\lambda)\ne0$}}; $^2$ $\det(J)>0, \text{tr}(J)>0$ $\Leftrightarrow$ $\Re(\lambda)>0$ $\rightarrow$ unstable node \scalebox{0.7}{\ps{\tiny $Im(\lambda)=0$}}; unstable focus=spiral point \scalebox{0.7}{\ps{\tiny $Im(\lambda)\ne0$}}
@@ -112,7 +112,7 @@
 \end{MyTh}
 
 \begin{MyTh}{Competition Model}
-    \ok{principal of competitive exclusion}: {\tiny If two species compete for the same limited resource, one will eventually outcompete and exclude the other.} \ps{\tiny (具体四种情况看图)}
+    \ok{principal of competitive exclusion}: {\tiny If two species compete for the same limited resource, one will eventually outcompete and exclude the other.} \ps{\tiny (b,c,d)}
 \end{MyTh}
 
 \begin{minipage}{0.75\textwidth}
@@ -134,8 +134,13 @@
     \end{MyTh}
 
     \begin{MyTh}{Chaotic}
-        \scriptsize Three dim or delay $\Rightarrow$ chaotic behaviour possible.
+        \scriptsize Three dim or delay $\Rightarrow$ 可能 chaotic.
     \end{MyTh}
+
+    \begin{MyTh}{Limit Cycle}
+        \tiny Any sufficiently perturbation from a stable limit cycle $\Rightarrow$ trajectory returns to the limit cycle. (i.e. tends to zero asymptotically with time)
+    \end{MyTh}
+    \vspace{-10pt}
 \end{minipage}
 
 
