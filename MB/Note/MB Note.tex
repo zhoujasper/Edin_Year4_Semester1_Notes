@@ -8,6 +8,8 @@
 \maketitle
 \thispagestyle{fancy}
 
+\vspace{-10pt}
+
 \section{Dinamical Systems}
 
 \subsection{Models of Biological Systems}
@@ -59,7 +61,7 @@
     \hline
     Linearise & \multicolumn{4}{l||}{$N(t)=N^*+n(t), |n(t)|\ll1$ \ $\Rightarrow$ \ $\frac{dn}{dt}=\frac{dN}{dt}=$\scalebox{0.8}{$\begin{cases}\text{\ps{(general)}}=f(N^*)+f'(N^*)n(t) \\ \text{\ps{(delay)}=直接带入f后近似}\end{cases}$}} & \multicolumn{4}{l|}{Let $N_t=N^*+n_t, |n_t|\ll1$ \ $\Rightarrow$ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ $\Rightarrow$ \ $n_{t+1}=\lambda n_t$} \\
     \hline
-    \multirow{2}{*}{\scalebox{0.9}{\makecell{Bifuraction \backslash\backslash \\ Perturbations \\ at $N^*$ | Periodic}}} & \multirow{2}{*}{\makecell{\scalebox{0.8}{Saddle-Note} \scalebox{0.7}{\ok{(Normal Form)}} \\ $\dot{x}=r\pm x^2$ \\ 0$\to$S$\to$S-S}} & \multirow{2}{*}{\makecell{Transcritical \\ $\dot{x}=rx-x^2$ \\ S-U$\to$U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{(super-)Pitchfork} \\ $\dot{x}=rx-x^3$ \\ S$\to$S-U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{Sub-critical Pitchfork} \\ $\dot{x}=r+x^3$ \\ U$\to$U-S-U}} & $\lambda<-1$: $\uparrow$ oscillations & $-1<\lambda<0$: $\downarrow$ oscillations & $0<\lambda<1$: $\downarrow$ Monotone & $\lambda>1$: $\uparrow$ Monotone \\
+    \multirow{2}{*}{\scalebox{0.9}{\makecell{Bifuraction \backslash\backslash \\ Perturbations \\ at $N^*$ | Periodic}}} & \multirow{2}{*}{\makecell{\scalebox{0.8}{Saddle-Note} \scalebox{0.7}{\ok{(Normal Form)}} \\ $\dot{x}=r\pm x^2$ \\ 0$\to$S$\to$U-S}} & \multirow{2}{*}{\makecell{Transcritical \\ $\dot{x}=rx-x^2$ \\ S-U$\to$U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{(super-)Pitchfork} \\ $\dot{x}=rx-x^3$ \\ S$\to$S-U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{Sub-critical Pitchfork} \\ $\dot{x}=r+x^3$ \\ U$\to$U-S-U}} & $\lambda<-1$: $\uparrow$ oscillations & $-1<\lambda<0$: $\downarrow$ oscillations & $0<\lambda<1$: $\downarrow$ Monotone & $\lambda>1$: $\uparrow$ Monotone \\
     \cline{6-9}
     & & & & & \multicolumn{4}{l|}{If $f^p(N^*)=N^*$, $N^*$ is $p$-periodic. \quad | \quad $\forall$ even $p$-periodic $N^*$ with $\lambda=-1$ branches into $2p$-periodic} \\
     \cline{6-9}
@@ -73,6 +75,13 @@
 }
 
 \vspace{-2pt}
+\begin{MyTh}{Hopf Bifuraction}
+    {\scriptsize \ps{平衡点从稳定变为不稳定，同时产生 limit cycle}. 条件: $\det(J)>0$; $\frac{d\text{tr}(J)}{d\mu}\ne0$ \ps{or: $\text{tr}(J)$ +/-符号有变化} \ \ $\Leftrightarrow$ \ \ $\lambda=\pm iw$ and $\frac{d\Re(\lambda)}{d\mu}\ne0$ \quad \ps{$\mu$: parameter, not time.}}
+
+    {\scriptsize \quad $\Rightarrow$ Stable $\to$ Unstable + Stable Limit Cycle \ps{\tiny (supercritical)} \ \ or \ \ Unstable $\to$ Stable + Unstable Limit Cycle \ps{\tiny (subcritical)}. \ \ \ps{\tiny (一般super-)} \quad when $\text{tr}(J)=0|\Re(\lambda)=0$, $\lambda=\pm iw$ $\Rightarrow$ \ok{periodic}: $T=\frac{2\pi}{w}$}
+\end{MyTh}
+
+
 \begin{MyTh}{Bifuraction}
     Qualitative changes in dynamics are called \textit{bifuractions}. \imp{\tiny (当平衡点性质|个数发生变化时)} \quad \ok{Bifuraction Diagram}: {\tiny y轴:平衡点; x轴:控制参数; 虚线unstable,实线stable.}
 \end{MyTh}
@@ -86,7 +95,7 @@
 \begin{MyTh}{Lotka-Volterra Model {\tiny (Predator-Prey)}}
     $\frac{dN}{dt}=N(a-bP); \frac{dP}{dt}=P(cN-d)$ \ $\Rightarrow$ \ nondim: $\frac{du}{d\tau}=u(1-v); \frac{dv}{d\tau}=\alpha v(u-1)$ \quad \ok{Equilibrium}: $(u^*,v^*)=(0,0),(1,1)$
 
-    {\footnotesize \quad \ok{Exact sol}: $\alpha u+v-\ln(u^\alpha v)=H$, $H>H_{min}=\alpha+1$ constant. \ \ \ps{\tiny (closed phase)}  \ \ \ok{Conservation Law}: $\frac{dH}{d\tau}=0$, here it satisfies.\ \ps{\tiny (By chain rule)}}
+    {\footnotesize \quad \ok{Exact sol}: $\alpha u+v-\ln(u^\alpha v)=H$, $H>H_{min}=\alpha+1$ constant. \ \ \ps{\tiny (closed phase)}  \ \ \ok{Conservation Law}: Using $\frac{du}{dv}=\frac{du}{d\tau}\frac{d\tau}{dv}$ find $H$ \ $\Rightarrow$ \ $\frac{dH}{d\tau}=0$, here it satisfies.\ \ps{\tiny (By chain rule)}}
 
     {\footnotesize \quad \ok{Show Level curves \ps{\tiny (constant of motion)} closed}: If $H(u,v)$ is level curve, Look $\left[\begin{smallmatrix}H_{uu} & H_{uv} \\ H_{vu} & H_{vv}\end{smallmatrix}\right]_{(u^*,v^*)}$ $\Rightarrow$ If $+/-$ definite (i.e. $\forall\lambda_i>0(<0)$) }
 
@@ -101,10 +110,13 @@
 
     \quad $^1$ $\det(J)>0, \text{tr}(J)<0$ $\Leftrightarrow$ $\Re(\lambda)<0$ $\rightarrow$ stable node \scalebox{0.7}{\ps{\tiny $Im(\lambda)=0$}}; stable focus=spiral point \scalebox{0.7}{\ps{\tiny $Im(\lambda)\ne0$}}; $^2$ $\det(J)>0, \text{tr}(J)>0$ $\Leftrightarrow$ $\Re(\lambda)>0$ $\rightarrow$ unstable node \scalebox{0.7}{\ps{\tiny $Im(\lambda)=0$}}; unstable focus=spiral point \scalebox{0.7}{\ps{\tiny $Im(\lambda)\ne0$}}
 
-    \quad $^3$ $\det(J)<0$ $\Leftrightarrow$ $Im(\lambda)=0$, $\lambda_1<0<\lambda_2$ $\rightarrow$ saddle point (unstable); $^4$ $\det(J)>0, \text{tr}(J)=0$ $\Leftrightarrow$ $\lambda=\pm iw$ (pure imaginary) $\rightarrow$ center (neutrally stable)
+    \quad $^3$ $\det(J)<0$ $\Leftrightarrow$ $Im(\lambda)=0$, $\lambda_1<0<\lambda_2$ $\rightarrow$ saddle point (unstable); $^4$ $\det(J)>0, \text{tr}(J)=0$ $\Leftrightarrow$ $\lambda=\pm iw$ (pure imaginary) $\rightarrow$ center \ps{\tiny (only linear stability)}|Hopf bifurcation (见前面)
 
-    \quad \ok{Null clines}: $f(u,v)=0$ or $g(u,v)=0$ \ $\to$ \ {\tiny 得u,v表达线条是nullclines.}
+    \quad \ok{Nullclines}: $f(u,v)=0$ or $g(u,v)=0$ \ $\to$ \ {\tiny 得u,v表达线条是nullclines.}
     \quad \ok{Trapping Region}: {\tiny A closed region $R$ \tiny{可以用直线/null clines构成} \ \ s.t. \ \ 所有 \ 边界的\textit{外}法线方向$\mathbf{n}$, 在对应边界上的点, 满足$\mathbf{n}\cdot\left[\begin{smallmatrix}f(u,v) \\ g(u,v)\end{smallmatrix}\right]<0$}
+
+    \vspace{-2pt}
+    \quad \ok{Find slope of Nullclines}: $f(u,v)=0$ $\Rightarrow$ $df=f_u du+f_v dv=0$ $\Rightarrow$ $\frac{dv}{du}=-\frac{f_u}{f_v}$ \qquad Similarly: $\frac{dv}{du}=-\frac{g_u}{g_v}$
 \end{MyTh}
 
 \begin{MyTh}{Poincare-Bendixson Theorem}
@@ -148,15 +160,24 @@
 
 \vspace{-5pt}
 \begin{MyTh}{Enzyme Kinetics}
-    {\footnotesize e.g. $S+E\underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}}SE\stackrel{k_2}{\rightarrow}P+E$} \quad \comment{$K_i$}: rate of reaction; \comment{$S$}: substrate; \comment{$E$}: enzyme; \comment{$SE$}: complex; \comment{$P$}: product.    
+    {\footnotesize e.g. $S+E\underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}}SE\stackrel{k_2}{\rightarrow}P+E$} \quad \comment{$K_i$}: rate of reaction; \comment{$S$}: substrate; \comment{$E$}: enzyme; \comment{$SE$}: complex; \comment{$P$}: product. \quad \ok{Rate of uptake}: $v=\frac{d[P]}{dt}|_{t=0}$
+\end{MyTh}
+
+\vspace{-8pt}
+\begin{MyTh}{Law of Mass Action}
+    \tiny Rate of reaction is proportional to the product of the concentrations of the reactants. \ \ \ps{\tiny e.g. $\alpha_1 A+\alpha_2 B\underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}}\beta_1 C+\beta_2 D$ \ $\Rightarrow$ \ $\text{rate}_{\text{forward}}=k_1[A]^{\alpha_1}[B]^{\alpha_2}$; $\text{rate}_{\text{backward}}=k_{-1}[C]^{\beta_1}[D]^{\beta_2}$}
 \end{MyTh}
 
 \vspace{-5pt}
+\begin{MyTh}{Quasi-Steady State Approximation (QSSA)}
+    \tiny 如果系统里有\textit{快}和\textit{慢}变量, 则可以假设\textit{快}变量达到稳态, 即 $\frac{d(\text{fast})}{dt}=0$. \ps{\tiny (一般来说假设 complex concentration changes rapidly)}
+\end{MyTh}
+
 \begin{MyTh}{Singular Perturbations Analysis}
     For $\frac{du}{d\tau}=f(u,v)$, $\eps\frac{dv}{d\tau}=g(u,v)$, $0<\eps\ll1$ \ $\Rightarrow$ \ $v$ fast \ps{\tiny (when $g\not\to0$)}, $u$ slow. \ \ {\scriptsize \ok{Quasi-steady-state approximation}: $\eps\to0$ $\Rightarrow$ $g(u,v)=0$}
 
     \vspace{-3pt}
-    {\footnotesize \quad \ok{Taylor: $u(\tau,\eps)=\sum\limits_{n=0}^\infty \eps^n u_n(\tau)$; $v(\tau,\eps)=\sum\limits_{n=0}^\infty \eps^n v_n(\tau)$}} \quad \ok{Outer solution}: {\scriptsize Taylor带入原方程组$\to$保留$\Ocal(1)|\eps=0$} \ \ \ps{\tiny Valid for $\tau>0$ (slow time); $v_0(0)$ unvalid.$\to$not uniformly valid for $\tau\geq0$}
+    {\footnotesize \quad \ok{Taylor: $u(\tau,\eps)=\sum\limits_{n=0}^\infty \eps^n u_n(\tau)$; $v(\tau,\eps)=\sum\limits_{n=0}^\infty \eps^n v_n(\tau)$}} \quad \ok{Outer solution}: {\scriptsize Taylor带入原方程组$\to$保留$\Ocal(1)|\eps=0$} \ \ \ps{\tiny Valid for $\tau>0$ (slow time); $v_0(0)$ \imp{unvalid}.$\to$not uniformly valid for $\tau\geq0$}
     
     \vspace{-3pt}
     {\footnotesize \quad \ok{Inner solution}: $\sigma = \frac{\tau}{\eps}$, $\begin{smallmatrix}U(\sigma;\eps)=u(\tau;\eps) \\ V(\sigma;\eps)=v(\tau;\eps)\end{smallmatrix}$ $\Rightarrow$ $\frac{dU}{d\sigma}=\eps f(u,v)$, $\frac{dV}{d\sigma}=g(u,v)$ $\to$ {\scriptsize Taylor 带入原方程组$\to$保留$\Ocal(1)|\eps=0$} \ps{\tiny (known as \ok{boundary layer} ($\tau=0$处)); Valid $\tau=0$ (fast time)}}
@@ -164,11 +185,67 @@
     {\footnotesize \quad \ok{Asymptotic Matching}: {\scriptsize $\lim\limits_{\sigma\to\infty}[U_0(\sigma),V_0(\sigma)]=\lim\limits_{\tau\to0^+}[u_0(\tau),v_0(\tau)]$} \qquad \ok{Uniformly Valid Solution}: {\scriptsize $u(\tau;\eps)=u_0(\tau)+\Ocal(\eps)$; $v(\tau;\eps)=\left\{ \begin{smallmatrix} v_0(\tau)+\Ocal(\eps), & 0<\eps\ll \tau \\ V_0(\sigma)+\Ocal(\eps), & 0<\tau\ll 1 \end{smallmatrix}\right.$}}
 \end{MyTh}
 
+\vspace{-3pt}
 \begin{MyTh}{Activator-Inhibitor Model}
-    
+    For $\frac{du}{dt}=f(u,v)$, $\frac{dv}{dt}=g(u,v)$: If $\frac{\partial g}{\partial u}>0$, $u$ is an \ok{activator} of $v$; If $\frac{\partial f}{\partial v}<0$, $v$ is an \ok{inhibitor} of $u$. \quad \ps{\tiny ps: Possible have bifurcation behaviour}
+\end{MyTh}
+
+\begin{MyTh}{Positive/Negative Feedback}
+    \scriptsize \ps{At Equilibrium}: \ok{Positive}: $f_u,f_v\geq0;g_u,g_v\leq0$ or $f_u,f_v\leq0;g_u,g_v\geq0$ \ \ \ok{Negative}: $f_u,f_v\geq0;g_u,g_v\geq0$ or $f_u,f_v\leq0;g_u,g_v\leq0$
 \end{MyTh}
 
 
+\section{Relaxation Oscillations \& Switch Behaviour}
+
+\begin{minipage}{0.25\textwidth}
+    \includegraphics[width=1\textwidth]{figure_1.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.75\textwidth}
+    \begin{MyTh}{Find Limit Cycle}
+        For $\left\{\begin{smallmatrix}\dot{u}=v-G(u) \\ \dot{v}=-u \quad \ \ \ \end{smallmatrix}\right.$ \ \ $\Leftrightarrow$ \ \ {\scriptsize $\frac{d^2u}{dt^2}+g(u)\frac{du}{dt}+u=0$ \ \ with $G(u)=\int^u_0 g(s)ds$. \quad \ps{Lienard Equations}} If we have:
+        
+        {\scriptsize \quad \tiny \ok{1}: $G(-u)=-G(u)$ \ps{(odd)} \quad \ok{2}: $\exists \alpha>0$ s.t. $G(\alpha)=0$ and $G(u)<0, \forall u\in(0,\alpha)$ \quad \ok{3}: $\exists \beta\geq\alpha$ s.t. $G(u)>0, \frac{dG}{du}>0, \forall u>\beta$ and $G(u)\to\infty$ as $u\to\infty$.}
+
+        {\scriptsize \quad \ok{Then}: $G$ is `bumpy' function. \quad $^1$ $\exists$ limit cycle between $(\alpha,\beta),(-\beta,-\alpha)$. \quad $^2$ \ps{unique} and \ps{asy.stable} if $\alpha=\beta$}
+    \end{MyTh}
+
+    \begin{MyTh}{Relaxation Oscillations}
+        A \ps{periodic} movement of \ps{``slow-fast alternation''}. {\scriptsize e.g. For $\left\{\begin{smallmatrix} \eps\dot{u}=v-G(u) \\ \dot{v}=-u \ | \ -u\eps \end{smallmatrix}\right.$ or More general form: $\left\{\begin{smallmatrix} \eps\dot{u}=f(u,v) \\ \dot{v}=g(u,v) \end{smallmatrix}\right.$} \ps{$|\eps|\ll1$}
+
+        \begin{minipage}{0.2\textwidth}
+            \includegraphics[width=1\textwidth]{figure_2.jpg}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.8\textwidth}
+            \ok{Relaxation Oscillations requies unstable equilibrium point.}
+
+            \ok{Explain why it occur}: {\tiny $^1$ Find \textit{nullclines} (一般:直线+$S$曲线) $^2$ Since $\dot{u}=\frac{\text{some func}}{\eps}\gg 1$ (so that $|\dot{u}|\gg|\dot{v}|$) unless close to nullcline $\to$(一般$S$曲线) $^3$ 图上选4个点ABCD,一般选S的local max/min加S更远处两个点, 连接成一个loop.
+            $^4$判断ABCD点的流向 (看nullcline两侧/上下) $^5$分段分析: e.g.$A\to B$ $\dot{u}=0$,$\dot{v}=-u<0$ 向下,慢阶段. $B\to C$ not close to S curve, $|\dot{u}|\gg1$ 向左,快阶段/\ps{fast horizontal jump}. $C\to D$ ... $D\to A$ ...}
+        \end{minipage}
+    \end{MyTh}
+\end{minipage}
+
+{\scriptsize \quad \ok{Estimate period $T$}: 例如上图 \scalebox{0.8}{\ps{\tiny (例子忽略了快反应)}} $T=\int_{t_A}^{t_B}dt+\int_{t_C}^{t_D}dt=2\int_{t_A}^{t_B}dt$ \ \ \ok{Find $dt=\_ du$ 带入计算} e.g. \scalebox{0.8}{\tiny In slow time: $\dot{u}=0\to v=G(u)$ and $\dot{v}=-u\to\frac{dv}{dt}=\frac{dv}{du}\frac{du}{dt}=G'(u)\frac{du}{dt}=-u\to -\frac{G'(u)}{u}du=dt$,带入计算}}
+
+\begin{minipage}{0.17\textwidth}
+    \includegraphics[width=1\textwidth]{figure_3.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.83\textwidth}
+    \begin{MyTh}{Excitable System}
+        \ok{FitzHugh-Nagumo Model} $\left\{\begin{smallmatrix}\frac{dx}{dt}=c[y+x-\frac{x^3}{3}+z(t)] \\ \frac{dy}{dt}=\frac{-x+a+by}{c}\end{smallmatrix}\right.$ \ \ \ps{\tiny ($x$: \ps{excitability} variable; $y$: \ps{recovery} variable; $z(t)$: \ps{external stimulus})}
+
+        {\tiny \ok{Threshold} 现象: \ok{Small perturbation}: return to equilibrium (\ps{failed initiation/excitation}). \quad \ok{Large perturbation}: large excursion before returning to equili. (\ps{action potential}|successful initiation).
+        After excitation|大扰动之后: \ps{Refractory Period}不应期: system is unresponsive to further stimulation. \quad \ok{constant stimulus}: \ps{periodic firing} (limit cycle).
+        
+        \ok{Reason}: 寻找$\dot{u},\dot{v}$ s.t. $\ll,\gg 1$ \ps{i.e. $|\dot{u}|\gg|\dot{v}|$ or $|\dot{u}|\ll|\dot{v}|$}}
+        
+        \begin{MyTh}{Switch Behaviour}
+            \tiny \ok{从一个stable point 到另一个stable point.} \scalebox{0.8}{\ps{(前面excitable system|relaxation oscillation如有两stable points且画图分析(像relaxation oscillation那样分析)可得到)}}
+        \end{MyTh}
+    \end{MyTh}
+\end{minipage}
 
 
 \section{Appendix}

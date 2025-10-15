@@ -170,7 +170,7 @@
 \begin{MyTh}{UFD (Def 2)}
     $R$ ID is \textit{UFD} if: \ok{UFD 1}: Every sequence of \textit{Principal Ideals} satisfies \comment{Ascending Chain Condition (ACC)}
     
-    \quad \ok{UFD 2}: If $a$ irreducible, \ \ then $a$ is prime \comment{($\Leftrightarrow$ $aR$ is a prime ideal.)} \qquad\qquad\quad \ok{Causs's Theorem: If $R$ is UFD, then $R[x]$ is UFD.}
+    \quad \ok{UFD 2}: \imp{If $a$ irreducible, \ \ then $a$ is prime} \comment{($\Leftrightarrow$ $aR$ is a prime ideal.)} \qquad\qquad \ \ \ok{Causs's Theorem: If $R$ is UFD, then $R[x]$ is UFD.}
 \end{MyTh}
 }}
 
@@ -220,17 +220,43 @@
 \end{MyTh}
 
 
-\subsection{Nil and Jacobson Radical Ideals}
+\subsection{Nil and Jacobson Radical Ideals, Local Ring}
+\vspace{-13pt}\hspace{200pt} \ok{\footnotesize \ps{\tiny If $R$ 交换环:} Jacobson Radical $J(R)$\ps{\tiny ($\cap$ maximal ideals|最大NI)} $\Rightarrow$ Nil Radical $=$ Prime Radical \ps{\tiny ($\cap$ prime ideals|最大JRI)}}
 
 \fbox{\parbox[c]{0.98\textwidth}{
 \begin{MyTh}{Nil Ideal}
-    $I$ ideal of $R$. \ \ $I$ is a \textit{nil ideal} if: \ \ $\forall x\in I$, $\exists n\in\N$ s.t. $x^n=0$. \ \ \comment{i.e. every element of $I$ is nilpotent.} \qquad\quad \ps{$\downarrow$ 用geometric series证明}
+    $I$ ideal of $R$ is a \textit{nil ideal} if: \ \ $\forall x\in I$, $\exists n\in\N$ s.t. $x^n=0$. \ \ \comment{i.e. every element of $I$ is nilpotent.} \quad \ \ {\scriptsize \ok{Prime Radical$:=\bigcap$ prime ideals $\downarrow$}}
+\end{MyTh}
+
+\begin{MyTh}{Nil Radical}
+    $I$ ideal of $R$ is \textit{nil radical} if: \ \ It is the \comment{largest nil ideal} in $R$. \quad $\cdot $If $R$ \textit{commutative}, then \ok{Nil radical $=\bigcap$ prime ideals}
 \end{MyTh}
 
 \begin{MyTh}{Jacobson Radical Ideal (JRI)}
-    $I$ ideal of $R$. \ \ $I$ is a \textit{Jacobson radical ideal} if: \ \ $\forall x\in R$, $1-rx$ is a \textit{unit} in $R$. \qquad \ok{*Nil ideal $\Rightarrow$ JRI}
+    $I$ ideal of $R$ is a \textit{Jacobson radical ideal} if: \ \ $\forall i\in I$, $1-i$/$1+i$ is a \textit{unit} in $R$. \qquad {\footnotesize $\cdot$ \ok{*Nil ideal $\Rightarrow$ JRI}\ps{\tiny (等比)}}
+\end{MyTh}
+
+\begin{MyTh}{Jacobson Radical $J(R)$}
+    $J(R):=\bigcap$ maximal ideals of $R$. $\Leftrightarrow$ $J(R)$ is the \comment{largest JRI} in $R$. \qquad \ps{\tiny *ps:有如下定义:$JRI=\sqrt[J]{I}:=\bigcap$ (maximal ideals $\supseteq I$)}
+\end{MyTh}
+
+\begin{MyTh}{Local Ring}
+    $R$ is a \textit{local ring} if: \ \ $R$ has \ok{unique maximal ideal} $\Leftrightarrow$ $R/J(R)$ is a field \qquad {\footnotesize \ok{$A_P$ is a local ring.}\ps{\tiny ($A$ commutative ring, $P$ prime ideal of $A$)}}
 \end{MyTh}
 }}
+
+\begin{MyTh}{2nd Def of Radical}
+    $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$\sqrt{I}=\bigcap$ (prime ideals $\supseteq I$)}
+\end{MyTh}
+
+
+\section{Nullstellensatz}
+
+\begin{MyTh}{Weak Nullstellensatz}
+    $\F$ field, and $I\triangleleft \F[x_1,...,x_n]$ ideal. Then: \ok{$(\Rightarrow)$} If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, $a_i\in \F$, then $I$ is maximal ideal.
+
+    \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is maximal ideal and \underline{$\F$ is algebraically closed}, then $I=\langle x_1-a_1,...,x_n-a_n\rangle$ for some $a_i\in \F$.
+\end{MyTh}
 
 
 \section{Appendix}

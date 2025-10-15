@@ -509,7 +509,7 @@
     \State $\mathbf{v} = \mathbf{u} + \mathrm{sign}(u_1)\|\mathbf{u}\|_2 \mathbf{e}_1$  \quad \textcolor{gray}{\tiny \quad \ \# line.4-7 得到的$\mathbf{Q}_k$:}
     \State $\mathbf{w} = \frac{\mathbf{v}}{\|\mathbf{v}\|_2}$  \qquad\qquad\qquad\quad \textcolor{gray}{\tiny \qquad \# 使得$\mathbf{Q}_k\mathbf{u}=-\text{sign}(u_1)\|\mathbf{u}\|_2\mathbf{e}_1$}
     \State $\mathbf{H}_k = \mathbf{I} - 2\mathbf{w}\mathbf{w}^\top\in \mathbb{R}^{(n-k+1) \times (n-k+1)}$ \quad \textcolor{gray}{\scalebox{0.9}{\tiny \# line.6-8 一起算,见下}}
-    \State $\mathbf{Q}_k = \mathbf{I}_{n-k} \oplus \mathbf{H}_k\in\R^{n\times n}$ \ \textcolor{gray}{\scalebox{0.75}{\tiny \# $\downarrow$ line.6-8 $C=4(n-k+1)^2+(n-k+1)$}}
+    \State $\mathbf{Q}_k = \mathbf{I}_{k-1} \oplus \mathbf{H}_k\in\R^{n\times n}$ \ \textcolor{gray}{\scalebox{0.75}{\tiny \# $\downarrow$ line.6-8 $C=4(n-k+1)^2+(n-k+1)$}}
     \State $\mathbf{R} = \mathbf{Q}_k \mathbf{R}$ \ \ \textcolor{gray}{\scalebox{0.8}{\tiny \# 用矩阵分块,只有右下角$\mathbf{H}_k\mathbf{R}_{k:n,k:n}$要算$\to$用$H_k$定义Alg. MV+OP}}
     \State $\mathbf{Q} = \mathbf{Q} \mathbf{Q}_k$ \ \ \textcolor{gray}{\scalebox{0.8}{\tiny \# If using in Alg. \imp{SQR}, then $9':$ $\mathbf{y}=\mathbf{Q}_k\mathbf{y}$; \quad $C=\frac{4}{3}n^3+\Ocal(n^2)$ (SQR/QR)}}
   \EndFor
