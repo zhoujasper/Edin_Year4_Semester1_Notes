@@ -1,5 +1,4 @@
 \documentclass{note}
-\usepackage{diagbox}
 
 \title{MB Note}
 \author{}
@@ -220,8 +219,8 @@
         \begin{minipage}{0.8\textwidth}
             \ok{Relaxation Oscillations requies unstable equilibrium point.}
 
-            \ok{Explain why it occur}: {\tiny $^1$ Find \textit{nullclines} (一般:直线+$S$曲线) $^2$ Since $\dot{u}=\frac{\text{some func}}{\eps}\gg 1$ (so that $|\dot{u}|\gg|\dot{v}|$) unless close to nullcline $\to$(一般$S$曲线) $^3$ 图上选4个点ABCD,一般选S的local max/min加S更远处两个点, 连接成一个loop.
-            $^4$判断ABCD点的流向 (看nullcline两侧/上下) $^5$分段分析: e.g.$A\to B$ $\dot{u}=0$,$\dot{v}=-u<0$ 向下,慢阶段. $B\to C$ not close to S curve, $|\dot{u}|\gg1$ 向左,快阶段/\ps{fast horizontal jump}. $C\to D$ ... $D\to A$ ...}
+            \ok{Explain why it occur}: {\tiny $^1$ Find \textit{nullclines} (一般:直线+$S$曲线) $^2$ Since $\dot{u}=\frac{\text{some func}}{\eps}\gg 1$ (so that $|\dot{u}|\gg|\dot{v}|$) unless close to nullcline $\to$(一般$S$曲线) $^3$ 图上选4个点ABCD (只是一个示例而已),一般选S的local max/min加S更远处两个点, 连接成一个loop.
+            $^4$判断ABCD点的流向 (看nullcline两侧/上下) $^5$分段分析 + \ps{从一不在nullcline上的点分析} e.g.$A\to B$ $\dot{u}=0$,$\dot{v}=-u<0$ 向下,慢阶段. $B\to C$ not close to S curve, $|\dot{u}|\gg1$ 向左,快阶段/\ps{fast horizontal jump}. $C\to D$ ... $D\to A$ ...}
         \end{minipage}
     \end{MyTh}
 \end{minipage}
@@ -246,6 +245,11 @@
         \end{MyTh}
     \end{MyTh}
 \end{minipage}
+
+\begin{MyTh}{描述话语example}
+    \tiny \ok{快-慢震荡}: $^1$(\ps{option}) The equilibrium point $S$ is unstable between the two \textit{knees}/\textit{turnning points} of the $u$-nullcline/cubic-like curve. | \ps{or}: $S$ changes stability as it crosses the knees of the $u$-nullcline. \ \ $^2$ 图上标/简单解释拐点位置. \ \ $^3$ 证明$|u'|\gg1$\ps{(写成乘积形式判断)}或其他$\to$得快运动边. \ \ $^4$ Trajectories \textit{starting off} the $u$-nullcline \textit{repidly/quickly} approach \textit{left/right branch} of the $u$-nullcline, and then \textit{slowly move down/up}|\textit{crawl along} the $u$-nullcline due to $v'<0/>0$, and to \textit{upper/lower knee/turnning point} $^5$ At the knee/turnning point, the trajectory \textit{quickly jumps} to the \textit{right/left branch} of the $u$-nullcline, and then \textit{slowly moves up/down}|\textit{crawl along} the $u$-nullcline due to $v'>0/<0$. $^6$ And this process \textit{repeats periodically}, giving rise to a \textit{relaxation oscillation}.
+    \ok{Sxcitable}: 类似的,分析 small perturbation \textit{above/below} equilibrium point $S$ -> 得\textit{failed excitation} or \textit{successful excitation}.
+\end{MyTh}
 
 
 \section{Appendix}

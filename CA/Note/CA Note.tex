@@ -1,5 +1,8 @@
 \documentclass{note}
 
+\DeclareMathAlphabet{\CMcal}{OMS}{cmsy}{m}{n}
+\newcommand{\specialI}{\CMcal{I}}
+
 \title{CA Note}
 \author{}
 
@@ -250,12 +253,32 @@
 \end{MyTh}
 
 
-\section{Nullstellensatz}
+\section{Nullstellensatz, Variety \& Vanishing Ideal}
 
 \begin{MyTh}{Weak Nullstellensatz}
     $\F$ field, and $I\triangleleft \F[x_1,...,x_n]$ ideal. Then: \ok{$(\Rightarrow)$} If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, $a_i\in \F$, then $I$ is maximal ideal.
 
     \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is maximal ideal and \underline{$\F$ is algebraically closed}, then $I=\langle x_1-a_1,...,x_n-a_n\rangle$ for some $a_i\in \F$.
+\end{MyTh}
+
+\fbox{\parbox[c]{0.98\textwidth}{
+\begin{MyTh}{Variety}
+    Let $k$ be a field, $f_1,...,f_m\in k[x_1,...,x_n]$. Then: \ \ \ok{Variety}: $\mathbf{V}(f_1,...,f_m):=\{(a_1,...,a_n)\in k^n:f_i(a_1,...,a_n)=0,\forall i\}$
+\end{MyTh}
+
+\begin{MyTh}{Vanishing Ideal}
+    Let $k$ be a field, $X\subseteq k^n$. Then: \ \ \ok{Vanishing Ideal}: $\specialI(X):=\{f\in k[x_1,...,x_n]:$ {\footnotesize $f(a_1,...,a_n)=0,\forall (a_1,...,a_n)\in X$ }$\}$
+\end{MyTh}
+}}
+
+\begin{MyTh}{Nullstellensatz} Let $k$ be an \underline{algebraically closed} field, $I$ be an \textit{ideal} of $k[x_1,...,x_n]$.
+    \vspace{-2pt}
+    \begin{enumerate}
+        \item \ok{The Strong Nullstellensatz}: $\sqrt{I}=\specialI(\mathbf{V}(I))$ \qquad\qquad \ok{The Weak Nullstellensatz}: $\mathbf{V}(I)=\emptyset \Leftrightarrow I=k[x_1,...,x_n]$ \quad \ps{还有一版见上面}
+        \item \ok{Reformation of SN}: $\bigcap$ \textit{prime ideals} = Nil radical = $\bigcap$ \textit{maximal ideals} = Jacobson radical
+        \item \ok{Reformation of WN}: If $I$ \textit{maximal ideal} then \ \ $k[x_1,...,x_n]/I\cong k$
+        \item If $I$ \textit{maximal ideal}, then \ \ $\mathbf{V}(I)$ is a \textit{single point}. \quad \ps{(i.e. $\mathbf{V}(I)=\{(a_1,...,a_n)\}$)}
+    \end{enumerate}
 \end{MyTh}
 
 
