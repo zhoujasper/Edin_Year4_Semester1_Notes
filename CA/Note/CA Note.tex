@@ -258,7 +258,11 @@
 \begin{MyTh}{Weak Nullstellensatz}
     $\F$ field, and $I\triangleleft \F[x_1,...,x_n]$ ideal. Then: \ok{$(\Rightarrow)$} If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, $a_i\in \F$, then $I$ is maximal ideal.
 
-    \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is maximal ideal and \underline{$\F$ is algebraically closed}, then $I=\langle x_1-a_1,...,x_n-a_n\rangle$ for some $a_i\in \F$.
+    \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is \textit{maximal ideal} and \underline{$\F$ is algebraically closed}, then \ok{$I=\langle x_1-a_1,...,x_n-a_n\rangle$} for some $a_i\in \F$.
+
+    \quad \ok{Fact I}: If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, then $\forall f\in I$, $f(a_1,...,a_n)=0$.
+
+    \quad \ok{Fact II}: If $f(a_1,...,a_n)=0$ for some $a_i\in \F$, then $f\in \langle x_1-a_1,...,x_n-a_n\rangle$.
 \end{MyTh}
 
 \fbox{\parbox[c]{0.98\textwidth}{
@@ -271,17 +275,23 @@
 \end{MyTh}
 }}
 
-\begin{MyTh}{Useful Tools}
-    If $X=X_1\cup X_2\cup\cdots\cup X_m$, then \ \ $\specialI(X)=\specialI(X_1)\cap \specialI(X_2)\cap \cdots \cap \specialI(X_m)$
+\begin{MyTh}{Useful Tools I}
+    If \ok{$X=X_1\cup X_2\cup\cdots\cup X_m$}, then \ \ \ok{$\specialI(X)=\specialI(X_1)\cap \specialI(X_2)\cap \cdots \cap \specialI(X_m)$}
+\end{MyTh}
+
+\begin{MyTh}{Useful Tools II \& III}
+    $k$ \textit{algebraically closed} field, $J$ ideals of $k[x_1,...,x_n]$. Then: \ \ \ok{$\mathbf{V}(J)\ne0$ $\Leftrightarrow$ $J\ne k[x_1,...,x_n]$}
+
+    \qquad $f\in k[x_1,...,x_n]$. Then: \ \ [ \ok{$f^n\in J$ for some $n\in\N$ $\Leftrightarrow$ $f(\mathbf{x})=0 \ \ \forall \mathbf{x}\in\mathbf{V}(J)$} ] \quad i.e. \ok{$\sqrt{J}=\specialI(\mathbf{V}(J))$}
 \end{MyTh}
 
 \begin{MyTh}{Nullstellensatz} Let $k$ be an \underline{algebraically closed} field, $I$ be an \textit{ideal} of $k[x_1,...,x_n]$.
     \vspace{-2pt}
     \begin{enumerate}
-        \item \ok{The Strong Nullstellensatz}: $\sqrt{I}=\specialI(\mathbf{V}(I))$ \qquad\qquad \ok{The Weak Nullstellensatz}: $\mathbf{V}(I)=\emptyset \Leftrightarrow I=k[x_1,...,x_n]$ \quad \ps{还有一版见上面}
-        \item \ok{Reformation of SN}: $\bigcap$ \textit{prime ideals} = Nil radical = $\bigcap$ \textit{maximal ideals} = Jacobson radical
-        \item \ok{Reformation of WN}: If $I$ \textit{maximal ideal} then \ \ $k[x_1,...,x_n]/I\cong k$
-        \item If $I$ \textit{maximal ideal}, then \ \ $\mathbf{V}(I)$ is a \textit{single point}. \quad \ps{(i.e. $\mathbf{V}(I)=\{(a_1,...,a_n)\}$)}
+        \item \ok{The Strong Nullstellensatz}: \imp{$\sqrt{I}=\specialI(\mathbf{V}(I))$} \qquad\qquad \ok{The Weak Nullstellensatz}: $\mathbf{V}(I)=\emptyset \Leftrightarrow I=k[x_1,...,x_n]$ \quad \ps{还有一版见上面}
+        \item \ok{Reformation of SN}: $\bigcap$ \textit{prime ideals} = Nil radical = $\bigcap$ \textit{maximal ideals} = Jacobson radical (\imp{存疑考虑要不要写})
+        \item \ok{Reformation of WN}: If $I$ \textit{maximal ideal} then \ \ \ok{$k[x_1,...,x_n]/I\cong k$}
+        \item $k$ field. If $I$ \textit{maximal ideal} \ \ $\Rightarrow$ \ \ $\mathbf{V}(I)$ is a \textit{single point}. \quad \ps{(i.e. $\mathbf{V}(I)=\{(a_1,...,a_n)\}$)} \qquad \ok{$(\Leftarrow)$ if $k$ algebraically closed.} \ps{need proof, by using WN}
     \end{enumerate}
 \end{MyTh}
 

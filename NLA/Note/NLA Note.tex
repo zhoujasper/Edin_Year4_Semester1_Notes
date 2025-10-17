@@ -20,7 +20,7 @@
 \section{Background}
 
 \begin{MyTh}{Floating Point ($\F$)}
-    A number = mantissa $\times$ base$^{\text{exponent}}$ \quad \comment{(e.g. $2048=1\times 2^{11}$ \ps{mantissa=1, base=2, exponent=11})}
+    A number = mantissa $\times$ base$^{\text{exponent}}$ \quad \comment{\scriptsize (e.g. $2048=1\times 2^{11}$ \ps{mantissa=1, base=2, exponent=11})}
 \end{MyTh}
 
 \begin{MyTh}{Assumptions}
@@ -34,7 +34,7 @@
 \begin{MyTh}{Cost of Algorithm ($C$)}
     $C:=$ number of floating point operations (FLOPs) \qquad If $C(n)\le\alpha f(n)$, $\Rightarrow$ $C(n)=\Ocal(f(n))$.
 
-    \quad $\cdot$ We consider that: \ok{交换/赋值/相反数} no cost \ps{(i.e. Permutation $\mathbf{P}$ is free)}, \ \ \ok{比较两数} 1 FLOPs, \ \ \ok{$\sqrt{~~~~}$} 1 FLOPs.
+    \quad We consider that: \ok{交换/赋值/相反数} no cost \ps{(i.e. Permutation $\mathbf{P}$ is free)}, \ \ \ok{比较两数} 1 FLOPs, \ \ \ok{$\sqrt{~~~~}$} 1 FLOPs.
 \end{MyTh}
 
 \begin{MyTh}{Norms}
@@ -72,17 +72,17 @@
 \subsection{Backward Stable | Condition Number | Error}
 
 \begin{MyTh}{Backward Stable}
-  An algorithm to solve SLE is Backward Stable if: \ \ $\exists \alpha(n)>0$ s.t. $\forall \mathbf{A}, \mathbf{b}$, the computed solution $\widehat{\mathbf{x}}$ satisfies:
-  
-  \hspace{2.85cm} $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b} + \Delta \mathbf{b}$ \ \ and  \ \ $\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p} + \frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p} \leq \alpha \varepsilon_m$ \quad \comment{$\varepsilon_m:$ machine epsilon.} \quad \ps{ps: $\alpha$可以和问题规模$n$相关,但不能和$\mathbf{A}$或$\mathbf{b}$相关.}
+  \scriptsize
+  Algorithm solve SLE is Backward Stable if: \ \ $\exists \alpha(n)>0$ s.t. $\forall \mathbf{A}, \mathbf{b}$, computed solution $\widehat{\mathbf{x}}$ has:
+  \quad $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b} + \Delta \mathbf{b}$ \ \ and  \ \ $\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p} + \frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p} \leq \alpha \varepsilon_m$ \quad \ps{$\varepsilon_m:$ machine epsilon.}
 \end{MyTh}
 
-\vspace{-2pt}
+\vspace{-4pt}
 \begin{MyTh}{Condition Number ($\kappa_p(\mathbf{A})$)}
     $\kappa_p(\mathbf{A}):=$
     {\tiny
     $\begin{cases}
-      \|\mathbf{A}\|_p\|\mathbf{A}^{-1}\|_p=\|\mathbf{A}\|_p\|\mathbf{A}^{\dagger}\|_p\geq1 & \text{if } \mathbf{A} \text{ is invertible} \\
+      \|\mathbf{A}\|_p\|\mathbf{A}^{-1}\|_p\geq 1& \text{if } \mathbf{A} \text{ is invertible} \\
       \infty & \text{otherwise}
     \end{cases}
     \qquad\begin{cases}
@@ -92,22 +92,18 @@
     }
     \qquad \ps{ps: $\kappa_p(\mathbf{A})$ 衡量矩阵奇异性}
 
-    \begin{enumerate}
-      \item For $\mathbf{A}_{n\times n}$ with real eigenvalues $|\lambda_1| \geq |\lambda_2| \geq \cdots \geq |\lambda_n|$ and corresponding eigenvectors $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n$: \quad {\tiny \textcolor{red}{ps:对所有实对称矩阵都满足下面条件}}
-      
-      \qquad If $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n$ are \comment{orthonormal set}. \ \ Then $\kappa_2(\mathbf{A}) = \|\mathbf{A}\|_2\|\mathbf{A}^{-1}\|_2 = \frac{|\lambda_1|}{|\lambda_n|}\geq1$
-    \end{enumerate}
+    \vspace{-5pt}
+    {\quad \footnotesize If $\mathbf{A}_{n\times n}$ s.t. $|\lambda_1| \geq |\lambda_2| \geq \cdots \geq |\lambda_n|$ corresponding $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n$ are \ps{orthonormal set}. \imp{\scriptsize (e.g. $\overline{A}^\top=A$)} \quad Then $\kappa_2(\mathbf{A}) = \|\mathbf{A}\|_2\|\mathbf{A}^{-1}\|_2 = \frac{|\lambda_1|}{|\lambda_n|}\geq1$}
 \end{MyTh}
 
-\vspace{2pt}
+\vspace{-3pt}
 \begin{MyTh}{Relative Error}
-  $\frac{\|\widehat{\mathbf{x}} - \mathbf{x}\|_p}{\|\mathbf{x}\|_p}$ \qquad \textcolor{blue}{\textbf{Actual Error:}} $\|\widehat{\mathbf{x}} - \mathbf{x}\|_p$ \qquad \quad \ps{ps: Relative error gives more information than actual error.}
-
-  \begin{enumerate}
-    \item Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}<1$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$. \quad \ps{ps: $\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$ \ \ $\frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p}$ 小代表 good stability.}
-    \item Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b} + \Delta\mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}<1$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot(\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}+\frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p})$.
-  \end{enumerate}
+  {\footnotesize $\frac{\|\widehat{\mathbf{x}} - \mathbf{x}\|_p}{\|\mathbf{x}\|_p}$ \ \ \textcolor{blue}{\textbf{Actual Error:}} $\|\widehat{\mathbf{x}} - \mathbf{x}\|_p$ \quad Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}<1$, \ \ then: \ \ {\tiny $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$}}
+  
+  \vspace{-8pt}
+  {\quad \scriptsize Generally, Let $\mathbf{Ax}=\mathbf{b}$ and $(\mathbf{A} + \Delta \mathbf{A})\widehat{\mathbf{x}} = \mathbf{b} + \Delta\mathbf{b}$. \ \ If $\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}<1$ \ \ then \ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_p}{\|\mathbf{x}\|_p}\leq\frac{\kappa_p(\mathbf{A})}{1-\kappa_p(\mathbf{A})\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}}\cdot(\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}+\frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p})$} \qquad\qquad\qquad\qquad\qquad\quad \ps{\tiny ps: $\frac{\|\Delta \mathbf{A}\|_p}{\|\mathbf{A}\|_p}$ \ \ $\frac{\|\Delta \mathbf{b}\|_p}{\|\mathbf{b}\|_p}$ 小代表 good stability.}
 \end{MyTh}
+\vspace{-7pt}
 
 
 \subsection{LU Factorization | Gaussian Elimination (GE)}
@@ -122,7 +118,6 @@
     \begin{enumerate}
         \item 如果$\mathbf{L}$是\comment{单位下三角}矩阵,且只有第$k$列有非零元素在对角线下,则$\mathbf{L}^{-1}$矩阵是$\mathbf{L}$对角线不动,其余为相反数.
         \item 如果$\mathbf{L}_1,\mathbf{L}_2$矩阵是\comment{单位下三角}矩阵,且$\mathbf{L}_1|\mathbf{L}_2$仅在第$1\sim k|k+1\sim n$列有非零元素在对角线下,则$\mathbf{L}_1\mathbf{L}_2$矩阵是他们的"拼接".
-        \item By LU factorization, $\mathbf{A}=\mathbf{L}\mathbf{U}$ \ \ $\Rightarrow$ \ \ By solving \ok{$\mathbf{L}\mathbf{y}=\mathbf{b}$} and \ok{$\mathbf{U}\mathbf{x}=\mathbf{y}$}, we can solve SLE \ok{$\mathbf{A}\mathbf{x}=\mathbf{b}$}. \quad \ps{用$\mathbf{FS}$和$\mathbf{BS}$算法}
     \end{enumerate}
     \vspace{5pt}
 \end{MyTh}
@@ -166,7 +161,7 @@
 \begin{MyTh}{Error Analysis of MGS}
   The matrices $\widehat{\mathbf{Q}}$ and $\widehat{\mathbf{Q}}$ computed by MGS satisfies: \quad $\widehat{\mathbf{Q}}^\top\widehat{\mathbf{Q}}=\mathbf{I}+\Delta\mathbf{I}$ \ \ $\widehat{\mathbf{Q}}\widehat{\mathbf{R}}=\mathbf{A}+\Delta\mathbf{A}$ where:
 
-  \hspace{3.45cm} $\| \Delta\mathbf{I}\|_2 \leq \frac{\alpha_1(n) \varepsilon_m\kappa_2(\mathbf{A})}{1-\alpha_1(n)\varepsilon_m\kappa_2(\mathbf{A})}$, if $1-\alpha_1(n)\varepsilon_m\kappa_2(\mathbf{A})>0$ \qquad $\|\Delta\mathbf{A}\|_2\leq\alpha_2(n)\varepsilon_m\|\mathbf{A}\|_2$ \ps{ps: $\alpha_1(n),\alpha_2(n)$ 只由$n$决定}
+  \hspace{3.0cm} $\| \Delta\mathbf{I}\|_2 \leq \frac{\alpha_1(n) \varepsilon_m\kappa_2(\mathbf{A})}{1-\alpha_1(n)\varepsilon_m\kappa_2(\mathbf{A})}$, if $1-\alpha_1(n)\varepsilon_m\kappa_2(\mathbf{A})>0$ \qquad $\|\Delta\mathbf{A}\|_2\leq\alpha_2(n)\varepsilon_m\|\mathbf{A}\|_2$ \ps{ps: $\alpha_1(n),\alpha_2(n)$ 只由$n$决定}
 \end{MyTh}
 
 
@@ -184,7 +179,7 @@
 \end{MyTh}
 
 
-\section{Iterative Methods for SLE \& Polynomial Fitting}
+\subsection{Iterative Methods for SLE}
 
 \begin{MyTh}{Iterative Method}
   For SLE $\mathbf{Ax}=\mathbf{b}$, if $\mathbf{A}=\mathbf{M}+\mathbf{N}$ with $\mathbf{M}$ is \textit{simpler structure} than $\mathbf{A}$. \ps{\tiny (例如: 对角/三角/对称矩阵)} \ \ $\Rightarrow$ \ \ {\scriptsize 迭代求解近似解} \ \ \ps{\tiny Diff choices $\mathbf{M},\mathbf{N}\to$ different iterative methods.}
@@ -197,7 +192,9 @@
   \quad \ok{JAC|GAU}: If $\mathbf{A}$ is \ok{strictly diagonally dominant} [i.e. $|a_{ii}|>\sum_{j\ne i}|a_{ij}|$ $\forall i$ \ps{\tiny (对角线元素大于该行其他元素之和)}], then converges for $p=\infty$. \quad \ps{\tiny For $p=1$ 看列和/转置.}
 \end{MyTh}
 
-\vspace{-2pt}
+
+\section{Polynomial Fitting \& LSQ \qquad {\tiny ps:范德蒙德矩阵ill-cond}}
+
 \begin{MyTh}{Vandermonde Matrix}
   $A\in \R^{n\times m}$ s.t. $a_{ij}=a_i^{j-1}$
 \end{MyTh}
@@ -205,23 +202,48 @@
   Deg $m-1$ poly fit to points: $\{(a_i,b_i)\}_{i=1}^n$ by solving \textit{$\mathbf{Ax}=\mathbf{b}$} $\Rightarrow$ \ps{\tiny sol $\mathbf{x}$ is coeff. of poly $p(x)=\sum_{j=1}^m x_j x^{j-1}$}
 \end{MyTh}
 
-\begin{MyTh}{LSP}
+\begin{MyTh}{LSQ}
   Finding \textit{line} which best fits $\{(a_i,b_i)\}_{i=1}^n$ by \textit{minimise} \comment{$\|\mathbf{Ax}-\mathbf{b}\|_2$}, $A\in\R^{n\times 2}$ vandermonde. \quad
   \textbf{Thm}: \textit{minimises} \ok{$\|\mathbf{Ax}-\mathbf{b}\|_2$ $\Leftrightarrow$} solve \ok{\scriptsize Normal Equations} \ok{$\mathbf{A}^\top\mathbf{Ax}=\mathbf{A}^\top\mathbf{b}$}
 
   \quad \ok{Moore-Penrose Pseudo-inverse of $A$}: $\mathbf{A}^\dagger = (\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top$ \quad $\cdot$ \textit{Normal Equations} has \ok{unique sol} if $\mathbf{A}\mathbf{A}^\top$ invertible. \quad $\cdot$ If $\mathbf{A}$ invertible, \ok{$\mathbf{A}^\dagger=\mathbf{A}^{-1}$}
-  \ps{\tiny ps:范德蒙德矩阵ill-cond.}
+\end{MyTh}
+
+
+\subsection{Singular Value Decomposition (SVD)}
+
+\begin{MyTh}{New Def of Condition Number}
+  If $\mathbf{A}_{m\times n}$, $m\geq n$ s.t. \ps{it's full rank \imp{\tiny (i.e. $\rank(\mathbf{A})=n$)}}, then \ok{$\kappa_p(\mathbf{A}):=\|\mathbf{A}\|_p\|\mathbf{A}^\dagger\|_p\geq1$} \quad \ok{$\kappa_2(\mathbf{A}^\top\mathbf{A})=\kappa_2(\mathbf{A})^2$} \quad \ok{$\kappa_2(\mathbf{A})=\frac{\sigma_{\max}}{\sigma_{\min}}$}
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{SVD}
+  $\mathbf{A}_{m\times n}=\mathbf{U}\Sigma\mathbf{V}^\top$ \quad where $\mathbf{U}_{m\times m},\mathbf{V}_{n\times n}$ \textit{orthogonal}, $\Sigma_{m\times n}$ \ps{diagonal} with \ps{singular values} $\sigma_1,...,\sigma_p$, $p=\min\{m,n\}$ \quad $\mathbf{U}/\mathbf{V}$的列为 \ps{left/right singular vectors}.
+
+  \quad \footnotesize $^1$ Always exist \quad $^2$ \ok{$\mathbf{A}\mathbf{v}_i=\sigma_i\mathbf{u}_i$} and \ok{$\mathbf{A}^\top\mathbf{u}_i=\sigma_i\mathbf{v}_i$} \quad $^3$ \ok{$\sigma_i^2$|$\mathbf{v}_i$ are eigenvalues/vectors of $\mathbf{A}^\top\mathbf{A}$} \ps{(i.e. $\mathbf{A}^\top\mathbf{A}\mathbf{v}_i=\sigma_i^2\mathbf{v}_i$)} \quad $^4$ $\rank(\mathbf{A})=\rank(\Sigma)=$ \# non-zero $\sigma_i$ \quad $^5$ \ok{$\mathbf{u}_i=\frac{1}{\sigma_i}\mathbf{A}\mathbf{v}_i$}
+\end{MyTh}
+
+\begin{MyTh}{Reduced QR Factorisation}
+  By QR: $\mathbf{A}_{m\times n}=\mathbf{Q}_{m\times m}\mathbf{R}_{m\times n}$, $m\geq n$. {\scriptsize \quad $^1$ $R$的$n$行以下全0 \quad $^2$ $\mathbf{Q}=[\mathbf{Q}_1 \ \mathbf{Q}_2]$, $\mathbf{R}=[\mathbf{R}_1 \ \mathbf{0}]^{\top}$ $\Rightarrow$ $\mathbf{A}=\mathbf{Q}_1\mathbf{R}_1$ where $\mathbf{Q}_1,\mathbf{R}_1\in \R^{n\times n}$}
+\end{MyTh}
+
+\begin{MyTh}{Reduced SVD}
+  By SVD: $\mathbf{A}=\mathbf{U}\Sigma\mathbf{V}^\top,m\geq n$. \quad {\scriptsize $^1$ If $\mathbf{B}$ orthogonal, then $\mathbf{B}^{-1}=\mathbf{B}^\top$, $\det(\mathbf{B})=\pm1$ and $\|\mathbf{B}\mathbf{x}\|_2=\|\mathbf{x}\|_2,\forall\mathbf{x}$ \quad $^2$ $\mathbf{U}=[\mathbf{U}_1 \ \mathbf{U}_2]$, $\Sigma=[\Sigma_1 \ \mathbf{0}]^{\top}$ \ $\Rightarrow$ \ $\mathbf{A}=\mathbf{U}_1\Sigma_1\mathbf{V}^\top$, \scalebox{0.8}{\tiny $\mathbf{U}_1\in\R^{m\times n}$, $\Sigma_1\in\R^{n\times n}$}}
+\end{MyTh}
+
+\vspace{-1pt}
+\begin{MyTh}{Error Analysis of LSQ-QR}
+  Let $\widehat{\mathbf{x}}$ denote sol of LSQ-QR (Householder). \quad Then $\widehat{\mathbf{x}}$ minimises $\|(\mathbf{A}+\Delta\mathbf{A})\mathbf{x}-\mathbf{b}\|_2$, and $\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}\leq \alpha n^{\frac{3}{2}}m\varepsilon_m,\alpha>0$
+\end{MyTh}
+
+\vspace{-1pt}
+\begin{MyTh}{Error Analysis LSQ (any)}
+  \tiny Let $\mathbf{x}$|$\widehat{\mathbf{x}}$ minimises $\|\mathbf{Ax}-\mathbf{b}\|_2$|$\|(\mathbf{A}+\Delta\mathbf{A})\mathbf{x}-\mathbf{b}\|_2$ and $\rank(\mathbf{A})=\rank(\mathbf{A}+\Delta\mathbf{A})=n$. \quad If $\kappa_2(\mathbf{A})\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}<1$ \ $\Rightarrow$ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_2}{\|\mathbf{x}\|_2}\leq\frac{\kappa_2(\mathbf{A})}{1-\kappa_2(\mathbf{A})\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}}\cdot\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}\left(2+(\kappa_2(\mathbf{A})+1)\frac{\|\mathbf{r}\|_2}{\|\mathbf{A}\|_2\|\mathbf{x}\|_2}\right)$,$\mathbf{r}=\mathbf{b}-\mathbf{Ax}$
 \end{MyTh}
 
 
 
-
 \newpage
-
-
-\section{Algorithms}
-
-\subsection{DP MV MM}
 
 \vspace{-10pt}
 \begin{multicols}{3}
@@ -239,6 +261,21 @@
   \EndFor
 \end{algorithmic}
 \end{algorithm}
+{\tiny
+\vspace{-15pt}
+\scalebox{0.9}{\begin{MyTh}{Rank Theorem}
+    [$\mathbf{Ax}=\mathbf{0}$ iff $\mathbf{x}=\mathbf{0}$] $\Leftrightarrow$ [列线性无关] $\Leftrightarrow$ [$\mathbf{A}$可逆] $\Leftrightarrow$ [$\rank(\mathbf{A})$ = rank($\mathbf{A}^\top$) = n]
+\end{MyTh}}
+
+\vspace{-3pt}
+\scalebox{0.9}{\begin{MyTh}{Spectral Theorem}
+    If $\mathbf{A}$ is symmetric, then $\exists$ orthonormal $\mathbf{Q}$ s.t. $\mathbf{A}=\mathbf{Q}^\top\Lambda\mathbf{Q}$ \ps{\tiny (Orthogonally diagonalisable)} \quad \ps{$\Lambda=\diag(\lambda_1,\dots,\lambda_n)$}
+\end{MyTh}}
+
+\vspace{-2pt}
+}
+
+\newcolumn
 
 % ----- Algorithm MV -----
 \begin{algorithm}[H]
@@ -269,11 +306,8 @@
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.8cm}
 
-
-\subsection{LU FS BS | GE GEPP GECP | LUPP LUCP}
-\vspace{-9pt}
+\vspace{-27pt}
 
 \begin{multicols}{3}
 
@@ -298,7 +332,7 @@
 \begin{algorithm}[H]
 \tiny
 \caption*{\textbf{FS} Forward substitution \vspace{-0.1cm} \\ \ps{$C(n) = \sum_{j=1}^{n}[2(j-1)+1]=n^2=\Ocal(n^2)$}}
-\textbf{Input:} $\mathbf{L} \in \mathbb{R}^{n \times n}$ (lower triangular), $\mathbf{b} \in \mathbb{R}^n$ \\
+\textbf{Input:} $\mathbf{L} \in \mathbb{R}^{n \times n}$ \ps{(lower triangular)}, $\mathbf{b} \in \mathbb{R}^n$ \\
 \textbf{Output:} $\mathbf{y} \in \mathbb{R}^n$ such that $\mathbf{Ly} = \mathbf{b}$
 \begin{algorithmic}[1]
   \For{$j = 1, \dots, n$}
@@ -311,7 +345,7 @@
 \begin{algorithm}[H]
 \tiny
 \caption*{\textbf{BS} Back substitution \vspace{-0.1cm} \\ \ps{$C(n) = \sum_{j=1}^n[2(n-j)+1]=n^2=\Ocal(n^2)$}}
-\textbf{Input:} $\mathbf{U} \in \mathbb{R}^{n \times n}$ (upper triangular), $\mathbf{y} \in \mathbb{R}^n$ \\
+\textbf{Input:} $\mathbf{U} \in \mathbb{R}^{n \times n}$ \ps{(upper triangular)}, $\mathbf{y} \in \mathbb{R}^n$ \\
 \textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ such that $\mathbf{Ux} = \mathbf{y}$
 \begin{algorithmic}[1]
   \For{$j = n, \dots, 1$}
@@ -322,17 +356,18 @@
 
 \end{multicols}
 
-\vspace{-0.8cm}
+\vspace{-26pt}
+
 \begin{multicols}{3}
 
 % ----- Algorithm GE -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{GE} Gaussian elimination \vspace{-0.1cm} \\ \ps{$C(n) = \frac{2}{3}n^3 + \frac{5}{2}n^2 - \frac{7}{6}n=\Ocal(n^3)$}}
+\caption*{\textbf{GE} Gaussian elimination \vspace{-0.1cm} \ \ \scalebox{0.9}{\ps{$C(n) = \frac{2}{3}n^3 + \frac{5}{2}n^2 - \frac{7}{6}n=\Ocal(n^3)$}}}
 \textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n},\ \mathbf{b} \in \mathbb{R}^n$ \\
 \textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ \ \ s.t. \ \ $\mathbf{Ax} = \mathbf{b}$
 \begin{algorithmic}[1]
-  \State Find LU factorisation of $\mathbf{A}$. \codealg{LU}
+  \State Find LU factorisation of $\mathbf{A}=\mathbf{LU}$. \codealg{LU}
   \State Solve $\mathbf{Ly} = \mathbf{b}$ using forward substitution. \codealg{FS}
   \State Solve $\mathbf{Ux} = \mathbf{y}$ using back substitution. \codealg{BS}
 \end{algorithmic}
@@ -341,7 +376,7 @@
 % ----- Algorithm GEPP -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{GEPP} Gaussian elimination with partial pivoting \vspace{-0.1cm} \\ \ps{$C(n)=\frac23n^3+3n^2-\frac53n=\Ocal(n^3)$}}
+\caption*{\textbf{GEPP} \scriptsize GE(partial pivoting) \vspace{-0.1cm} \ \ \scalebox{0.9}{\ps{$C(n)=\frac23n^3+3n^2-\frac53n=\Ocal(n^3)$}}}
 \textbf{Input:} $\mathbf{A}\in\R^{n\times n},\ \mathbf b\in\R^n$ \textcolor{gray}{\quad \# numpy.linalg.solve use it} \\
 \textbf{Output:} $\mathbf x\in\R^n$ satisfying $\mathbf{A x}=\mathbf b$
 \begin{algorithmic}[1]
@@ -354,7 +389,7 @@
 % ----- Algorithm GECP -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{GECP} Gaussian elimination with complete pivoting \vspace{-0.1cm} \\ \ps{$C(n)=n^3+3n^2-2n=\Ocal(n^3)$}}
+\caption*{\textbf{GECP} \scriptsize GE(complete pivoting) \vspace{-0.1cm} \ \ \scalebox{0.9}{\ps{$C(n)=n^3+3n^2-2n=\Ocal(n^3)$}}}
 \textbf{Input:} $\mathbf{A}\in\R^{n\times n},\ \mathbf b\in\R^n$ \\
 \textbf{Output:} $\mathbf x\in\R^n$ satisfying $\mathbf A\,\mathbf x=\mathbf b$
 \begin{algorithmic}[1]
@@ -367,13 +402,14 @@
 
 \end{multicols}
 
-\vspace{-0.8cm}
+\vspace{-27pt}
+
 \begin{multicols}{2}
 
 % ----- Algorithm LUPP -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{LUPP} LU factorisation with partial pivoting \ps{(not unique)} \vspace{-0.1cm} \\ \ps{$C(n)=\frac{2}{3}n^3+n^2-\frac{5}{3}n$}}
+\caption*{\textbf{LUPP} LU factorisation with partial pivoting \ps{(not unique)} \vspace{-0.1cm} \quad \ps{$C(n)=\frac{2}{3}n^3+n^2-\frac{5}{3}n$}}
 \textbf{Input:} $\mathbf{A}\in\R^{n\times n}$ \\
 \textbf{Output:} $\mathbf{L},\ \mathbf{U},\ \mathbf{P}\in\R^{n\times n}$ \ s.t. \ $\mathbf{P}\mathbf{A}=\mathbf{L}\mathbf{U}$ with $\mathbf{L}$ 单位下三角, $\mathbf{U}$ 可逆上三角
 \begin{algorithmic}[1]
@@ -394,7 +430,7 @@
 % ----- Algorithm LUCP -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{LUCP} LU factorisation with complete pivoting \ps{(not unique)} \vspace{-0.1cm} \\ \ps{$C(n)=n^3+n^2-2n$}}
+\caption*{\textbf{LUCP} LU factorisation with complete pivoting \ps{(not unique)} \vspace{-0.1cm} \quad \ps{$C(n)=n^3+n^2-2n$}}
 \textbf{Input:} $\mathbf{A}\in\R^{n\times n}$ \\
 \textbf{Output:} $\mathbf{L},\ \mathbf{U},\ \mathbf{P},\ \mathbf{Q}\in\R^{n\times n}$ \ s.t. \ $\mathbf{P}\mathbf{A}\mathbf{Q}=\mathbf{L}\mathbf{U}$ with $\mathbf{L}$ 单位下三角, $\mathbf{U}$ 可逆上三角
 \begin{algorithmic}[1]
@@ -415,10 +451,10 @@
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.8cm}
+\vspace{-30pt}
 
 
-\subsection{(M)GS SQR Householder-QR}
+\textbf{(M)GS SQR Householder-QR}
 
 \vspace{-9pt}
 
@@ -437,7 +473,7 @@
 \end{algorithmic}
 \end{algorithm}
 
-\vspace{-13pt}
+\vspace{-15pt}
 {\tiny
 \begin{MyTh}{Sum Notation}
     $\sum_{k=1}^n k = \frac{n(n+1)}{2}=\frac{1}{2}n^2+\frac{1}{2}n$
@@ -503,7 +539,7 @@
 
 \qquad\qquad $\mathbf{R} \in \mathbb{R}^{n \times n}$ non-singular upper triangular matrix; \ s.t. $\mathbf{A} = \mathbf{Q}\mathbf{R}$
 \begin{algorithmic}[1]
-  \State $\mathbf{Q} = \mathbf{I}$,\ $\mathbf{R} = \mathbf{A}$
+  \State $\mathbf{Q} = \mathbf{I}$,\ $\mathbf{R} = \mathbf{A}$ \quad \scalebox{0.8}{\textcolor{red}{\tiny \# 如果$A\in\R^{m\times n},m\geq n$, loop 到$n$, 且3.6.7的$n$改为$m$}}
   \For{$k = 1, \dots, n - 1$}
     \State $\mathbf{u} = (r_{kk}, \dots, r_{nk})\in \mathbb{R}^{n-k+1}$
     \State $\mathbf{v} = \mathbf{u} + \mathrm{sign}(u_1)\|\mathbf{u}\|_2 \mathbf{e}_1$  \quad \textcolor{gray}{\tiny \quad \ \# line.4-7 得到的$\mathbf{Q}_k$:}
@@ -511,18 +547,18 @@
     \State $\mathbf{H}_k = \mathbf{I} - 2\mathbf{w}\mathbf{w}^\top\in \mathbb{R}^{(n-k+1) \times (n-k+1)}$ \quad \textcolor{gray}{\scalebox{0.9}{\tiny \# line.6-8 一起算,见下}}
     \State $\mathbf{Q}_k = \mathbf{I}_{k-1} \oplus \mathbf{H}_k\in\R^{n\times n}$ \ \textcolor{gray}{\scalebox{0.75}{\tiny \# $\downarrow$ line.6-8 $C=4(n-k+1)^2+(n-k+1)$}}
     \State $\mathbf{R} = \mathbf{Q}_k \mathbf{R}$ \ \ \textcolor{gray}{\scalebox{0.8}{\tiny \# 用矩阵分块,只有右下角$\mathbf{H}_k\mathbf{R}_{k:n,k:n}$要算$\to$用$H_k$定义Alg. MV+OP}}
-    \State $\mathbf{Q} = \mathbf{Q} \mathbf{Q}_k$ \ \ \textcolor{gray}{\scalebox{0.8}{\tiny \# If using in Alg. \imp{SQR}, then $9':$ $\mathbf{y}=\mathbf{Q}_k\mathbf{y}$; \quad $C=\frac{4}{3}n^3+\Ocal(n^2)$ (SQR/QR)}}
-  \EndFor
+    \State $\mathbf{Q} = \mathbf{Q} \mathbf{Q}_k$ \ \ \textcolor{green}{\scalebox{0.8}{\tiny \# If using in Alg. \imp{SQR}, then $9':$ $\mathbf{y}=\mathbf{Q}_k\mathbf{y}$; \quad $C=\frac{4}{3}n^3+\Ocal(n^2)$ (SQR/QR)}}
+  \EndFor \quad \scalebox{0.8}{\textcolor{red}{\tiny \# $\mathbf{A}\in\R^{m\times n}$ reduced的 $C=2n^2m-\frac{2}{3}n^3+\Ocal(m^2+n^2+mn)$}}
 \end{algorithmic}
 \end{algorithm}
 
 \end{multicols}
-\vspace{-0.75cm}
+\vspace{-27pt}
 
 
-\subsection{Iterative Method | OP  MAX}
+\textbf{\scriptsize Iterative Method | OP  MAX}
 
-\vspace{-8pt}
+\vspace{-11pt}
 
 \begin{multicols}{3}
 
@@ -576,6 +612,40 @@
 
 \end{multicols}
 
+\vspace{-27pt}
+
+\begin{multicols}{3}
+
+% ----- Algorithm LSQ-QR -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{LSQ-QR} LSQ via QR \ \ \scalebox{0.8}{$C=2mn^2 - \frac{2}{3}n^3 + \Ocal(m^2 + n^2 + mn)$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{m \times n}$, $m \geq n$, $\rank(\mathbf{A}) = n$, $\mathbf{b} \in \mathbb{R}^m$ \qquad $\uparrow$ by reduced QR \\
+\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ with $\|\mathbf{Ax} - \mathbf{b}\|_2$ minimised
+\begin{algorithmic}[1]
+  \State Compute reduced QR factorization $\mathbf{A} = \mathbf{Q}_1\mathbf{R}_1$ \codealg{QR}
+  \State Compute $\mathbf{y} = \mathbf{Q}_1^{\top} \mathbf{b}$ \codealg{MV} \ \ \textcolor{gray}{\# $C=2mn$}
+  \State Solve $\mathbf{R}_1 \mathbf{x} = \mathbf{y}$ \codealg{BS} \ \ \textcolor{gray}{\# $C=n^2$}
+\end{algorithmic}
+\end{algorithm}
+
+% ----- Algorithm LSQ-SVD -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{LSQ-SVD} LSQ via SVD}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{m \times n}$, $m \geq n$, $\rank(\mathbf{A}) = n$, $\mathbf{b} \in \mathbb{R}^m$ \\
+\textbf{Output:} $\mathbf{x} \in \mathbb{R}^n$ with $\|\mathbf{Ax} - \mathbf{b}\|_2$ minimised
+\begin{algorithmic}[1]
+  \State Compute reduced SVD $\mathbf{A} = \mathbf{U}_1 \Sigma_1 \mathbf{V}^\top$ \quad \textcolor{gray}{\# see SVD note}
+  \State Compute $\mathbf{z} = \mathbf{U}_1^\top \mathbf{b}$ \codealg{MV} \ \ \textcolor{gray}{\# $C=2mn$}
+  \State Solve $\Sigma_1 \mathbf{y} = \mathbf{z}$ \ \ \textcolor{gray}{\# $C=n$}
+  \State Compute $\mathbf{x} = \mathbf{V} \mathbf{y}$ \codealg{MV} \ \ \textcolor{gray}{\# $C=2n^2$}
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
+
+
 \newpage
 
 
@@ -583,23 +653,6 @@
 
 \subsection{Useful Theorems/Formulas}
 \small
-
-
-
-\begin{MyTh}{Rank Theorem}
-    These statements are equivalent: {\footnotesize [$\mathbf{Ax}=\mathbf{0}$ iff $\mathbf{x}=\mathbf{0}$] $\Leftrightarrow$ [columns of $\mathbf{A}$ are linearly independent] $\Leftrightarrow$ [$\mathbf{A}$ is invertible] $\Leftrightarrow$ [$\rank(\mathbf{A})$ = rank($\mathbf{A}^\top$) = n]}
-\end{MyTh}
-
-
-
-
-\begin{MyTh}{Diagonalisable}
-    $\mathbf{A}$ is diagonalisable iff have $n$ LI eigenvectors. \ps{(e.g. symmetric matrix - Spectral Theorem)} | Always has Jordan Form.
-\end{MyTh}
-
-\begin{MyTh}{Spectral Theorem}
-    If $\mathbf{A}$ is symmetric, then $\exists$ orthonormal $\mathbf{Q}$ s.t. $\mathbf{A}=\mathbf{Q}^\top\Lambda\mathbf{Q}$ \comment{(Orthogonally diagonalisable)} \quad \ps{$\Lambda=\diag(\lambda_1,\dots,\lambda_n)$}
-\end{MyTh}
 
 
 \subsection{Others}

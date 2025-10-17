@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  13 OCT 2025 19:31
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  17 OCT 2025 19:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -991,14 +991,14 @@ LaTeX Font Info:    ... okay on input line 16.
 * vratio: 1:1
 * modes: includefoot 
 * h-part:(L,W,R)=(22.76228pt, 551.9833pt, 22.76228pt)
-* v-part:(T,H,B)=(19.91684pt, 810.90364pt, 14.22636pt)
+* v-part:(T,H,B)=(14.22636pt, 830.82048pt, 0.0pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=551.9833pt
-* \textheight=780.90364pt
+* \textheight=800.82048pt
 * \oddsidemargin=-49.5077pt
 * \evensidemargin=-49.5077pt
-* \topmargin=-89.35315pt
+* \topmargin=-95.04362pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1058,13 +1058,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 9.0347pt on input line 23.
+(Font)              scaled to size 6.52505pt on input line 23.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 9.03276pt on input line 23.
+(Font)              scaled to size 6.52367pt on input line 23.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 6.52505pt on input line 31.
+(Font)              scaled to size 9.0347pt on input line 27.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 6.52367pt on input line 31.
+(Font)              scaled to size 9.03276pt on input line 27.
 
 Overfull \hbox (1.17447pt too wide) in paragraph at lines 44--65
 [][]  []
@@ -1074,10 +1074,23 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
 (Font)              scaled to size 5.5212pt on input line 84.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 (Font)              scaled to size 5.52002pt on input line 84.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 7.52892pt on input line 96.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 7.52731pt on input line 96.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 16.0pt
+(hyperref)                replaced by space on input line 196.
+
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 219.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 246.
+LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <5.52061> not available
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 246.
+LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <5.52061> not available
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 246.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1093,6 +1106,14 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 [1
 
 ]
+Overfull \hbox (19.99266pt too wide) in paragraph at lines 268--269
+[][] 
+ []
+
+
+Overfull \hbox (111.4033pt too wide) in paragraph at lines 273--274
+[][] 
+ []
 
 
 
@@ -1123,14 +1144,24 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 
 
-Overfull \hbox (6.50821pt too wide) in paragraph at lines 513--514
+
+
+Overfull \hbox (6.50821pt too wide) in paragraph at lines 549--550
 [] $[] [] [][][]$   [][][] 
  []
 
 
-Overfull \hbox (11.00758pt too wide) in paragraph at lines 514--515
+Overfull \hbox (11.00758pt too wide) in paragraph at lines 550--551
 [] $[] [] [][][]$   [][][] 
  []
+
+
+
+
+
+
+
+
 
 
 
@@ -1151,11 +1182,6 @@ Overfull \hbox (11.00758pt too wide) in paragraph at lines 514--515
 
 
 [2]
-LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 7.52892pt on input line 590.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 7.52731pt on input line 590.
-
 
 [3] (./NLA Note.aux)
  ***********
@@ -1166,12 +1192,12 @@ Package rerunfilecheck Info: File `"NLA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 22862 strings out of 468441
- 446161 string characters out of 5435450
- 1100966 words of memory out of 5000000
- 50976 multiletter control sequences out of 15000+600000
- 635980 words of font info for 141 fonts, out of 8000000 for 9000
+ 22868 strings out of 468441
+ 446327 string characters out of 5435450
+ 1119961 words of memory out of 5000000
+ 50981 multiletter control sequences out of 15000+600000
+ 635988 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,13n,125p,627b,964s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,13n,125p,742b,962s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on NLA Note.pdf (3 pages).
