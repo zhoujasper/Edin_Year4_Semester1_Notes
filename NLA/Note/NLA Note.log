@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  17 OCT 2025 19:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  22 OCT 2025 20:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1086,11 +1086,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 246.
-LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <5.52061> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 246.
-LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <5.52061> not available
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 246.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 277.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1106,12 +1102,12 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 [1
 
 ]
-Overfull \hbox (19.99266pt too wide) in paragraph at lines 268--269
+Overfull \hbox (186.37523pt too wide) in paragraph at lines 302--303
 [][] 
  []
 
 
-Overfull \hbox (111.4033pt too wide) in paragraph at lines 273--274
+Overfull \hbox (111.4033pt too wide) in paragraph at lines 307--308
 [][] 
  []
 
@@ -1146,14 +1142,22 @@ Overfull \hbox (111.4033pt too wide) in paragraph at lines 273--274
 
 
 
-Overfull \hbox (6.50821pt too wide) in paragraph at lines 549--550
+Overfull \hbox (6.50821pt too wide) in paragraph at lines 583--584
 [] $[] [] [][][]$   [][][] 
  []
 
 
-Overfull \hbox (11.00758pt too wide) in paragraph at lines 550--551
+Overfull \hbox (11.00758pt too wide) in paragraph at lines 584--585
 [] $[] [] [][][]$   [][][] 
  []
+
+
+
+
+
+
+
+
 
 
 
@@ -1192,10 +1196,10 @@ Package rerunfilecheck Info: File `"NLA Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 22868 strings out of 468441
- 446327 string characters out of 5435450
- 1119961 words of memory out of 5000000
- 50981 multiletter control sequences out of 15000+600000
+ 22865 strings out of 468441
+ 446248 string characters out of 5435450
+ 1139961 words of memory out of 5000000
+ 50978 multiletter control sequences out of 15000+600000
  635988 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,13n,125p,742b,962s stack positions out of 10000i,1000n,20000p,200000b,200000s

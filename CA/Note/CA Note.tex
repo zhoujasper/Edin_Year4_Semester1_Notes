@@ -81,7 +81,7 @@
 
     \quad \ok{Remark}: {\tiny If \ps{$I=(g)$, $g$首相系数不可逆}: Find a polynomial $g_1$ s.t. $g_1=hg,h\in R[x]$首相系数可逆, 那么可满足$^1$条件,$^2$只能subset但不能唯一表达.}
 
-    \quad \ok{Remark}: {\scriptsize 有些时候我们能用 $\gcd,\text{lcm}$ 计算 $<a,b>=<\gcd(a,b)>$ 和 $a\cap b=<\text{lcm}(a,b)>$ [If $R$ communicative ring] 但注意! 要在能够用 Division Algorithm | 有 $\gcd,\text{lcm}$ 的环里用.}
+    \quad \ok{Remark}: {\scriptsize 有些时候我们能用 $\gcd,\text{lcm}$ 计算 \ok{$<a,b>=<\gcd(a,b)>$} 和 \ok{$a\cap b=<\text{lcm}(a,b)>$} [If $R$ communicative ring] 但注意! 要在能够用 Division Algorithm | 有 $\gcd,\text{lcm}$ 的环里用.}
 \end{MyTh}
 
 \fbox{\parbox[c]{0.98\textwidth}{
@@ -108,7 +108,7 @@
         \item {\footnotesize $R$ ring, $I_1,I_2,...,I_n\triangleleft R$, \ok{$I_1\cap I_2\cap\cdots\cap I_n=\{0\}$} \ \ $\Rightarrow$ \ \ $R$ isomorphic to a subring of $R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$. \ps{\scriptsize \imp{$R\cong R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$} if $I_i+I_j=R$ for $i\ne j$}}
         \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \imp{$(R/I)/J\cong R/T$}}
         \qquad {\small If $J=\langle j_1+I,...,j_n+I\rangle$ then $T=\langle j_1,...,j_n\rangle+I=\langle j_1,...,j_n,I\rangle$ \quad Moreover, if $I=\langle i_1,...,i_m\rangle$, then $T=\langle j_1,...,j_n,i_1,...,i_m\rangle$}
-        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nilpotent elements {\tiny except $0$}} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
+        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nonzero nilpotent elements {\tiny except $0$}} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
         \item If $R$ (commutative with \textit{unity}), then \ok{any ideal $I\ne R$ is contained in a \textit{maximal} ideal.} \qquad \comment{If $r$ is \textit{not a unit}, then $1\notin \langle r\rangle=rR$}
     \end{enumerate}
 \end{MyTh}
@@ -223,24 +223,34 @@
 \end{MyTh}
 
 
+\section{Nullstellensatz, Variety \& Vanishing Ideal}
+
 \subsection{Nil and Jacobson Radical Ideals, Local Ring}
-\vspace{-13pt}\hspace{200pt} \ok{\footnotesize \ps{\tiny If $R$ 交换环:} Jacobson Radical $J(R)$\ps{\tiny ($\cap$ maximal ideals|最大NI)} $\Rightarrow$ Nil Radical $=$ Prime Radical \ps{\tiny ($\cap$ prime ideals|最大JRI)}}
 
 \fbox{\parbox[c]{0.98\textwidth}{
+
 \begin{MyTh}{Nil Ideal}
-    $I$ ideal of $R$ is a \textit{nil ideal} if: \ \ $\forall x\in I$, $\exists n\in\N$ s.t. $x^n=0$. \ \ \comment{i.e. every element of $I$ is nilpotent.} \quad \ \ {\scriptsize \ok{Prime Radical$:=\bigcap$ prime ideals $\downarrow$}}
+    $I$ ideal of $R$ is a \textit{nil ideal} if: \ \ $\forall x\in I$, $\exists n\in\N$ s.t. $x^n=0$. \ \ {\scriptsize i.e. every element of $I$ is nilpotent.}
 \end{MyTh}
 
-\begin{MyTh}{Nil Radical}
-    $I$ ideal of $R$ is \textit{nil radical} if: \ \ It is the \comment{largest nil ideal} in $R$. \quad $\cdot $If $R$ \textit{commutative}, then \ok{Nil radical $=\bigcap$ prime ideals}
+\begin{MyTh}{Nil Radical ($N(R)=\sqrt{0_R}$)}
+    $N(R):=$ the \comment{largest nil ideal} in $R$ \ \ $\Leftrightarrow$ \ \ $N(R):=$ \comment{sum of all nil ideals in $R$} \ \ $\Leftrightarrow$ \ \ $N(R)=\sqrt{0_R}$\
+
+    \quad \textbf{Note}: \comment{sum of any two nil ideals is also a nil ideal.} \qquad \textbf{Note}: \comment{$R/N(R)$ has no non-zero nilpotent elements.}
 \end{MyTh}
 
-\begin{MyTh}{Jacobson Radical Ideal (JRI)}
-    $I$ ideal of $R$ is a \textit{Jacobson radical ideal} if: \ \ $\forall i\in I$, $1-i$/$1+i$ is a \textit{unit} in $R$. \qquad {\footnotesize $\cdot$ \ok{*Nil ideal $\Rightarrow$ JRI}\ps{\tiny (等比)}}
+\begin{MyTh}{Quasi-invertible}
+    $R$ ring, $a\in R$ is \textit{quasi-invertible} if: \ \ $\exists b\in R$ s.t. $(1-a)(1-b)=1$ \ \ $\leftrightarrow$ \ \ $ab=a+b$. \qquad \ps{\tiny (如果a quasi-invertible, 那么b唯一)}
+\end{MyTh}
+
+\begin{MyTh}{Jacobson Radical Ideal}
+    $I$ ideal of $R$ is a \textit{Jacobson radical ideal} if: \ \ $\forall i\in I$, $i$ is \textit{quasi-invertible} in $R$.
 \end{MyTh}
 
 \begin{MyTh}{Jacobson Radical $J(R)$}
-    $J(R):=\bigcap$ maximal ideals of $R$. $\Leftrightarrow$ $J(R)$ is the \comment{largest JRI} in $R$. \qquad \ps{\tiny *ps:有如下定义:$JRI=\sqrt[J]{I}:=\bigcap$ (maximal ideals $\supseteq I$)}
+    $J(R):=$ the \comment{largest JRI} in $R$ \ \ $\Leftrightarrow$ \ \ $J(R):=$ \comment{sum of all JRI in $R$} \ \ $\Leftrightarrow$ \ \ \ok{$J(R)=\bigcap$ {\tiny (left)} maximal ideals of $R$.}
+
+    \quad \textbf{Note}: \comment{sum of any two JRI is also a JRI.} \qquad \textbf{Note}: \ok{Nil ideal $\Rightarrow$ Jacobson Radical Ideal (JRI).}\ps{\tiny (通过等比数列证明)}
 \end{MyTh}
 
 \begin{MyTh}{Local Ring}
@@ -248,22 +258,10 @@
 \end{MyTh}
 }}
 
-\begin{MyTh}{2nd Def of Radical}
-    $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$\sqrt{I}=\bigcap$ (prime ideals $\supseteq I$)}
-\end{MyTh}
+\textbf{Remark}: $R/(JRI)$ or $R/J(R)$ has \comment{no non-zero nilpotent elements} \qquad \ok{$(1-a)(1-b)=1 \Leftrightarrow$ $1-a$ is invertible} \ps{($b=1-(1-a)^{-1}$)}
 
 
-\section{Nullstellensatz, Variety \& Vanishing Ideal}
-
-\begin{MyTh}{Weak Nullstellensatz}
-    $\F$ field, and $I\triangleleft \F[x_1,...,x_n]$ ideal. Then: \ok{$(\Rightarrow)$} If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, $a_i\in \F$, then $I$ is maximal ideal.
-
-    \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is \textit{maximal ideal} and \underline{$\F$ is algebraically closed}, then \ok{$I=\langle x_1-a_1,...,x_n-a_n\rangle$} for some $a_i\in \F$.
-
-    \quad \ok{Fact I}: If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, then $\forall f\in I$, $f(a_1,...,a_n)=0$.
-
-    \quad \ok{Fact II}: If $f(a_1,...,a_n)=0$ for some $a_i\in \F$, then $f\in \langle x_1-a_1,...,x_n-a_n\rangle$.
-\end{MyTh}
+\subsection{Variety \& Vanishing Ideal}
 
 \fbox{\parbox[c]{0.98\textwidth}{
 \begin{MyTh}{Variety}
@@ -275,23 +273,51 @@
 \end{MyTh}
 }}
 
-\begin{MyTh}{Useful Tools I}
-    If \ok{$X=X_1\cup X_2\cup\cdots\cup X_m$}, then \ \ \ok{$\specialI(X)=\specialI(X_1)\cap \specialI(X_2)\cap \cdots \cap \specialI(X_m)$}
+\begin{MyTh}{Useful Tools}
+    If \ok{$X=X_1\cup X_2\cup\cdots\cup X_m$}, then \ \ \ok{$\specialI(X)=\specialI(X_1)\cap \specialI(X_2)\cap \cdots \cap \specialI(X_m)$} \qquad $\cdot$ If $I_1\subseteq I_2$ ideals, then \ \ \ok{$\mathbf{V}(I_2)\subseteq \mathbf{V}(I_1)$}
 \end{MyTh}
 
-\begin{MyTh}{Useful Tools II \& III}
-    $k$ \textit{algebraically closed} field, $J$ ideals of $k[x_1,...,x_n]$. Then: \ \ \ok{$\mathbf{V}(J)\ne0$ $\Leftrightarrow$ $J\ne k[x_1,...,x_n]$}
 
-    \qquad $f\in k[x_1,...,x_n]$. Then: \ \ [ \ok{$f^n\in J$ for some $n\in\N$ $\Leftrightarrow$ $f(\mathbf{x})=0 \ \ \forall \mathbf{x}\in\mathbf{V}(J)$} ] \quad i.e. \ok{$\sqrt{J}=\specialI(\mathbf{V}(J))$}
+\subsection{Nullstellensatz}
+
+\begin{MyTh}{Weak Nullstellensatz}
+    $\F$ field, and $I\triangleleft \F[x_1,...,x_n]$ ideal. Then: \ok{$(\Rightarrow)$} If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, $a_i\in \F$, then $I$ is maximal ideal.
+
+    \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is \textit{maximal ideal} and \underline{$\F$ is algebraically closed}, then \ok{$I=\langle x_1-a_1,...,x_n-a_n\rangle$} for some $a_i\in \F$.
+
+    \quad \ok{Fact I}: If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, then \ \ \ok{[ $f(a_1,...,a_n)=0$ \ \ $\Leftrightarrow$ \ \ $f\in I$ ]}
+
+    \quad \ok{Fact II}: $k$ field, \ok{$(\Rightarrow)$} $I$ \comment{maximal ideal} then \ \ \ok{$\mathbf{V}(I)$ is a \textit{single point}}. \ \ \ps{(i.e. $\mathbf{V}(I)=\{(a_1,...,a_n)\}$)} \qquad \ok{\footnotesize $(\Leftarrow)$ if $k$ algebraically closed.} \ps{\tiny (ps:最好证明一下)}
+\end{MyTh}
+
+\begin{MyTh}{Reformation of Weak Nullstellensatz}
+    $k$ \textit{algebraically closed} field, $J$ ideals of $k[x_1,...,x_n]$. Then: 
+    
+    \quad $^1$ \ok{$\mathbf{V}(J)\ne\emptyset$ $\Leftrightarrow$ $J\ne k[x_1,...,x_n]$} \qquad\qquad $^2$ \ok{$f\in \specialI(\mathbf{V}(J))$ \ \ $\Leftrightarrow$ \ \ $f^n\in J$ for some $n\in\N$} \quad i.e. \imp{$\sqrt{J}=\specialI(\mathbf{V}(J))$} \quad \ps{It's \underline{Strong Nullstellensatz}!}
+\end{MyTh}
+
+\begin{MyTh}{Reformation of Hilbert's Nullstellensatz}
+    $k$ \textit{algebraically closed} field, $I$ ideal of $k[x_1,...,x_n]$. Then:
+
+    \quad $^1$ \ok{$\sqrt{I}=\bigcap$ (maximal ideals $\supseteq I$)} \qquad $\Leftrightarrow$ \qquad $^2$ \ok{$J(R/I)=\bigcap$ maximal ideals in $R/I$ = nil radical of $R/I = \sqrt{0_{R/I}}$}
+\end{MyTh}
+
+
+------------
+
+\begin{MyTh}{Theorem}
+    If $R$ communicative ring, then \ok{Nil radical $\sqrt{0_R}=N(R)=\bigcap$ prime ideals of $R$ $=:$ Prime Radical.} \quad \ps{\tiny 如果$R$非交换,不一定成立.}
+\end{MyTh}
+
+\begin{MyTh}{2nd Def of Radical}
+    $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$\sqrt{I}=\bigcap$ (prime ideals $\supseteq I$)}
 \end{MyTh}
 
 \begin{MyTh}{Nullstellensatz} Let $k$ be an \underline{algebraically closed} field, $I$ be an \textit{ideal} of $k[x_1,...,x_n]$.
     \vspace{-2pt}
     \begin{enumerate}
-        \item \ok{The Strong Nullstellensatz}: \imp{$\sqrt{I}=\specialI(\mathbf{V}(I))$} \qquad\qquad \ok{The Weak Nullstellensatz}: $\mathbf{V}(I)=\emptyset \Leftrightarrow I=k[x_1,...,x_n]$ \quad \ps{还有一版见上面}
-        \item \ok{Reformation of SN}: $\bigcap$ \textit{prime ideals} = Nil radical = $\bigcap$ \textit{maximal ideals} = Jacobson radical (\imp{存疑考虑要不要写})
+        \item \ok{Reformation of SN}: $\bigcap$ \textit{prime ideals} = Nil radical = $\bigcap$ \textit{maximal ideals} = Jacobson radical = $\{0_R\}$.
         \item \ok{Reformation of WN}: If $I$ \textit{maximal ideal} then \ \ \ok{$k[x_1,...,x_n]/I\cong k$}
-        \item $k$ field. If $I$ \textit{maximal ideal} \ \ $\Rightarrow$ \ \ $\mathbf{V}(I)$ is a \textit{single point}. \quad \ps{(i.e. $\mathbf{V}(I)=\{(a_1,...,a_n)\}$)} \qquad \ok{$(\Leftarrow)$ if $k$ algebraically closed.} \ps{need proof, by using WN}
     \end{enumerate}
 \end{MyTh}
 

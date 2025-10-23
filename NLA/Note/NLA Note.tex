@@ -240,7 +240,38 @@
 \begin{MyTh}{Error Analysis LSQ (any)}
   \tiny Let $\mathbf{x}$|$\widehat{\mathbf{x}}$ minimises $\|\mathbf{Ax}-\mathbf{b}\|_2$|$\|(\mathbf{A}+\Delta\mathbf{A})\mathbf{x}-\mathbf{b}\|_2$ and $\rank(\mathbf{A})=\rank(\mathbf{A}+\Delta\mathbf{A})=n$. \quad If $\kappa_2(\mathbf{A})\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}<1$ \ $\Rightarrow$ \ $\frac{\|\mathbf{x}-\widehat{\mathbf{x}}\|_2}{\|\mathbf{x}\|_2}\leq\frac{\kappa_2(\mathbf{A})}{1-\kappa_2(\mathbf{A})\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}}\cdot\frac{\|\Delta\mathbf{A}\|_2}{\|\mathbf{A}\|_2}\left(2+(\kappa_2(\mathbf{A})+1)\frac{\|\mathbf{r}\|_2}{\|\mathbf{A}\|_2\|\mathbf{x}\|_2}\right)$,$\mathbf{r}=\mathbf{b}-\mathbf{Ax}$
 \end{MyTh}
+\vspace{-6pt}
 
+
+\section{Eigenvalue Problems}
+
+\vspace{-8pt}\hspace{120pt}\ps{\tiny (In this section: $|\lambda_1|\ge|\lambda_2|\ge\cdots\ge|\lambda_n|$ are eigenvalues of $\mathbf{A}\in\R^{n\times n}$ with corresponding eigenvectors $\mathbf{x}_1,\mathbf{x}_2,\ldots,\mathbf{x}_n$. $\lambda_1=\lambda_{\max}\leftrightarrow\mathbf{x}_{\max}$, $\lambda_n=\lambda_{\min}\leftrightarrow\mathbf{x}_{\min}$)}
+
+\begin{MyTh}{Rayleigh Quotient}
+  $r_{\mathbf{A}}(\mathbf{x})=\frac{\mathbf{x}^\top \mathbf{A} \mathbf{x}}{\mathbf{x}^\top \mathbf{x}}$ \qquad \ok{$r_{\mathbf{A}}(\mathbf{x}_i)=\lambda_i$} \qquad \ps{Eigenvalues $\leftrightarrow$ Eigenvectors}: \ok{$\mathbf{x}_i\to\lambda_i$}: $r_{\mathbf{A}}(\mathbf{x}_i)=\lambda_i$ \quad \ok{$\lambda_i\to\mathbf{x}_i$}: $(\mathbf{A}-\lambda_i\mathbf{I})\mathbf{x}_i=\mathbf{0}$ \quad \ok{Basis}: $\mathbf{A}\mathbf{x}=\sum_i \alpha_i \lambda_i \mathbf{x}_i$
+\end{MyTh}
+
+\begin{MyTh}{Convergence of Power Iteration}
+  If $|\lambda_1|>|\lambda_2|$ and $\mathbf{x}_1\cdot \mathbf{z}^{(0)}\ne0$, then \ok{$\exists {\sigma_k}_{k\in\N}$} with $\sigma_k=\pm1$ s.t. \ \ok{$\lim\limits_{k\to\infty}\|\sigma_k\mathbf{z}^{(k)}-\mathbf{x}_1\|_2=0$} \ \ and \ \ \ok{$\lim\limits_{k\to\infty}|\lambda^{(k)}-\lambda_1|=0$}
+\end{MyTh}
+
+\vspace{-3pt}
+\begin{MyTh}{Useful Tool}
+  Eigenvalues of $\mathbf{A}^{-1}$ are $\mu_i=\frac{1}{\lambda_i}$ and $\lambda_{\max}=\mu_{\min}^{-1}$ \qquad Eigenvalues of $(\mathbf{A}-s\mathbf{I})^{-1}$ are $\nu_i=\frac{1}{\lambda_i - s}$ and $\lambda_{\max} = s + \nu_{\min}^{-1}$
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{Inverse Iteration Algorithm}
+  Input $\mathbf{A}^{-1}$ in Power Iteration $\Rightarrow$ find $\lambda_{\min}^{-1}$ and $\mathbf{x}_{\min}$ \ps{\tiny (用 SII $s=0$可直接得到)}
+\end{MyTh}
+
+\begin{MyTh}{Shifted Inverse Iteration Algorithm}
+  Using $(\mathbf{A}-s\mathbf{I})^{-1}$ \ $\Rightarrow$ \ Find eigenvalue \comment{closest to $s$} and corresponding eigenvector. \quad \ps{\footnotesize Assume: $|\lambda_a - s|<|\lambda_b - s|<\cdots$}
+\end{MyTh}
+
+\begin{MyTh}{Rate of Convergence for PI \& SII}
+  \scriptsize \ok{Rate $\uparrow$ iff $|\frac{\lambda_2}{\lambda_1}|\downarrow$} {\tiny $\|\sigma_k\mathbf{z}^{(k)}-\mathbf{x}_1\|_2\leq\alpha_1(\frac{|\lambda_2|}{|\lambda_1|})^k$ \ ; \ $|\lambda^{(k)}-\lambda_1|\leq\alpha_2(\frac{|\lambda_2|}{|\lambda_1|})^{2k}$} \quad \ok{Rate $\uparrow$ iff $|\frac{\lambda_{a}-s}{\lambda_{b}-s}|\downarrow$} {\tiny $\|\sigma_k\mathbf{z}^{(k)}-\mathbf{x}_i\|_2\leq\beta_1(\frac{|\lambda_{a}-s|}{|\lambda_{b}-s|})^k$ \ ; \ $|\lambda^{(k)}-\lambda_a|\leq\beta_2(\frac{|\lambda_{a}-s|}{|\lambda_{b}-s|})^{2k}$}
+\end{MyTh}
 
 
 \newpage
@@ -264,12 +295,15 @@
 {\tiny
 \vspace{-15pt}
 \scalebox{0.9}{\begin{MyTh}{Rank Theorem}
-    [$\mathbf{Ax}=\mathbf{0}$ iff $\mathbf{x}=\mathbf{0}$] $\Leftrightarrow$ [列线性无关] $\Leftrightarrow$ [$\mathbf{A}$可逆] $\Leftrightarrow$ [$\rank(\mathbf{A})$ = rank($\mathbf{A}^\top$) = n]
+    [$\mathbf{Ax}=\mathbf{0}$ iff $\mathbf{x}=\mathbf{0}$] $\Leftrightarrow$ [列线性无关] $\Leftrightarrow$ [$\mathbf{A}$可逆] $\Leftrightarrow$ [$\rank(\mathbf{A})$ = rank($\mathbf{A}^\top$) = n] \quad
+\end{MyTh}
+\begin{MyTh}{Abel}
+    $\ge5$次方|实系数多项式|$\exists$实根无法用有限次加减乘除和开方表示.
 \end{MyTh}}
 
 \vspace{-3pt}
 \scalebox{0.9}{\begin{MyTh}{Spectral Theorem}
-    If $\mathbf{A}$ is symmetric, then $\exists$ orthonormal $\mathbf{Q}$ s.t. $\mathbf{A}=\mathbf{Q}^\top\Lambda\mathbf{Q}$ \ps{\tiny (Orthogonally diagonalisable)} \quad \ps{$\Lambda=\diag(\lambda_1,\dots,\lambda_n)$}
+    If $\mathbf{A}$ is symmetric, then $\exists$ orthonormal $\mathbf{Q}$ s.t. $\mathbf{A}=\mathbf{Q}\Lambda\mathbf{Q}^\top$ \ps{\tiny (Orthogonally diagonalisable)} \quad \ps{$\Lambda=\diag(\lambda_1,\dots,\lambda_n)$}
 \end{MyTh}}
 
 \vspace{-2pt}
@@ -645,6 +679,50 @@
 
 \end{multicols}
 
+\vspace{-27pt}
+
+\begin{multicols}{3}
+
+% ----- Algorithm PI -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{PI} Power Iteration \quad \ps{$C=?$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \textit{symmetric}, $\mathbf{z}^{(0)} \in \mathbb{R}^n\setminus\{\mathbf{0}\}$, $\eps>0$ \\
+\textbf{Output:} $\mathbf{z}^{(k)} \in \mathbb{R}^n, \lambda^{(k)} \in \mathbb{R}$ \ s.t. \ \ps{$\mathbf{z}^{(k)} \approx \mathbf{x}_{\max}$, $\lambda^{(k)} \approx \lambda_{\max}$}
+\begin{algorithmic}[1]
+  \State $k = 0$
+  \State $\lambda^{(0)} = r_{\mathbf{A}}(\mathbf{z}^{(0)})$
+  \While{$\|\mathbf{A}\mathbf{z}^{(k)} - \lambda^{(k)} \mathbf{z}^{(k)}\|_2 > \eps$} \quad \textcolor{gray}{\tiny \# or: $|\lambda^{(k)} - \lambda^{(k-1)}| > \eps$}
+    \State $k = k + 1$ \qquad\qquad\qquad\qquad\qquad \ \ \textcolor{gray}{\tiny \# or: $\|\mathbf{z}^{(k)} - \mathbf{z}^{(k-1)}\|_2 > \eps$}
+    \State $\mathbf{z}^{(k)} = \mathbf{A} \mathbf{z}^{(k-1)}$
+    \State $\mathbf{z}^{(k)} = \frac{\mathbf{z}^{(k)}}{\|\mathbf{z}^{(k)}\|_2}$ \quad \textcolor{gray}{\tiny \# To improve stability and avoid large values}
+    \vspace{-1pt}
+    \State $\lambda^{(k)} = r_{\mathbf{A}}(\mathbf{z}^{(k)})$ \qquad \textcolor{red}{\tiny \# In fact: \scalebox{0.8}{$\mathbf{z}^{(k)} =\frac{\mathbf{A}^k \mathbf{z}^{(0)}}{\|\mathbf{A}^k \mathbf{z}^{(0)}\|_2}$ and $\lambda^{(k)} = r_{\mathbf{A}}(\mathbf{z}^{(k)})$}}
+    \vspace{-5pt}
+  \EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{SII} Shifted Inverse Iteration \quad \ps{$C=?$}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \textit{symmetric}, $s \in \mathbb{R}$, $\mathbf{z}^{(0)} \in \mathbb{R}^n\setminus\{\mathbf{0}\}$, $\eps>0$ \\
+\textbf{Output:} $\mathbf{z}^{(k)} \in \mathbb{R}^n, \lambda^{(k)} \in \mathbb{R}$ \ s.t. \ \ps{$\mathbf{z}^{(k)} \approx \mathbf{x}_a$, $\lambda^{(k)} \approx \lambda_a$ near $s$}
+\begin{algorithmic}[1]
+  \State $k = 0$
+  \State $\lambda^{(0)} = r_{\mathbf{A}}(\mathbf{z}^{(0)})$ \quad \textcolor{gray}{\tiny \# first $O(n^3)$ cost; then $O(n^2)$ cost/it}
+  \While{$\|\mathbf{A}\mathbf{z}^{(k)} - \lambda^{(k)} \mathbf{z}^{(k)}\|_2 > \eps$}
+    \State $k = k + 1$
+    \State Solve $(\mathbf{A} - s\mathbf{I}) \mathbf{y} = \mathbf{z}^{(k-1)}$ for $\mathbf{y}$ \quad \textcolor{gray}{\tiny \# via GEPP \& Find LU only once}
+    \State $\mathbf{z}^{(k)} = \frac{\mathbf{y}}{\|\mathbf{y}\|_2}$
+    \vspace{-1pt}
+    \State $\lambda^{(k)} = r_{\mathbf{A}}(\mathbf{z}^{(k)})$ \ \ \textcolor{red}{\tiny \# In fact: \scalebox{0.8}{$\mathbf{z}^{(k)} =\frac{(\mathbf{A}-s\mathbf{I})^{-k} \mathbf{z}^{(0)}}{\|(\mathbf{A}-s\mathbf{I})^{-k} \mathbf{z}^{(0)}\|_2}$, $\lambda^{(k)} = r_{\mathbf{A}}(\mathbf{z}^{(k)})$}}
+    \vspace{-5pt}
+  \EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\end{multicols}
 
 \newpage
 
