@@ -181,7 +181,7 @@
     \vspace{-3pt}
     {\footnotesize \quad \ok{Inner solution}: $\sigma = \frac{\tau}{\eps}$, $\begin{smallmatrix}U(\sigma;\eps)=u(\tau;\eps) \\ V(\sigma;\eps)=v(\tau;\eps)\end{smallmatrix}$ $\Rightarrow$ $\frac{dU}{d\sigma}=\eps f(u,v)$, $\frac{dV}{d\sigma}=g(u,v)$ $\to$ {\scriptsize Taylor 带入原方程组$\to$保留$\Ocal(1)|\eps=0$} \ps{\tiny (known as \ok{boundary layer} ($\tau=0$处)); Valid $\tau=0$ (fast time)}}
 
-    {\footnotesize \quad \ok{Asymptotic Matching}: {\scriptsize $\lim\limits_{\sigma\to\infty}[U_0(\sigma),V_0(\sigma)]=\lim\limits_{\tau\to0^+}[u_0(\tau),v_0(\tau)]$} \qquad \ok{Uniformly Valid Solution}: {\scriptsize $u(\tau;\eps)=u_0(\tau)+\Ocal(\eps)$; $v(\tau;\eps)=\left\{ \begin{smallmatrix} v_0(\tau)+\Ocal(\eps), & 0<\eps\ll \tau \\ V_0(\sigma)+\Ocal(\eps), & 0<\tau\ll 1 \end{smallmatrix}\right.$}}
+    {\footnotesize \quad \ok{Asymptotic Matching}: {\scriptsize $\lim\limits_{\sigma\to\infty}[U_0(\sigma),V_0(\sigma)]=\lim\limits_{\tau\to0^+}[u_0(\tau),v_0(\tau)]$} \qquad \ok{Uniformly Valid Solution}: {\scriptsize $u(\tau;\eps)=u_0(\tau)+\Ocal(\eps)$; $v(\tau;\eps)=\left\{ \begin{smallmatrix} v_0(\tau)+\Ocal(\eps), & 0<\eps\ll \tau \\ V_0(\sigma)+\Ocal(\eps), & 0<\tau\ll 1 \end{smallmatrix}\right.$} \tiny \ok{uniform expansion}: 见chp.5}
 \end{MyTh}
 
 \vspace{-3pt}
@@ -250,6 +250,36 @@
     \tiny \ok{快-慢震荡}: $^1$(\ps{option}) The equilibrium point $S$ is unstable between the two \textit{knees}/\textit{turnning points} of the $u$-nullcline/cubic-like curve. | \ps{or}: $S$ changes stability as it crosses the knees of the $u$-nullcline. \ \ $^2$ 图上标/简单解释拐点位置. \ \ $^3$ 证明$|u'|\gg1$\ps{(写成乘积形式判断)}或其他$\to$得快运动边. \ \ $^4$ Trajectories \textit{starting off} the $u$-nullcline \textit{repidly/quickly} approach \textit{left/right branch} of the $u$-nullcline, and then \textit{slowly move down/up}|\textit{crawl along} the $u$-nullcline due to $v'<0/>0$, and to \textit{upper/lower knee/turnning point} $^5$ At the knee/turnning point, the trajectory \textit{quickly jumps} to the \textit{right/left branch} of the $u$-nullcline, and then \textit{slowly moves up/down}|\textit{crawl along} the $u$-nullcline due to $v'>0/<0$. $^6$ And this process \textit{repeats periodically}, giving rise to a \textit{relaxation oscillation}.
     \ok{Excitable}: 类似的,分析 small perturbation \textit{above/below} equilibrium point $S$ -> 得\textit{failed excitation} or \textit{successful excitation}.
 \end{MyTh}
+
+
+\section{Manifolds \& Fenichel's Theorem}
+
+\begin{MyTh}{Regular/Singular Perturbation}
+    {\scriptsize 对于一个含 $\eps$ 的方程/系统: \ \ If $\eps\to0$ the \ps{order} does not change, it's a \ok{regular perturbation}. \ \ If $\eps\to0$ the \ps{order} changes, it's a \ok{singular perturbation}.}
+
+    \scalebox{0.94}{\tiny \ok{Find Roots}: Assume roots $x=x_0+\eps x_1+\eps^2 x_2+\cdots$, 代入比较$\Ocal(1),\Ocal(\eps)$...得系数\ps{\tiny (解前两系数就行)}.  \quad If \textit{singular}, cannot approx $x=\Ocal(\eps^{-1})$, rescaling $x=\frac{X}{\eps}$, assume root $X=X_0+\eps X_1+\cdots$ 类似前. 不留$X_0=0$解,因为X小.}
+
+    \scalebox{0.94}{\tiny \ok{Sol \& Uniform}: 对$\eps \ddot{y}+p(x)\dot{y}+q(x)y=r(x)$, a.类似上面算sol \scalebox{0.8}{\ps{\tiny (有初值)}} or b.直接算exact sol. $\to$ 得\ok{Outer Solution} \scalebox{0.8}{\ps{\tiny (首项含$\eps$)}}. \quad Let $\tau=\eps t$ 类似算sol $\to$ \ok{Inner Solution} \scalebox{0.8}{\ps{\tiny (首项不含$\eps$)}}. \ \ \ok{unif expre} = Outer + Inner - Matching\scalebox{0.8}{\ps{(=matching cond 的lim)}}}
+\end{MyTh}
+
+\begin{MyTh}{Singular Perturbation System}
+    \footnotesize For $\left\{\begin{smallmatrix}\dot{u}=f(u,v,\eps) \ \ \\ \dot{v}=\eps g(u,v,\eps)\end{smallmatrix}\right.$, \ps{\scriptsize $0<\eps\ll1$}. \quad If $\tau=\eps t$, then $\left\{\begin{smallmatrix}\eps u' =f(u,v,\eps) \\ \ \ v' =g(u,v,\eps) \end{smallmatrix}\right.$ \ \ \ps{$t$: fast time; $\tau$: slow time} \ \ \ps{\tiny ($\eps\ne0$时等价)} \qquad\qquad \ \ \ps{\tiny $\downarrow$ Defined in a neighborhood of $\mathcal{M}_0$}
+
+    \quad {\scriptsize \ok{Reduced Problem}: slow times $\eps=0$. \ \ \ok{Layer Problem}: fast time $\eps=0$. \quad \ok{Critical Manifold}: $\mathcal{M}_0:=\{(u,v):f(u,v,0)=0\}$ \ \ \ps{\tiny ps: \textit{Reduced problem} defined only on $\mathcal{M}_0$, \textit{Layer problem} defined off $\mathcal{M}_0$}}
+
+    \quad {\scriptsize \ok{Normal Hyperbolicity}: $\mathcal{M}_0$ is normally hyperbolic at $(u,v)\in\mathcal{M}_0$ if: \ \ $\lambda_i$ {\tiny (特征值)} of Jacobian $J|_{(u,v,0)}=\frac{\partial f}{\partial u}|_{(u,v,0)}$ are $\Re(\lambda_i)\ne0$. \ \ $\rightarrow$ \ \ \ok{(Un-)Stable}: $\Re(\lambda_i)<0$\scalebox{0.8}{\tiny $(>0)$}$\Leftrightarrow \frac{\partial f}{\partial u}<0$\scalebox{0.8}{\tiny $(>0)$} \scalebox{0.8}{\ps{\tiny (1-dim)}} }
+
+    \quad {\scriptsize \ok{Outer Solution}: sol for slow time at $\eps=0$. (reduced problem) \quad \ok{Inner Solution}: sol for fast time at $\eps=0$. (layer problem)} \qquad\qquad\qquad\quad \ps{$\uparrow$ attracting(stable) / repelling(unstable)}
+
+    \quad {\scriptsize \ok{Describe Reduced|Layer Problem}: \tiny $^1$ 如果能解具体表达式就解;不好解情况下给出$u',v'$仅关于$u,v$的表达式; $^2$ 如果可以画一个图; $^3$ 分析attracting/repelling (stable/unstable); $^4$ 分析$\tau,t\to\infty$时的行为}
+\end{MyTh}
+
+\begin{MyTh}{Fenichel's Theorem}
+    If $\mathcal{M}_0\subset \{f(u,v,0)=0\}$ is \ps{compact} {\tiny (closed \& bounded)} and \ps{normally hyperbolic}. Suppose $f,g$ are \textit{smooth}. \ \ Then for $\eps>0$ \ps{\tiny (sufficiently small)}, $\exists$ \textit{Manifold} $\mathcal{M}_\eps$ s.t. \ps{$\Ocal(\eps)$ close} and \ps{diffeomorphic} to $\mathcal{M}_0$. (i.e. $\mathcal{M}_\eps$ is \ps{locally invariant} under the flow of the full system \ps{\tiny (上面左边的system)}). \quad \ps{\tiny ps: $M_\eps$ called \ok{slow manifold}.}
+
+    \quad {\scriptsize \ok{Find $\mathcal{M}_\eps$}: If $\mathcal{M}_0=\{(u,v):u=p_0(v)\}$, then $\mathcal{M}_\eps=\{(u,v):u=p_{\eps}(v)\}$ \quad \scalebox{0.9}{\ps{\tiny 可通过算$u,v$的exact sol, 寻找能使含$t$项消失但保留$\tau$的解(or:考虑快变量$t\to\infty$), 对比$\mathcal{M}_0$得到$\mathcal{M}_\eps$}}}
+\end{MyTh}
+
 
 
 \section{Appendix}
