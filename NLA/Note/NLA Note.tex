@@ -266,11 +266,25 @@
 \end{MyTh}
 
 \begin{MyTh}{Shifted Inverse Iteration Algorithm}
-  Using $(\mathbf{A}-s\mathbf{I})^{-1}$ \ $\Rightarrow$ \ Find eigenvalue \comment{closest to $s$} and corresponding eigenvector. \quad \ps{\footnotesize Assume: $|\lambda_a - s|<|\lambda_b - s|<\cdots$}
+  Using $(\mathbf{A}-s\mathbf{I})^{-1}$ \ $\Rightarrow$ \ Find eigenvalue \comment{closest to $s$} and corresponding eigenvector. \quad \ps{\footnotesize Assume: $|\lambda_a - s|<|\lambda_b - s|\leq\cdots$}
 \end{MyTh}
 
-\begin{MyTh}{Rate of Convergence for PI \& SII}
+\begin{MyTh}{Rate of Converge. for PI \& SII}
   \scriptsize \ok{Rate $\uparrow$ iff $|\frac{\lambda_2}{\lambda_1}|\downarrow$} {\tiny $\|\sigma_k\mathbf{z}^{(k)}-\mathbf{x}_1\|_2\leq\alpha_1(\frac{|\lambda_2|}{|\lambda_1|})^k$ \ ; \ $|\lambda^{(k)}-\lambda_1|\leq\alpha_2(\frac{|\lambda_2|}{|\lambda_1|})^{2k}$} \quad \ok{Rate $\uparrow$ iff $|\frac{\lambda_{a}-s}{\lambda_{b}-s}|\downarrow$} {\tiny $\|\sigma_k\mathbf{z}^{(k)}-\mathbf{x}_i\|_2\leq\beta_1(\frac{|\lambda_{a}-s|}{|\lambda_{b}-s|})^k$ \ ; \ $|\lambda^{(k)}-\lambda_a|\leq\beta_2(\frac{|\lambda_{a}-s|}{|\lambda_{b}-s|})^{2k}$}
+\end{MyTh}
+
+
+\subsection{Orthogonal Iteration}
+\vspace{-8pt}\hspace{120pt}\ps{\tiny \quad \ok{For PI, II, SII, OI: Convergence of \textit{eigenvalues} faster than \textit{eigenvectors}.}}
+
+\begin{MyTh}{Orthogonal Iteration}
+  \ok{Convergence}: If $|\lambda_1|>|\lambda_2|>\cdots>|\lambda_n|$ \ps{(distinct)}. \ok{Speed of Conv.}: depend on $\max_{1\leq l\leq n-1}|\frac{\lambda_{l+1}}{\lambda_l}|$ \quad It's \ok{unstable}.
+\end{MyTh}
+
+\begin{MyTh}{OR-Eig}
+  \ok{Convergence} and \ok{Speed of Conv.} {\tiny 和 OI 类似,但实际上可以弱一点.} \quad \ok{More stable} than OI. (more accurate)
+
+  \quad \ok{Computational Cost}\scalebox{0.8}{\tiny \ps{(有优化过)}}: \tiny \ok{a.} \textbf{MM} Alg. for $\Lambda^{(k)}$, any \textbf{QR} Alg. $\to$ $C=\Ocal(k_{\max}n^3)$ \quad \ok{b.} \textbf{MV} Alg. for $\Lambda^{(k)}$, \textbf{MGS} for QR $\to$ $C=\Ocal(4n^3+n^2+n)$ \quad \ok{c.} \textbf{MM} Alg. $\to$ better alg. as $\mathbf{R}$ upper triangular.
 \end{MyTh}
 
 
@@ -677,6 +691,22 @@
 \end{algorithmic}
 \end{algorithm}
 
+% ----- Algorithm QR-Eig -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{QR-Eig} QR Algorithm for Eigenvalues \quad \scalebox{0.8}{\tiny \ps{$C=$} 和OI Alg.类似}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \textit{symmetric}, $\eps>0$ \\
+\textbf{Output:} $\Lambda^{(k)} \in \mathbb{R}^{n \times n}$ with diagonal entries $\approx$ eigenvalues of $\mathbf{A}$.
+\begin{algorithmic}[1]
+  \State $k = 0$, $\Lambda^{(0)} = \mathbf{A}$
+  \While{$\|\Lambda^{(k)} - \Lambda^{(k-1)}\|_1 > \eps$ or $k = 0$}
+    \State $k = k + 1$ \quad \textcolor{gray}{\tiny \# By def $\mathbf{Q}^{(k)}=(\mathbf{Z}^{(k-1)})^\top\mathbf{Z}^{(k)}$, \ \ $\mathbf{Z}^{(k)}$ from \textbf{OI} Alg.}
+    \State Compute QR factorization $\Lambda^{(k-1)} = \mathbf{Q}^{(k)} \mathbf{R}^{(k)}$
+    \State $\Lambda^{(k)} = \mathbf{R}^{(k)} \mathbf{Q}^{(k)}$
+  \EndWhile \quad \textcolor{green}{\tiny \# Can solving $(\mathbf{A}-\lambda \mathbf{I})\mathbf{x}=\mathbf{0}$ to find eigenvector $\mathbf{x}$}
+\end{algorithmic}
+\end{algorithm}
+
 \end{multicols}
 
 \vspace{-27pt}
@@ -686,7 +716,7 @@
 % ----- Algorithm PI -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{PI} Power Iteration \quad \ps{$C=?$}}
+\caption*{\textbf{PI} Power Iteration \quad \ps{$C=k_{\max}(4n^2+5n+1)$} \scalebox{0.8}{\tiny \ps{(有优化过)}}}
 \textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \textit{symmetric}, $\mathbf{z}^{(0)} \in \mathbb{R}^n\setminus\{\mathbf{0}\}$, $\eps>0$ \\
 \textbf{Output:} $\mathbf{z}^{(k)} \in \mathbb{R}^n, \lambda^{(k)} \in \mathbb{R}$ \ s.t. \ \ps{$\mathbf{z}^{(k)} \approx \mathbf{x}_{\max}$, $\lambda^{(k)} \approx \lambda_{\max}$}
 \begin{algorithmic}[1]
@@ -703,9 +733,11 @@
 \end{algorithmic}
 \end{algorithm}
 
+
+% ----- Algorithm SII -----
 \begin{algorithm}[H]
 \tiny
-\caption*{\textbf{SII} Shifted Inverse Iteration \quad \ps{$C=?$}}
+\caption*{\textbf{SII} \tiny Shifted Inverse Iteration \quad \scalebox{0.8}{\ps{$C=\Ocal(n^3)+(k_{\max}-1)\Ocal(n^2)$}} \scalebox{0.8}{\tiny \ps{(有优化过)}}}
 \textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \textit{symmetric}, $s \in \mathbb{R}$, $\mathbf{z}^{(0)} \in \mathbb{R}^n\setminus\{\mathbf{0}\}$, $\eps>0$ \\
 \textbf{Output:} $\mathbf{z}^{(k)} \in \mathbb{R}^n, \lambda^{(k)} \in \mathbb{R}$ \ s.t. \ \ps{$\mathbf{z}^{(k)} \approx \mathbf{x}_a$, $\lambda^{(k)} \approx \lambda_a$ near $s$}
 \begin{algorithmic}[1]
@@ -719,6 +751,28 @@
     \State $\lambda^{(k)} = r_{\mathbf{A}}(\mathbf{z}^{(k)})$ \ \ \textcolor{red}{\tiny \# In fact: \scalebox{0.8}{$\mathbf{z}^{(k)} =\frac{(\mathbf{A}-s\mathbf{I})^{-k} \mathbf{z}^{(0)}}{\|(\mathbf{A}-s\mathbf{I})^{-k} \mathbf{z}^{(0)}\|_2}$, $\lambda^{(k)} = r_{\mathbf{A}}(\mathbf{z}^{(k)})$}}
     \vspace{-5pt}
   \EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+
+% ----- Algorithm OI -----
+\begin{algorithm}[H]
+\tiny
+\caption*{\textbf{OI} Orthogonal Iteration \quad \scalebox{0.8}{\tiny \ps{$C=$} 取决于QR分解方法|$\Lambda$计算方法}}
+\textbf{Input:} $\mathbf{A} \in \mathbb{R}^{n \times n}$ \textit{symmetric}, $\mathbf{Z}^{(0)} \in \mathbb{R}^{n \times n}$ \textit{orthogonal}, $\eps>0$ \\
+\textbf{Output:} $\mathbf{Z}^{(k)} \in \mathbb{R}^{n \times n}, \Lambda^{(k)} \in \mathbb{R}^{n \times n}$ \ s.t.
+
+\qquad\qquad\ps{$\mathbf{Z}^{(k)} \approx [\mathbf{x}_1, \dots, \mathbf{x}_n]$, \quad $\Lambda^{(k)} \approx \mathrm{diag}(\lambda_1, \dots, \lambda_n)$}
+
+\begin{algorithmic}[1]
+  \State $k = 0$
+  \State $\Lambda^{(0)} = (\mathbf{Z}^{(0)})^\top \mathbf{A} \mathbf{Z}^{(0)}$
+  \While{$\|\mathbf{A}\mathbf{Z}^{(k)} -\Lambda^{(k)} \mathbf{Z}^{(k)}\|_1 > \eps$} \quad \textcolor{gray}{\tiny \# or: $\|\Lambda^{(k)} - \Lambda^{(k-1)}\|_1 > \eps$}
+    \State $k = k + 1$
+    \State Compute $\mathbf{W}^{(k)} = \mathbf{A} \mathbf{Z}^{(k-1)}$
+    \State Compute QR factorization $\mathbf{W}^{(k)} = \mathbf{Z}^{(k)} \mathbf{R}^{(k)}$
+    \State $\Lambda^{(k)} = (\mathbf{Z}^{(k)})^\top \mathbf{A} \mathbf{Z}^{(k)}$ \quad \textcolor{gray}{\tiny \# $\Lambda^{(k)}_{ii}=r_{\mathbf{A}}(\mathbf{z}_i^{(k)})$ }
+  \EndWhile \quad \textcolor{gray}{\tiny \# $\mathbf{Z}^{(k)}$ 第一列为PI结果}
 \end{algorithmic}
 \end{algorithm}
 

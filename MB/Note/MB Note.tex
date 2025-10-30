@@ -252,7 +252,7 @@
 \end{MyTh}
 
 
-\section{Manifolds \& Fenichel's Theorem}
+\section{Manifolds \& Fenichel's Theorem | SIR Model}
 
 \begin{MyTh}{Regular/Singular Perturbation}
     {\scriptsize 对于一个含 $\eps$ 的方程/系统: \ \ If $\eps\to0$ the \ps{order} does not change, it's a \ok{regular perturbation}. \ \ If $\eps\to0$ the \ps{order} changes, it's a \ok{singular perturbation}.}
@@ -277,9 +277,20 @@
 \begin{MyTh}{Fenichel's Theorem}
     If $\mathcal{M}_0\subset \{f(u,v,0)=0\}$ is \ps{compact} {\tiny (closed \& bounded)} and \ps{normally hyperbolic}. Suppose $f,g$ are \textit{smooth}. \ \ Then for $\eps>0$ \ps{\tiny (sufficiently small)}, $\exists$ \textit{Manifold} $\mathcal{M}_\eps$ s.t. \ps{$\Ocal(\eps)$ close} and \ps{diffeomorphic} to $\mathcal{M}_0$. (i.e. $\mathcal{M}_\eps$ is \ps{locally invariant} under the flow of the full system \ps{\tiny (上面左边的system)}). \quad \ps{\tiny ps: $M_\eps$ called \ok{slow manifold}.}
 
-    \quad {\scriptsize \ok{Find $\mathcal{M}_\eps$}: If $\mathcal{M}_0=\{(u,v):u=p_0(v)\}$, then $\mathcal{M}_\eps=\{(u,v):u=p_{\eps}(v)\}$ \quad \scalebox{0.9}{\ps{\tiny 可通过算$u,v$的exact sol, 寻找能使含$t$项消失但保留$\tau$的解(or:考虑快变量$t\to\infty$), 对比$\mathcal{M}_0$得到$\mathcal{M}_\eps$}}}
+    \quad {\scriptsize \ok{Find $\mathcal{M}_\eps$}: If $\mathcal{M}_0=\{(u,v):u=p_0(v)\}$, then $\mathcal{M}_\eps=\{(u,v):u=p_{\eps}(v)\}$ \quad \scalebox{0.9}{\ps{\tiny 可通过算$u,v$的exact sol, 寻找能使含$t$项消失但保留$\tau$的解(or:考虑快变量$t\to\infty$), 对比$\mathcal{M}_0$得到$\mathcal{M}_\eps$}}} \qquad\quad {\tiny $\downarrow$ \ok{Infective Period}: =$\frac{1}{\alpha}$}
 \end{MyTh}
 
+\begin{MyTh}{SIR}
+    {\scriptsize \ps{S}: \# people who are susceptible. {\tiny (易感人群)} \ \ \ps{I}: \# people who are infected. {\tiny (感染者)} \ \ \ps{R}: \# people who have been infected and recovered. {\tiny (no longer susceptible)}. {\tiny (康复者)} \ \ \ok{Total Pop}: $N=S+I+R$}
+
+    \quad {\scriptsize \ok{Model}: $S'=-\beta SI$, $I'=\beta SI-\alpha I$, $R'=\alpha I$, $S,I\geq0$. \ok{Assumptions}: \scalebox{0.8}{\tiny $^1$ Mass Action incidence: $\beta N$ transmit infection/unit time; $^2$ $\alpha I$ recover/unit time; $^3$ No im/emigration, births, deaths. $^4$ No deaths from disease. $\to$ 新感人数=$\beta SI$ rate.}}
+
+    \quad {\scriptsize \ok{临界值}: if $S>\frac{\alpha}{\beta}$, $I$ $\uparrow$ 疾病爆发; If $S<\frac{\alpha}{\beta}$, $I$ $\downarrow$ 疾病消退. \ \ $\Rightarrow$ \ok{Basic Reproduction Number}: \scalebox{0.9}{\ps{\tiny (A threshold quantity)}} $R_0=\frac{\beta S_0}{\alpha}$ or \ok{$\frac{\beta N}{\alpha}$}, $^1$ $R_0>1$ epidemic occurs; $^2$ $R_0<1$ disease dies out.}
+
+    \quad {\scriptsize $\cdot$ $I_{\infty}=\lim_{t\to\infty}I(t)=0$; $S_{\infty}=(S+I)_{\infty}>0$; \ok{$N=S_0+I_0$} \ \ \ok{Final Size Relation}: $\ln(\frac{S_0}{S_\infty})=\frac{\beta}{\alpha}[N-S_\infty]=R_0[1-\frac{S_\infty}{N}]$ \scalebox{0.8}{\ps{\tiny As $(S+I)'=-\alpha I$ $\to$ $N-S_\infty=\alpha\int_0^\infty I dt$; As $\frac{S'}{S}=-\beta I$ $\to$ $\ln(\frac{S_0}{S_\infty})=\beta\int_0^\infty I dt$}}}
+    
+    \quad {\scriptsize \ok{Attack Rate/Ratio}: $N-S_\infty$ {\tiny (\# people ever infected | 总感染人数 | \ps{Final size of epidemic})} \quad \ok{Orbits Sol}: \tiny $I(t)+S(t)-\frac{\alpha}{\beta}\log(S(t))=N-\frac{\alpha}{\beta}\log(S_0)$ \ok{Peak}: $I_{\max}$ when $S=\frac{\alpha}{\beta}$ $\leftrightarrow$ $I'=0$ \scalebox{0.8}{\ps{\tiny (代入前面得精确 $I_{\max}$)}}}
+\end{MyTh}
 
 
 \section{Appendix}
