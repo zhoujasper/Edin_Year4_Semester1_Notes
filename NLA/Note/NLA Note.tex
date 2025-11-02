@@ -778,25 +778,5 @@
 
 \end{multicols}
 
-\newpage
-
-
-\section{Appendix}
-
-\subsection{Useful Theorems/Formulas}
-\small
-
-
-\subsection{Others}
-\tiny
-
-\begin{MyTh}{Where the error come from calucation}
-    \begin{enumerate}
-        \item If your calculation involves 15 or more significant digits, you will likely encounter rounding errors. (Since $\varepsilon_m\approx 10^{-16}$ (relative accuracy), which is about 15 significant digits.) 
-        \item \textbf{For GE Algorithm}: It is an unstable algorithm. \quad e.g. $\mathbf{A}=[10^{-20} \ \ 1 \ \ \backslash\backslash \ \ 1 \ \ 1] \ \Rightarrow$ By \textbf{GE} Algorithm, $\widehat{\mathbf{L}}\widehat{\mathbf{U}}=\mathbf{A} + [0 \ \ 0 \ \ \backslash\backslash \ \ 0 \ \ -1]$ (error)
-        \item \textbf{MGS vs. GS}:In floating point arithmetic, the computed vectors $\{\hat{q}_1, . . . , \hat{q}_{j−1}\}$ will not be orthonormal. Algorithm MGS takes this into account when computing $\hat{q}_j$; Algorithm GS does not.
-    \end{enumerate}
-\end{MyTh}
-
 
 \end{document}
