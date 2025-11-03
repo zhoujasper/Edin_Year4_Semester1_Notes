@@ -37,7 +37,7 @@
 }
 
 \begin{MyTh}{Integral Domain (ID)}
-    \ok{ID1}: communicative ring \quad \ok{ID2}: no zero divisors \qquad
+    \ok{ID1}: commutative ring \quad \ok{ID2}: no zero divisors \qquad
 \end{MyTh}
 \begin{MyTh}{Lemma}
     Finite ID $\Rightarrow$ field \quad \comment{ID $\Rightarrow$ Cancellation Law}
@@ -104,11 +104,11 @@
 \begin{MyTh}{Properties}
     Relationship between these kinds of ideals:
     \begin{enumerate}
-        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}. \qquad \ok{$I$ maximal $\Leftrightarrow$ $R/I$ is a field}
+        \item $R$ commutative ring, $I$ ideal. \ \ \ok{$I$ prime $\Leftrightarrow$ $R/I$ is an ID}. \qquad \ok{$I$ maximal $\Leftrightarrow$ $R/I$ is a field}
         \item {\footnotesize $R$ ring, $I_1,I_2,...,I_n\triangleleft R$, \ok{$I_1\cap I_2\cap\cdots\cap I_n=\{0\}$} \ \ $\Rightarrow$ \ \ $R$ isomorphic to a subring of $R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$. \ps{\scriptsize \imp{$R\cong R/I_1\oplus R/I_2\oplus\cdots\oplus R/I_n$} if $I_i+I_j=R$ for $i\ne j$}}
         \item {\small $R$ ring, $I$ ideal, $J$ ideal of $R/I$, $T=\{r\in R:r+I\in J\}$\ps{(reps of $J$)}. \ \ Then $^1$ \ok{$T$: Ideal of $R$} \ \ $^2$ \ok{$I\subseteq T$} \ \ $^3$ \ok{$J=\{t+I:t\in T\}$} \ \ $^4$ \imp{$(R/I)/J\cong R/T$}}
         \qquad {\small If $J=\langle j_1+I,...,j_n+I\rangle$ then $T=\langle j_1,...,j_n\rangle+I=\langle j_1,...,j_n,I\rangle$ \quad Moreover, if $I=\langle i_1,...,i_m\rangle$, then $T=\langle j_1,...,j_n,i_1,...,i_m\rangle$}
-        \item $R$ communicative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nonzero nilpotent elements {\tiny except $0$}} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
+        \item $R$ commutative ring, $I$ ideal. \ \ \ok{$I$ radical $\Leftrightarrow$ $R/I$ has no nonzero nilpotent elements {\tiny except $0$}} \ \ \ps{\tiny (nilpotent: $r^n=0$)}
         \item If $R$ (commutative with \textit{unity}), then \ok{any ideal $I\ne R$ is contained in a \textit{maximal} ideal.} \qquad \comment{If $r$ is \textit{not a unit}, then $1\notin \langle r\rangle=rR$}
     \end{enumerate}
 \end{MyTh}
@@ -149,7 +149,7 @@
 
 \fbox{\parbox[c]{0.98\textwidth}{
 \begin{MyTh}{PID}
-    $R$ communicative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$\Z,F,F[x]$ is PID.}
+    $R$ commutative ring is \textit{principal ideal domain} if: \ \ $\forall I\triangleleft R$, $I=aR$ for some $a\in R$. \qquad Theorem: \ok{$\Z,F,F[x]$ is PID.}
 \end{MyTh}
 
 \begin{MyTh}{ED}
@@ -200,7 +200,7 @@
 \end{MyTh}
 
 \begin{MyTh}{Multiplicative Set}
-    $R$ communicative ring. \ \ $X \subseteq R$ is a \textit{multiplicative set} if: \ok{1}: $1_R\in X$ \quad \ok{2}: {\footnotesize 乘法封闭} \quad ( option *\ok{3}: $0_R\notin X$ )
+    $R$ commutative ring. \ \ $X \subseteq R$ is a \textit{multiplicative set} if: \ok{1}: $1_R\in X$ \quad \ok{2}: {\footnotesize 乘法封闭} \quad ( option *\ok{3}: $0_R\notin X$ )
 \end{MyTh}
 
 \begin{MyTh}{Ring of Fractions ($X^{-1}R$)}
@@ -307,7 +307,7 @@
 
     \quad
     \begin{MyTh}{Corollary}
-        If $R$ communicative ring, then \ok{Nil radical $\sqrt{0_R}=N(R)=\bigcap$ prime ideals of $R$ $=:$ Prime Radical.} \ \ \ps{\tiny If $R$ 非交换,不一定.}
+        If $R$ commutative ring, then \ok{Nil radical $\sqrt{0_R}=N(R)=\bigcap$ prime ideals of $R$ $=:$ Prime Radical}. \ \ \ps{\tiny If $R$ 非交换,不一定.}
     \end{MyTh}
 \end{MyTh}
 
@@ -377,7 +377,7 @@
 \end{MyTh}
 
 \begin{MyTh}{2nd Def of Prime Ideal}
-    $R$ communicative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$I$ prime ideal \ \ $\Leftrightarrow$ \ \ [$J,K$ ideals s.t. $JK\subseteq I$ $\Rightarrow$ $J\subseteq I$ or $K\subseteq I$] \ \ $\Leftrightarrow$  \ \ [$J\subsetneq I,K\subsetneq I$ $\Rightarrow$ $JK\subsetneq I$]}
+    $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$I$ prime ideal \ \ $\Leftrightarrow$ \ \ [$J,K$ ideals s.t. $JK\subseteq I$ $\Rightarrow$ $J\subseteq I$ or $K\subseteq I$] \ \ $\Leftrightarrow$  \ \ [$J\subsetneq I,K\subsetneq I$ $\Rightarrow$ $JK\subsetneq I$]}
 \end{MyTh}
 
 \end{document}
