@@ -307,21 +307,65 @@
 
     \quad
     \begin{MyTh}{Corollary}
-        If $R$ communicative ring, then \ok{Nil radical $\sqrt{0_R}=N(R)=\bigcap$ prime ideals of $R$ $=:$ Prime Radical.} \quad \ps{\tiny 如果$R$非交换,不一定.}
+        If $R$ communicative ring, then \ok{Nil radical $\sqrt{0_R}=N(R)=\bigcap$ prime ideals of $R$ $=:$ Prime Radical.} \ \ \ps{\tiny If $R$ 非交换,不一定.}
     \end{MyTh}
 \end{MyTh}
 
+\section{Gröbner Bases}
 
-------------
+\fbox{\parbox[c]{0.98\textwidth}{
 
+\begin{MyTh}{Monomials}
+    A \textit{monomial} is a product of elements from $\{x_1,x_2,...,x_n\}$. \quad i.e. \comment{$f=x_1^{\alpha_1}x_2^{\alpha_2}...x_n^{\alpha_n}$ {\tiny (if 交换)} \qquad $\deg(f)=\sum_i \alpha_i$}
+\end{MyTh}
 
-\begin{MyTh}{Nullstellensatz} Let $k$ be an \underline{algebraically closed} field, $I$ be an \textit{ideal} of $k[x_1,...,x_n]$.
-    \vspace{-2pt}
+\begin{MyTh}{Lex Order (Lexicographic Order)}
+    $^1$ 定义变量顺序; $^2$ 看第一个不同的变量 \qquad \ps{e.g. $x>y>z$, then $x>yxxx$; $xy>yx$ {\tiny (If NOT 交换)}}
+\end{MyTh}
+
+\begin{MyTh}{Deglex Order}
+    For $f,g$ monomials with variables $x_1,x_2,...,x_n$: $^1$ Compare \comment{degree}; $^2$ If equal, define ordering on variables (e.g. $x_1>x_2>...>x_n$) and compare \comment{lexicographically}. \qquad \ps{If NOT 交换: $xxy>yxx$}
+\end{MyTh}
+
+\begin{MyTh}{multideg|LC|LM|LT \& Ov}
+    \scriptsize 分别为: \ps{排序后的最大的一项的}: 指数向量|系数|单项式(coeff=1)|整项(完整的) \quad \ok{Overlap (Ov)}: $f,g$ \textit{poly}, $Ov(f,g)=\gcd(LM(f),LM(g))$
+\end{MyTh}
+
+\begin{MyTh}{S-polynomial}
+    For polynomials $f,g$: \ \ \ok{$S(f,g)=\frac{\text{lcm}(LM(f),LM(g))}{LT(f)}f-\frac{\text{lcm}(LM(f),LM(g))}{LT(g)}g=_{\text{or}}\frac{LT(g)}{Ov(f,g)}\cdot f - \frac{LT(f)}{Ov(f,g)}\cdot g$} \ps{效果: f, g 的 LM 减小}
+\end{MyTh}
+
+\begin{MyTh}{Gröbner Basis}
+    $I$ ideal of $k[x_1,...,x_n]$, $k$ field. \ \ A subset $G\subseteq I$ is a \comment{\textit{Gröbner basis} of $I$ with respect to a \textit{monomial order} \ps{\tiny (e.g. Lex, Deglex)}} if:
+
+    \qquad\qquad\qquad\quad \ $\forall f\in I,f\ne0$, \ \ $\exists g\in G$ s.t. \ok{$LM(g)\mid LM(f)$}.
+
+    \qquad\qquad\qquad\quad \ $(\Leftrightarrow)$ \ \ For any $w_i$ \textit{monomials}, $\alpha\in k$, s.t. \ok{if $LM(g)\nmid w_i$ for all $g\in G$, then $\sum_i \alpha_i w_i \notin I$}.
+\end{MyTh}
+
+}}
+
+\begin{MyTh}{Algorithm to Find Gröbner Basis}
+    For ideal $I=\langle f_1,f_2,...,f_m\rangle \triangleleft k[x_1,...,x_n]$, $k$ field. \ \ e.g. \ps{Buchberger's Algorithm}
     \begin{enumerate}
-        \item \ok{Reformation of SN}: $\bigcap$ \textit{prime ideals} = Nil radical = $\bigcap$ \textit{maximal ideals} = Jacobson radical = $\{0_R\}$.
-        \item \ok{Reformation of WN}: If $I$ \textit{maximal ideal} then \ \ \ok{$k[x_1,...,x_n]/I\cong k$}
+        \item Let $G=\{f_1,f_2,...,f_m\}$
+        \item For each $g_i\in G$, write $g_i=LC(g_i) \cdot LM(g_i)+h_i$
+        \item For each pair $(g_i,g_j)$ in $G$, calculate $S(g_i,g_j)$ \ps{only $i>j$ or $i<j$ to avoid repetition} \quad \ok{Remark}: If $Ov(g_i,g_j)=1$, then $S(g_i,g_j)=0$, skip it.
+        \item Reduce each $S(g_i,g_j)$: \ \  If $LM(g_k)$ divides any term of $S(g_i,g_j)$, \comment{substitute $LM(g_k)$ by $-h_k$}; until no $LM(g_k)$ divides any term.
+        \item If $S(g_i,g_j)\ne0$ after reduction, add it's \comment{leading term} to $G$ and go to \comment{step 2}. \qquad If all $S(g_i,g_j)=0$, stop and output $G$.
     \end{enumerate}
 \end{MyTh}
+\vspace{2pt}
+
+\begin{MyTh}{Brönner Basis Application}
+    $k$ field, $I\triangleleft k[x_1,...,x_n]$, $G$ Gröbner basis of $I$. \ \ $L$ \comment{leading terms} of $G$. \ \ $W$ set of \comment{monomials not divisible by any element of $L$}. \ps{(i.e. don't contain any monomials in $L$ as a \textit{subword})}
+    \qquad Then: 
+    \begin{enumerate}
+        \item \ok{$\{w+I:w\in W\}$} is a \ok{basis of $k[x_1,...,x_n]/I$ as a vector space over $k$}.
+        \item For each $g_i\in G$, write $g_i=LC(g_i) \cdot LM(g_i)+h_i$,  \ \ \ok{If $r\in k[x_1,...,x_n]$ can be reduced to $0$ by $g_i\to-h_i$, then $r\in I$}.
+    \end{enumerate}
+\end{MyTh}
+\vspace{2pt}
 
 
 \section{Appendix}
@@ -330,6 +374,10 @@
 
 \begin{MyTh}{Zorn's Lemma}
      If a \textit{partially ordered set} \ps{\tiny (i.e. $\exists\sim_{\leq}$)} $P$ s.t. \ \ $^1$ $\forall$ \textit{chain} in $P$ has \textit{upper bound}. \ \ $^2$ $P\ne\emptyset$. \ $\Rightarrow$ \ $P$ has at least one \textit{maximal element}. \ps{(i.e. $\exists m\in P$ s.t. $\forall p\in P$, if $m\leq p$, then $m=p$)}
+\end{MyTh}
+
+\begin{MyTh}{2nd Def of Prime Ideal}
+    $R$ communicative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$I$ prime ideal \ \ $\Leftrightarrow$ \ \ [$J,K$ ideals s.t. $JK\subseteq I$ $\Rightarrow$ $J\subseteq I$ or $K\subseteq I$] \ \ $\Leftrightarrow$  \ \ [$J\subsetneq I,K\subsetneq I$ $\Rightarrow$ $JK\subsetneq I$]}
 \end{MyTh}
 
 \end{document}
