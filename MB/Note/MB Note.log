@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  1 NOV 2025 19:45
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  5 NOV 2025 18:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -902,8 +902,7 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthC=\skip91
 \f@nch@widthR=\skip92
 \@temptokenb=\toks35
-))
-No file "MB Note".aux.
+)) (./MB Note.aux)
 \openout1 = `"MB Note.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -926,6 +925,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -963,11 +963,9 @@ LaTeX Font Info:    ... okay on input line 6.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 6.
+(./MB Note.out) (./MB Note.out)
 \@outlinefile=\write3
 \openout3 = `"MB Note.out"'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  TU/LatinModernMath(1)/m/n --> TU/Cambria(0)/m/n on input line 6.
@@ -996,7 +994,7 @@ LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 17.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
-(d:/windows/ProgramFiles/TeX Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (d:/windows/ProgramFiles/TeX Live/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
@@ -1040,7 +1038,7 @@ Overfull \vbox (8.61217pt too high) detected at line 63
  []
 
 
-Overfull \hbox (8.07825pt too wide) in paragraph at lines 55--75
+Overfull \hbox (8.2041pt too wide) in paragraph at lines 55--75
 [][]
  []
 
@@ -1107,10 +1105,10 @@ Package rerunfilecheck Info: File `"MB Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 20846 strings out of 468441
- 409380 string characters out of 5435450
+ 20856 strings out of 468441
+ 409513 string characters out of 5435450
  1155952 words of memory out of 5000000
- 48986 multiletter control sequences out of 15000+600000
+ 48990 multiletter control sequences out of 15000+600000
  635988 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,18n,125p,985b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
