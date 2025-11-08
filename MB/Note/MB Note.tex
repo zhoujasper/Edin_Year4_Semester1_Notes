@@ -58,17 +58,17 @@
     \hline
     Stability & \multicolumn{2}{l|}{Stable: $f'(N^*)<0$} & \multicolumn{2}{l||}{Unstable: $f'(N^*)>0$} & Stable: $|\lambda|<1$ & Unstable: $|\lambda|>1$ \scalebox{0.8}{\ps{(chaotic)}} & \multicolumn{2}{l|}{Periodic: $|\lambda|=1$ \scalebox{0.8}{$\begin{cases}+:\text{tangent bifurcation} \\ -:\text{period-doubling bifurcation}\end{cases}$} \hspace{-8pt} \scalebox{0.9}{\ps{\tiny (neutrally stab.)}}} \\
     \hline
-    Linearise & \multicolumn{4}{l||}{$N(t)=N^*+n(t), |n(t)|\ll1$ \ $\Rightarrow$ \ $\frac{dn}{dt}=\frac{dN}{dt}=$\scalebox{0.8}{$\begin{cases}\text{\ps{(general)}}=f(N^*)+f'(N^*)n(t) \\ \text{\ps{(delay)}=直接带入f后近似}\end{cases}$}} & \multicolumn{4}{l|}{Let $N_t=N^*+n_t, |n_t|\ll1$ \ $\Rightarrow$ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ $\Rightarrow$ \ $n_{t+1}=\lambda n_t$} \\
+    \ok{Linearise} & \multicolumn{4}{l||}{$N(t)=N^*+n(t), |n(t)|\ll1$ \ $\Rightarrow$ \ $\frac{dn}{dt}=\frac{dN}{dt}=$\scalebox{0.8}{$\begin{cases}\text{\ps{(general)}}=f(N^*)+f'(N^*)n(t) \\ \text{\ps{(delay)}=直接带入f后近似}\end{cases}$}} & \multicolumn{4}{l|}{Let $N_t=N^*+n_t, |n_t|\ll1$ \ $\Rightarrow$ \ $N^*+n_{t+1}=\cdots=f(N^*+n_t)\approx f(N^*)+f'(N^*)n_t$ \ $\Rightarrow$ \ $n_{t+1}=\lambda n_t$} \\
     \hline
-    \multirow{2}{*}{\scalebox{0.9}{\makecell{Bifuraction \backslash\backslash \\ Perturbations \\ at $N^*$ | Periodic}}} & \multirow{2}{*}{\makecell{\scalebox{0.8}{Saddle-Note} \scalebox{0.7}{\ok{(Normal Form)}} \\ $\dot{x}=r\pm x^2$ \\ 0$\to$S$\to$U-S}} & \multirow{2}{*}{\makecell{Transcritical \\ $\dot{x}=rx-x^2$ \\ S-U$\to$U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{(super-)Pitchfork} \\ $\dot{x}=rx-x^3$ \\ S$\to$S-U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{Sub-critical Pitchfork} \\ $\dot{x}=r+x^3$ \\ U$\to$U-S-U}} & $\lambda<-1$: $\uparrow$ oscillations & $-1<\lambda<0$: $\downarrow$ oscillations & $0<\lambda<1$: $\downarrow$ Monotone & $\lambda>1$: $\uparrow$ Monotone \\
+    \multirow{2}{*}{\scalebox{0.9}{\makecell{Bifuraction \backslash\backslash \\ Perturbations \\ at $N^*$ | Periodic}}} & \multirow{2}{*}{\makecell{\scalebox{0.8}{Saddle-Note} \scalebox{0.7}{\ok{(Normal Form)}} \\ $\dot{x}=r\pm x^2$ \\ 0$\to$S$\to$U-S}} & \multirow{2}{*}{\makecell{Transcritical \\ $\dot{x}=rx-x^2$ \\ S-U$\to$U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{(super-)Pitchfork} \\ $\dot{x}=rx-x^3$ \\ S$\to$S-U-S}} & \multirow{2}{*}{\makecell{\scalebox{0.9}{Sub-critical Pitchfork} \\ $\dot{x}=rx+x^3$ \\ U$\to$U-S-U}} & $\lambda<-1$: $\uparrow$ oscillations & $-1<\lambda<0$: $\downarrow$ oscillations & $0<\lambda<1$: $\downarrow$ Monotone & $\lambda>1$: $\uparrow$ Monotone \\
     \cline{6-9}
     & & & & & \multicolumn{4}{l|}{If $f^p(N^*)=N^*$, $N^*$ is $p$-periodic. \quad | \quad $\forall$ even $p$-periodic $N^*$ with $\lambda=-1$ branches into $2p$-periodic} \\
     \cline{6-9}
     & & & & & \multicolumn{3}{l|}{\textbf{Sarkovskii's Theorem}: If a $3$-periodic $N^*$ exists, then $\forall p\ge1$, $p$-periodic $N^*$ exists.} & \scalebox{0.9}{\ok{Species extinction}: $N_{\min}<1$} \\
     \hline
-    Other & \multicolumn{4}{l||}{\textbf{Time-Independent}: At $N^*$: \ok{$\frac{dN}{dt}=0$} \ \ \ok{$N(t)=N(t-T)=N^*$} \ \ \ok{$f(N^*)=0$}} & \multicolumn{4}{l|}{\ok{Max/Min}: \scalebox{0.8}{\ps{[如果单峰(unimodal)|2-periodic]}} $f'(N_m)=0$, $N_{\max}=f(N_m)$ \ ; \ $N_{\min}=f(N_{\max})$} \\
+    Other & \multicolumn{4}{l||}{\textbf{Time-Independent}: At $N^*$: \ok{$\frac{dN}{dt}=0$} \ \ \ok{$N(t)=N(t-T)=N^*$} \ \ \ok{$f(N^*)=0$}} & \multicolumn{4}{l|}{\ok{Max/Min}: \scalebox{0.8}{\ps{[如果单峰(unimodal)|2-periodic]}} $f'(N_m)=0$, $N_{\max}=f(N_m)$ \ ; \ $N_{\min}=f(N_{\max})$ \ \ \scalebox{0.8}{\tiny $\downarrow$ $E,Y_0$对应两种模型}} \\
     \hline
-    Other & \multicolumn{8}{l|}{\ok{Tangency Condition}: If $\dot{x}=f(x,r)$, 分岔点 $(x^*,r_c)$: \ok{$\frac{\partial f}{\partial x}|_{(x^*,r_c)}=0$ \ \ $f(x^*,r_c)=0$} \quad | \quad 两点合并:\imp{coalesce}. \qquad || \qquad \ok{Recovery Time}: \ok{$T=-\frac{1}{\lambda}$} \scalebox{0.9}{\ps{\tiny 比收获模型好 \ 看recovery time} $\to$ 算$\frac{T(E)}{T(0)}$|$\frac{T(Y)}{T(0)}$ 小好}} \\
+    Other & \multicolumn{8}{l|}{\ok{Tangency Condition}: If $\dot{x}=f(x,r)$, 分岔点 $(x^*,r_c)$: \ok{$\frac{\partial f}{\partial x}|_{(x^*,r_c)}=0$ \ \ $f(x^*,r_c)=0$} \quad | \quad 两点合并:\imp{coalesce}. \qquad || \qquad \imp{Recovery Time}: \ok{$T=-\frac{1}{\lambda}$} \scalebox{0.9}{\ps{\tiny 比收获模型好 \ 看recovery time} $\to$ 算$\frac{T(E)}{T(0)}$|$\frac{T(Y)}{T(0)}$ 小好}} \\
     \hline
 \end{tabular}
 }
@@ -294,6 +294,40 @@
     \quad {\scriptsize \ok{Attack Rate/Ratio}: $N-S_\infty$ {\tiny (\# people ever infected | 总感染人数 | \ps{Final size of epidemic})} \quad \ok{Orbits Sol}: \tiny $I(t)+S(t)-\frac{\alpha}{\beta}\log(S(t))=N-\frac{\alpha}{\beta}\log(S_0)$ \ok{Peak}: $I_{\max}$ when $S=\frac{\alpha}{\beta}$ $\leftrightarrow$ $I'=0$ \scalebox{0.8}{\ps{\tiny (代入前面得精确 $I_{\max}$)}}}
 \end{MyTh}
 
+\section{Reaction Diffusion}
+
+\begin{MyTh}{Diffusion}
+    \scriptsize Net movement from high to low concentration through random, small-scale motion.
+\end{MyTh}
+\begin{MyTh}{Fickian Diffusion}
+    \scriptsize $J=-D\frac{\partial c}{\partial x}$ \ \ \ps{\tiny ($J$: flux; $D$: diffusivity; $c$: concentration; $-$: from high to low)}
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{Conservation Realtion}
+    \tiny $\frac{\partial}{\partial t}\int_{x_0}^{x_1} c(x,t)dx=J(x_0,t)-J(x_1,t)$ \ps{\tiny $x_1=x_0+\Delta x$} \ \ When $\Delta x\to0$ $\Rightarrow$ $\frac{\partial c}{\partial t}=-\frac{\partial J}{\partial x}=$\scalebox{0.9}{$\frac{\partial (D\frac{\partial c}{\partial x})}{\partial x}$} \scalebox{0.9}{\ps{\tiny (If $D$ const. Heat Equation)}}
+\end{MyTh}
+
+\vspace{-5pt}
+\begin{MyTh}{Solve PDE}
+    {\tiny For $u(\mathbf{x},t)$,$\mathbf{x}=(x_1,\ldots,x_n)$; $u_t=D\Delta u$ with $u(\mathbf{x},0)=f(\mathbf{x})$ \quad If $f(\mathbf{x})=Q\delta(\mathbf{x})$, then \ok{Fundamental Sol}: \scalebox{0.9}{\tiny $u(\mathbf{x},t)=\phi(\mathbf{x},t)=\frac{Q}{(4\pi Dt)^{n/2}}e^{-\frac{|\mathbf{x}|^2}{4Dt}}$} \quad Else: \ok{General Sol}: $u(\mathbf{x},t)=\int_{\mathbb{R}^n} \phi(\mathbf{x}-\mathbf{y},t)f(\mathbf{y})d\mathbf{y}$}
+
+    \vspace{-4pt}
+    \quad {\scriptsize Moreover, for $u(\mathbf{x},t)$, $u_t=D\Delta u+a(t)u$ with $u(\mathbf{x},0)=f(\mathbf{x})$ \ \ $\Rightarrow$ \ \ $u(\mathbf{x},t)=v(\mathbf{x},t)e^{\int_0^t a(s)ds}$ with $v(\mathbf{x},0)=f(\mathbf{x})$ satisfying $v_t=D\Delta v$. \ \ $\to$ Use above. \qquad \ps{\tiny \ok{invades const. radial speed}: 算$\frac{dr}{dt}$}}
+\end{MyTh}
+
+\begin{MyTh}{Remark for Boundary}
+    \tiny $^1$ 任何 \ps{\tiny Diffusion} Model: 认为 $u(\mathbf{x},t)$ 是 \ok{bounded} 的. \scalebox{0.85}{\ps{\tiny (含$\pm\infty$, 极坐标$r\to\infty$, 得IC)}} \ \ $^2$ 对 $u$, $J$ \scalebox{0.85}{(flux)}, 有 \ok{continuous}. \scalebox{0.85}{\ps{\tiny (得BC,尤其是分段函数)}} \ \ $^3$ 对 $J$ \scalebox{0.85}{(flux)}, 考虑由物理意义, 边界\ps{\tiny 是否为0}
+\end{MyTh}
+
+\begin{MyTh}{假设和默认}
+    \tiny $^1$ 若要假设$u(\mathbf{x},t)$的IC,考虑 $u(\mathbf{x},0)=b_0>0$ \scalebox{0.85}{\ps{\tiny (均匀的分布)}} \ \ $^2$ \ok{Stationary Sol}: For $u(\mathbf{x},t)$, Let $u_t=0$ to find sol.
+\end{MyTh}
+
+\begin{MyTh}{Useful Tools}
+    \tiny $^1$\ok{最后,可通过两边对$\mathbf{u}$对$\mathbf{x}$积分得待定系数值} \ \ $^2$ \ok{Linearise at $u^*$}: Let $u=u^*+\eta$, $|\eta|\ll1$ func. \ \ $^3$ 对于求解PDE, 考虑\ps{\tiny 直接计算} or \ps{\tiny Seperation of var.}
+\end{MyTh}
+
 
 \section{Appendix}
 
@@ -306,7 +340,7 @@
     $f(x,r)$ at $(x_0,r_0)$: $f(x,r)=f(x_0,r_0)+(x-x_0)f_x|_{(x_0,r_0)}+(r-r_0)f_r|_{(x_0,r_0)}+\frac{1}{2}\cdots$
 \end{MyTh}
 
-\vspace{-1pt}
+\vspace{-2pt}
 \begin{MyTh}{Binomial Series}
     $(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots$ \quad
 \end{MyTh}
@@ -314,14 +348,31 @@
     $f(x+\Delta x)=f(x)+f'(x)\Delta x+\cdots$ \quad $e^{bx}=1+bx+\frac{(bx)^2}{2!}+\cdots$ \quad $\ln(a+x)=\ln(a)+\frac{x}{a}-\frac{x^2}{2a^2}+\frac{x^3}{3a^3}-\cdots$ \quad $y(a)-y(b)=\int_b^a y'(x)dx$
 \end{MyTh}
 
-\vspace{-1pt}
+\vspace{-2pt}
 \begin{MyTh}{Geometry Series}
     $\frac{1}{1-x}=1+x+x^2+\cdots$, $|x|<1$
 \end{MyTh}
-\begin{MyTh}{Hyperbolic Functions}
+\begin{MyTh}{Hyperbolic Funcs}
     $\sinh x=\frac{e^x-e^{-x}}{2}$ \ \ $\cosh x=\frac{e^x+e^{-x}}{2}$ \ \ $\tanh x=\frac{\sinh x}{\cosh x}$ \quad $\sinh(x)=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots$ \ \ $\cosh(x)=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots$ \ \ $\tanh(x)=x-\frac{x^3}{3}+\frac{2x^5}{15}-\cdots$
 \end{MyTh}
 
+\begin{MyTh}{Useful Tools}
+    $\Delta u=u_{xx}+u_{yy}=u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}$
+    \quad If $u$ \ok{radial symmetry}: $u=u(r,t)$ (i.e. $u_\theta=0$)
+    \quad \ok{$dA=rdrd\theta$ in polar coord.} and \ok{$dV=r^2\sin\phi dr d\theta d\phi$ in spherical coord.}
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{$ay''+by'+cy=0$}
+    \ok{$y''-\lambda y=0$}: \ \ $^1$ $\lambda>0$: $y=C_1\cosh(\sqrt{\lambda}x)+C_2\sinh(\sqrt{\lambda}x)= A e^{\sqrt{\lambda}x}+B e^{-\sqrt{\lambda}x}$; \quad $^2$ $\lambda=0$: $y=C_1+C_2 x$; \quad $^3$ $\lambda<0$: $y=C_1\cos(\sqrt{-\lambda}x)+C_2\sin(\sqrt{-\lambda}x)$
+
+    \quad \ok{General}: \textit{characteristic eq.}: $a r^2 + b r + c = 0$, root $r_{1,2}=\mu\pm\nu i$. \quad $^1$ $\Delta>0$: $y=C_1 e^{r_1 x}+C_2 e^{r_2 x}$; \quad $^2$ $\Delta=0$: $y=e^{\mu x}(C_1+C_2 x)$; \quad $^3$ $\Delta<0$: $y=e^{\mu x}(C_1\cos(\nu x)+C_2\sin(\nu x))$
+\end{MyTh}
+
+\vspace{-2pt}
+\begin{MyTh}{Seperation of var.}
+    $^1$ 假设 $u(x,t)=X(x)T(t)$ \ \ $\to$ 带入PDE $^2$ 解出类似 $\frac{T'}{DT}=\frac{X''}{X}=-\lambda$ $\to$ 得到两个ODE \ $^3$ 解较为简单的ODE, 代入BC解$\lambda$和sol. \ps{\tiny (注意看是否只要periodic; 极坐标有$r\to\infty$ bounded, $\theta=\theta+2\pi$等条件)}, $^4$ 解另外一个. \ $^5$ 叠加所有$\lambda_n$的sol得到PDE的general sol $u=\sum c_nX_n(x)T_n(t)$ \ $^6$ 用IC解出$c_n$. \qquad \ps{\tiny Remark: $^1$ 前期可以用正比化简; $^2$ $\lambda$ 为 让 sin/cos 解为正好计算.}
+\end{MyTh}
 
 
 
