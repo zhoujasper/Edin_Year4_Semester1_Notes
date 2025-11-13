@@ -115,7 +115,7 @@
     \quad \ok{Trapping Region}: {\tiny A closed region $R$ \tiny{可以用直线/null clines构成} \ \ s.t. \ \ 所有 \ 边界的\textit{外}法线方向$\mathbf{n}$, 在对应边界上的点, 满足$\mathbf{n}\cdot\left[\begin{smallmatrix}f(u,v) \\ g(u,v)\end{smallmatrix}\right]<0$}
 
     \vspace{-2pt}
-    \quad \ok{Find slope of Nullclines}: $f(u,v)=0$ $\Rightarrow$ $df=f_u du+f_v dv=0$ $\Rightarrow$ $\frac{dv}{du}=-\frac{f_u}{f_v}$ \qquad Similarly: $\frac{dv}{du}=-\frac{g_u}{g_v}$
+    \quad \ok{Find slope of Nullclines}: $f(u,v)=0$ $\Rightarrow$ $df=f_u du+f_v dv=0$ $\Rightarrow$ $\frac{dv}{du}=-\frac{f_u}{f_v}$ \qquad Similarly: $\frac{dv}{du}=-\frac{g_u}{g_v}$\hspace{100pt}$\uparrow$ \ps{\tiny 也叫 bounding region (confined region)}
 \end{MyTh}
 
 \begin{MyTh}{Poincare-Bendixson Theorem}
@@ -123,7 +123,7 @@
 \end{MyTh}
 
 \begin{MyTh}{Competition Model}
-    \ok{principal of competitive exclusion}: {\tiny If two species compete for the same limited resource, one will eventually outcompete and exclude the other.} \ps{\tiny (b,c,d)}
+    \ok{principal of competitive exclusion}: {\tiny If two species compete for the same limited resource, one will eventually outcompete and exclude the other.} \ps{\tiny (b,c,d; $b$ 物种谁最后存活取决于初始值)}
 \end{MyTh}
 
 \begin{minipage}{0.75\textwidth}
@@ -169,7 +169,7 @@
 
 \vspace{-5pt}
 \begin{MyTh}{Quasi-Steady State Approximation (QSSA)}
-    \tiny 如果系统里有\textit{快}和\textit{慢}变量, 则可以假设\textit{快}变量达到稳态, 即 $\frac{d(\text{fast})}{dt}=0$. \ps{\tiny (一般来说假设 complex concentration changes rapidly)}
+    \tiny 如果系统里有\textit{快}和\textit{慢}变量, 则可以假设\textit{快}变量达到稳态, 即 $\frac{d(\text{fast})}{dt}=0$. \ps{\tiny (or $\eps\to0$; 一般来说假设 complex concentration changes rapidly)}
 \end{MyTh}
 
 \begin{MyTh}{Singular Perturbations Analysis}
@@ -321,11 +321,11 @@
 \end{MyTh}
 
 \begin{MyTh}{假设和默认}
-    \tiny $^1$ 若要假设$u(\mathbf{x},t)$的IC,考虑 $u(\mathbf{x},0)=b_0>0$ \scalebox{0.85}{\ps{\tiny (均匀的分布)}} \ \ $^2$ \ok{Stationary Sol}: For $u(\mathbf{x},t)$, Let $u_t=0$ to find sol.
+    \tiny $^1$ 若要假设$u(\mathbf{x},t)$的IC,考虑 $u(\mathbf{x},0)=b_0>0$ \scalebox{0.85}{\ps{\tiny (均匀的分布)}} \ \ $^2$ \ok{Stationary Sol}: For $u(\mathbf{x},t)$, Let $u_t=0$ to find sol. \ \ $^3$ \ok{Homogeneous Rest State}: For $u(\mathbf{x},t)$, Let $u_{\mathbf{x}}=0$ and $u_t=0$ to find sol.
 \end{MyTh}
 
 \begin{MyTh}{Useful Tools}
-    \tiny $^1$\ok{最后,可通过两边对$\mathbf{u}$对$\mathbf{x}$积分得待定系数值} \ \ $^2$ \ok{Linearise at $u^*$}: Let $u=u^*+\eta$, $|\eta|\ll1$ func. \ \ $^3$ 对于求解PDE, 考虑\ps{\tiny 直接计算} or \ps{\tiny Seperation of var.}
+    \tiny $^1$\ok{最后,可通过两边对$\mathbf{u}$对$\mathbf{x}$积分得待定系数值} \ \ $^2$ \ok{Linearise at $u^*$}: Let $u=u^*+\eta$, $|\eta|\ll1$ func. \ \ $^3$ 对于求解PDE, 考虑\ps{\tiny 直接计算} or \ps{\tiny Seperation of var.} \ \ $^4$ \ok{Desingularise}: e.g. For $u(x,t)$, Let $\tau=u t$
 \end{MyTh}
 
 
@@ -356,6 +356,12 @@
     $\sinh x=\frac{e^x-e^{-x}}{2}$ \ \ $\cosh x=\frac{e^x+e^{-x}}{2}$ \ \ $\tanh x=\frac{\sinh x}{\cosh x}$ \quad $\sinh(x)=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots$ \ \ $\cosh(x)=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots$ \ \ $\tanh(x)=x-\frac{x^3}{3}+\frac{2x^5}{15}-\cdots$
 \end{MyTh}
 
+\vspace{-2pt}
+\begin{MyTh}{Integral}
+    $\text{arctanh}(x)=\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right)$ \ \ $\text{arcsinh}(x)=\ln\left(x+\sqrt{x^2+1}\right)$ \ \ $\text{arccosh}(x)=\ln\left(x+\sqrt{x^2-1}\right)$ \quad $\int \frac{1}{\sqrt{a^2-x^2}}dx=\arcsin(\frac{x}{a})$ \ \ $\int \frac{1}{a^2+x^2}dx=\frac{1}{a}\arctan(\frac{x}{a})$
+\end{MyTh}
+
+\vspace{-2pt}
 \begin{MyTh}{Useful Tools}
     $\Delta u=u_{xx}+u_{yy}=u_{rr}+\frac{1}{r}u_r+\frac{1}{r^2}u_{\theta\theta}$
     \quad If $u$ \ok{radial symmetry}: $u=u(r,t)$ (i.e. $u_\theta=0$)
