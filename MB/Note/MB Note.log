@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  11 NOV 2025 12:07
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  16 NOV 2025 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1094,6 +1094,13 @@ Overfull \hbox (1.17447pt too wide) in paragraph at lines 230--248
 []$[]$  $[]$ 
  []
 
+File: figure_4.png Graphic file (type bmp)
+<figure_4.png>
+
+Overfull \hbox (1.17447pt too wide) in paragraph at lines 353--361
+[]$[]$  $[]$
+ []
+
 
 
 [2] (./MB Note.aux)
@@ -1105,11 +1112,11 @@ Package rerunfilecheck Info: File `"MB Note".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 20856 strings out of 468441
- 409513 string characters out of 5435450
+ 20868 strings out of 468441
+ 409766 string characters out of 5435450
  1159952 words of memory out of 5000000
- 48990 multiletter control sequences out of 15000+600000
- 635988 words of font info for 142 fonts, out of 8000000 for 9000
+ 49000 multiletter control sequences out of 15000+600000
+ 635996 words of font info for 143 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,18n,125p,985b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

@@ -218,7 +218,7 @@
 
 \vspace{-2pt}
 \begin{MyTh}{SVD}
-  $\mathbf{A}_{m\times n}=\mathbf{U}\Sigma\mathbf{V}^\top$ \quad where $\mathbf{U}_{m\times m},\mathbf{V}_{n\times n}$ \textit{orthogonal}, $\Sigma_{m\times n}$ \ps{diagonal} with \ps{singular values} $\sigma_1,...,\sigma_p$, $p=\min\{m,n\}$ \quad $\mathbf{U}/\mathbf{V}$的列为 \ps{left/right singular vectors}.
+  $\mathbf{A}_{m\times n}=\mathbf{U}\Sigma\mathbf{V}^\top$ \quad where $\mathbf{U}_{m\times m},\mathbf{V}_{n\times n}$ \textit{orthogonal}, $\Sigma_{m\times n}$ \ps{diagonal} with \ps{singular values} $\sigma_1,...,\sigma_p\geq0$, $p=\min\{m,n\}$ \quad $\mathbf{U}/\mathbf{V}$的列为 \ps{left/right singular vectors}.
 
   \quad \footnotesize $^1$ Always exist \quad $^2$ \ok{$\mathbf{A}\mathbf{v}_i=\sigma_i\mathbf{u}_i$} and \ok{$\mathbf{A}^\top\mathbf{u}_i=\sigma_i\mathbf{v}_i$} \quad $^3$ \ok{$\sigma_i^2$|$\mathbf{v}_i$ are eigenvalues/vectors of $\mathbf{A}^\top\mathbf{A}$} \ps{(i.e. $\mathbf{A}^\top\mathbf{A}\mathbf{v}_i=\sigma_i^2\mathbf{v}_i$)} \quad $^4$ $\rank(\mathbf{A})=\rank(\Sigma)=$ \# non-zero $\sigma_i$ \quad $^5$ \ok{$\mathbf{u}_i=\frac{1}{\sigma_i}\mathbf{A}\mathbf{v}_i$}
 \end{MyTh}

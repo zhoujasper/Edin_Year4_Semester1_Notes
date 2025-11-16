@@ -96,7 +96,7 @@
 
     {\footnotesize \quad \ok{Exact sol}: $\alpha u+v-\ln(u^\alpha v)=H$, $H>H_{min}=\alpha+1$ constant. \ \ \ps{\tiny (closed phase)}  \ \ \ok{Conservation Law}: Using $\frac{du}{dv}=\frac{du}{d\tau}\frac{d\tau}{dv}$ find $H$ \ $\Rightarrow$ \ $\frac{dH}{d\tau}=0$, here it satisfies.\ \ps{\tiny (By chain rule)}}
 
-    {\footnotesize \quad \ok{Show Level curves \ps{\tiny (constant of motion)} closed}: If $H(u,v)$ is level curve, Look $\left[\begin{smallmatrix}H_{uu} & H_{uv} \\ H_{vu} & H_{vv}\end{smallmatrix}\right]_{(u^*,v^*)}$ $\Rightarrow$ If $+/-$ definite (i.e. $\forall\lambda_i>0(<0)$) }
+    {\footnotesize \quad \ok{Show Level curves \ps{\tiny (constant of motion)} closed}: If $H(u,v)$ is level curve, Look $\left[\begin{smallmatrix}H_{uu} & H_{uv} \\ H_{vu} & H_{vv}\end{smallmatrix}\right]_{(u^*,v^*)}$ $\Rightarrow$ If $+/-$ definite (i.e. $\forall\lambda_i>0(<0)$) \qquad $\uparrow$ \ps{\tiny 轨迹会在level curve$\to$oscillation}}
 
     \vspace{-3pt}
     {\footnotesize \quad\qquad $\Rightarrow$ It's local min/max at $(u^*,v^*)$ \& strictly convex/concave $\Rightarrow$ closed curves. \qquad \ps{Closed curves $\Rightarrow$ periodic sol.}}
@@ -279,7 +279,7 @@
 
     \quad {\scriptsize \ok{Find $\mathcal{M}_\eps$}: If $\mathcal{M}_0=\{(u,v):u=p_0(v)\}$, then $\mathcal{M}_\eps=\{(u,v):u=p_{\eps}(v)\}$ \quad \scalebox{0.9}{\ps{\tiny 可通过算$u,v$的exact sol, 寻找能使含$t$项消失但保留$\tau$的解(or:考虑快变量$t\to\infty$), 对比$\mathcal{M}_0$得到$\mathcal{M}_\eps$}}}
     
-    \quad {\scriptsize \ok{Invariance of Manifold}}: {\tiny For slow $M_{\eps}$|$M_0$ $\to$ manifold 中的等式关系$u=p(v)$两边对$\tau$|$t$求导 $\to$ 代入 slow|fast 对应的$u',v'$; 代入$M_{\eps}|M_0$中的等式关系 $\to$ 判断是否LHS=RHS.} \qquad\quad {\tiny $\downarrow$ \ok{Infective Period}: =$\frac{1}{\alpha}$}
+    \quad {\scriptsize \ok{Invariance of Manifold}}: {\tiny For slow $M_{\eps}$|$M_0$ $\to$ manifold 中的等式关系$u=p(v)$两边对$\tau$|$t$求导 $\to$ 代入 slow|fast 对应的$u',v'$; 代入$M_{\eps}|M_0$中的等式关系 $\to$ 判断是否LHS=RHS.}
 \end{MyTh}
 
 \begin{MyTh}{SIR}
@@ -292,6 +292,8 @@
     \quad {\scriptsize $\cdot$ $I_{\infty}=\lim_{t\to\infty}I(t)=0$; $S_{\infty}=(S+I)_{\infty}>0$; \ok{$N=S_0+I_0$} \ \ \ok{Final Size Relation}: $\ln(\frac{S_0}{S_\infty})=\frac{\beta}{\alpha}[N-S_\infty]=R_0[1-\frac{S_\infty}{N}]$ \scalebox{0.8}{\ps{\tiny As $(S+I)'=-\alpha I$ $\to$ $N-S_\infty=\alpha\int_0^\infty I dt$; As $\frac{S'}{S}=-\beta I$ $\to$ $\ln(\frac{S_0}{S_\infty})=\beta\int_0^\infty I dt$}}}
     
     \quad {\scriptsize \ok{Attack Rate/Ratio}: $N-S_\infty$ {\tiny (\# people ever infected | 总感染人数 | \ps{Final size of epidemic})} \quad \ok{Orbits Sol}: \tiny $I(t)+S(t)-\frac{\alpha}{\beta}\log(S(t))=N-\frac{\alpha}{\beta}\log(S_0)$ \ok{Peak}: $I_{\max}$ when $S=\frac{\alpha}{\beta}$ $\leftrightarrow$ $I'=0$ \scalebox{0.8}{\ps{\tiny (代入前面得精确 $I_{\max}$)}}}
+
+    \quad {\scriptsize \ok{Infective Period}: $=\frac{1}{\alpha}$ \quad \ps{\tiny 就\textit{减去的那一项}的常数倒数为特征时间尺度} \qquad \ps{\tiny ps: e.g.可以由此计算单位时间内新感染人数(从开始): $\int_0^{\alpha^{-1}} I' dt=I(\alpha^{-1})-I(0)$}}
 \end{MyTh}
 
 \section{Reaction Diffusion}
@@ -316,16 +318,58 @@
     \quad {\scriptsize Moreover, for $u(\mathbf{x},t)$, $u_t=D\Delta u+a(t)u$ with $u(\mathbf{x},0)=f(\mathbf{x})$ \ \ $\Rightarrow$ \ \ $u(\mathbf{x},t)=v(\mathbf{x},t)e^{\int_0^t a(s)ds}$ with $v(\mathbf{x},0)=f(\mathbf{x})$ satisfying $v_t=D\Delta v$. \ \ $\to$ Use above. \qquad \ps{\tiny \ok{invades const. radial speed}: 算$\frac{dr}{dt}$}}
 \end{MyTh}
 
-\begin{MyTh}{Remark for Boundary}
-    \tiny $^1$ 任何 \ps{\tiny Diffusion} Model: 认为 $u(\mathbf{x},t)$ 是 \ok{bounded} 的. \scalebox{0.85}{\ps{\tiny (含$\pm\infty$, 极坐标$r\to\infty$, 得IC)}} \ \ $^2$ 对 $u$, $J$ \scalebox{0.85}{(flux)}, 有 \ok{continuous}. \scalebox{0.85}{\ps{\tiny (得BC,尤其是分段函数)}} \ \ $^3$ 对 $J$ \scalebox{0.85}{(flux)}, 考虑由物理意义, 边界\ps{\tiny 是否为0}
+\begin{MyTh}{Boundary}
+    \tiny $^1$ \ok{\tiny Diffusion Model: 认为 $u(\mathbf{x},t)$ 是 \ok{bounded} 的} \ps{\tiny (travelling wave 不一定)} \scalebox{0.85}{\ps{\tiny (含$\pm\infty$, 极坐标$r\to\infty$, 得IC)}} \ \ $^2$ 对 $u$, $J$ \scalebox{0.85}{(flux)}, 有 \ok{continuous}. \scalebox{0.85}{\ps{\tiny (得BC,尤其是分段函数)}} \ \ $^3$ 对 $J$ \scalebox{0.85}{(flux)}, 考虑由物理意义, 边界\ps{\tiny 是否为0}
 \end{MyTh}
 
 \begin{MyTh}{假设和默认}
-    \tiny $^1$ 若要假设$u(\mathbf{x},t)$的IC,考虑 $u(\mathbf{x},0)=b_0>0$ \scalebox{0.85}{\ps{\tiny (均匀的分布)}} \ \ $^2$ \ok{Stationary Sol}: For $u(\mathbf{x},t)$, Let $u_t=0$ to find sol. \ \ $^3$ \ok{Homogeneous Rest State}: For $u(\mathbf{x},t)$, Let $u_{\mathbf{x}}=0$ and $u_t=0$ to find sol.
+    \tiny $^1$ 若要假设$u(\mathbf{x},t)$的IC,考虑 $u(\mathbf{x},0)=b_0>0$ \scalebox{0.85}{\ps{\tiny (均匀的分布)}} \ \ $^2$ \imp{Stationary|Steady-state|Static}: $u_t=0$. \ \ $^3$ \imp{Homogeneous Rest State|Const. Equilibrium|Uniform Steady State}: $u_{\mathbf{x}}=0$ and $u_t=0$.
 \end{MyTh}
 
 \begin{MyTh}{Useful Tools}
     \tiny $^1$\ok{最后,可通过两边对$\mathbf{u}$对$\mathbf{x}$积分得待定系数值} \ \ $^2$ \ok{Linearise at $u^*$}: Let $u=u^*+\eta$, $|\eta|\ll1$ func. \ \ $^3$ 对于求解PDE, 考虑\ps{\tiny 直接计算} or \ps{\tiny Seperation of var.} \ \ $^4$ \ok{Desingularise}: e.g. For $u(x,t)$, Let $\tau=u t$
+\end{MyTh}
+
+
+\section{Travelling Waves}
+
+\begin{MyTh}{Travelling Wave}
+    {\scriptsize $u(x,t)=u(x-ct)=U(z)$ with $z=x-ct$. \ \ \ps{$c$: wave speed; $z$: wave variable} \ \ If $z=x-ct$ \textit{constant}, then $u$ \textit{constant}. \ \ \imp{Equilibrium}: 对于时间的求导为0, $u_t=0$}
+
+    \vspace{-2pt}
+    \quad {\scriptsize \ok{Condition}: For \ps{travelling wave under reaction-diffusion|\ok{wavefront}}, have $u(\pm\infty,t)=u^{\pm}$, and $u_x(\pm\infty,t)=0$ or $\lim_{z\to\pm\infty} U'(z)=\lim_{z\to\pm\infty} V(z)=0$ \quad {\tiny \imp{Spatially Homogeneous}: $u_{\mathbf{x}}=0$}}
+
+    \vspace{-2pt}
+    \quad {\scriptsize If $u(x,t)=U(z),z=x-ct$ and $u_t=f(u)+D u_{xx}$ \ \ $\Rightarrow$ \ \ Change to \ok{ODE: $-c U' = f(U) + D U''$} \ \ $\Rightarrow$ By using \ok{$V=U'$} $\to$ ODE System: $\left\{\begin{smallmatrix} U' = V \qquad\qquad \ \ \\ V' = -\frac{c}{D} V - \frac{f(U)}{D} \end{smallmatrix}\right.$}
+
+    \vspace{-1pt}
+    \quad {\scriptsize For $\uparrow$ travelling wave \ok{boundary conditions}: $U(-\infty)=u^-$ \ps{\tiny (ahead of wave)}; $U(\infty)=u^+$ \ps{\tiny (behind wave)} \ok{Heteroclinic orbit}: A trajectory connecting $(u^-,0)$ and $(u^+,0)$ \ps{\tiny (\ok{Homoclinic Orbit}:$u^-=u^+$)}}
+
+    \quad {\scriptsize \ok{证明异宿轨道存在}: {\tiny Using $\frac{dU}{dV}=\frac{U'}{V'}$ to find \ok{$V(U)$}. If $V(u^{\pm})=0$, then \ps{exists}.} \ \ \ok{寻找波速$c$}: {\tiny Find ODE: $DU''+cU'+f(U)=0$ \ $\to$ \ 乘$U'$两边积分: $D\int_{-\infty}^{\infty} U'' U' dz+c\int_{-\infty}^{\infty} (U')^2 dz+\int_{-\infty}^{\infty} f(U)U' dz=0$}}
+
+    \vspace{-3pt}
+    \quad {\scriptsize $\updownarrow$ \ps{show: reasonable exist $u$ s.t. $\lim_{z\to\pm\infty} u(z)=u^{\pm}$ exists \quad || \quad}}{\scriptsize $\to$ using \ps{$U''U'=\frac{1}{2}[(U')^2]'$} $\to$ $\int_{-\infty}^{\infty}U''Udz=0$ and $U'dz=dU$ \ \ $\Rightarrow$ \ \ $c=[\int_{u^+}^{u^-} f(U)dU] \ / \ [\int_{-\infty}^{\infty} (U')^2 dz]$ \ps{\tiny (ps:$c$符号 \ 面积差决定)}}
+
+    \begin{minipage}{0.88\textwidth}
+        \quad {\tiny Find equilibrium: $V=0$ and $U_1,U_2,U_3$ \ $\to$ \ 计算 Jacobian + 判断 stability \ $\to$ \ 边上两saddle, 中间node/focus \ $\to$ \ \scalebox{0.85}{only interest in the unstable eigendirection} \ $\to$ \ps{\tiny 不用算/简短算出} $U_1,U_3$ 处的eigenvector 方向: 说明 $^1$一个方向进\ps{\tiny (stable eigendirection,特征值<0)}, 一个方向出\ps{\tiny (unstable eigendirection,特征值>0); $^2$左边进/出的方向(positive/negative slope), 右边出/进的方向(negative/positive slope). \ok{i.e. 有交点+一进一出}} \ $\Rightarrow$ possible for a heteroclinic connection between $U_1$ and $U_3$. \quad || \quad if $c=[\int_{u^+}^{u^-} f(U)dU] \ / \ [\int_{-\infty}^{\infty} (U')^2 dz]=0$, \ok{critical front speed} \ \ \scalebox{0.9}{\ps{\tiny 对于灾害:$c<0$ no spread; $c>0$ outbreak spread}}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.12\textwidth}
+        \includegraphics[width=1\textwidth]{figure_4.png}
+    \end{minipage}
+\end{MyTh}
+
+\vspace{-4pt}
+\begin{MyTh}{Fisher-Kolmogoroff}
+    \tiny \textit{Eq}: $u_t=Du_{xx}+ru(1-\frac{u}{K})$ $\Leftrightarrow$ $U'' + \frac{c}{D} U' + \frac{r}{D} U(1-\frac{U}{K})=0$ when $u(x,t)=U(z),z=x-ct$. \ \ \ok{如有wavefront sol:} \ok{Wave Speed}: $c\geq c_{\min}=2$, and $\lim_{z\to-\infty|\infty} U(z)=K|0$.
+\end{MyTh}
+
+\begin{MyTh}{Remark}
+    \scriptsize \ok{1.} 对于单 PDE/ODE 中, Equilibrium 的稳定性判断看$f'(u^*)$ 符号; 对于 ODE System 中, 看 Jacobian. \ps{\tiny (两者不同)} \ \ \ok{2.} $u(x,t)$ 如用\ok{Seperation of var.}算出$x=$const. 要wave sol时忽略.
+\end{MyTh}
+
+\begin{MyTh}{For $\lambda=0$ Case|Degenerate}
+    \tiny 判Stability时如特征值为: $\lambda_1=0,\lambda_2<0$: It's a "saddle-node" with one stable eigendirection (corresponding to $\lambda_2<0$) and one "center" eigendirection (corresponding to $\lambda_1=0$).
 \end{MyTh}
 
 
@@ -378,6 +422,10 @@
 \vspace{-2pt}
 \begin{MyTh}{Seperation of var.}
     $^1$ 假设 $u(x,t)=X(x)T(t)$ \ \ $\to$ 带入PDE $^2$ 解出类似 $\frac{T'}{DT}=\frac{X''}{X}=-\lambda$ $\to$ 得到两个ODE \ $^3$ 解较为简单的ODE, 代入BC解$\lambda$和sol. \ps{\tiny (注意看是否只要periodic; 极坐标有$r\to\infty$ bounded, $\theta=\theta+2\pi$等条件)}, $^4$ 解另外一个. \ $^5$ 叠加所有$\lambda_n$的sol得到PDE的general sol $u=\sum c_nX_n(x)T_n(t)$ \ $^6$ 用IC解出$c_n$. \qquad \ps{\tiny Remark: $^1$ 前期可以用正比化简; $^2$ $\lambda$ 为 让 sin/cos 解为正好计算.}
+\end{MyTh}
+
+\begin{MyTh}{Polar Coord.}
+    $x=r\cos\theta$, $y=r\sin\theta$ \ $\to$ \ $2rr'=2xx'+2yy'$ and $r^2\theta'=xy'-yx'$  
 \end{MyTh}
 
 

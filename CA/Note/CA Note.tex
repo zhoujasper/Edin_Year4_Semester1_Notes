@@ -338,11 +338,13 @@
 \begin{MyTh}{Gröbner Basis}
     $I$ ideal of $k[x_1,...,x_n]$, $k$ field. \ \ A subset $G\subseteq I$ is a \comment{\textit{Gröbner basis} of $I$ with respect to a \textit{monomial order} \ps{\tiny (e.g. Lex, Deglex)}} if:
 
-    \qquad\qquad\qquad\quad \ $\forall f\in I,f\ne0$, \ \ $\exists g\in G$ s.t. \ok{$LM(g)\mid LM(f)$}.
+    \qquad\qquad\qquad\quad \ $\forall f\in I,f\ne0$, \ \ $\exists g\in G$ s.t. \ok{$LM(g)\mid LM(f)$}. \ps{(不建议使用这个定义, 老师没写在笔记里)}
 
     \qquad\qquad\qquad\quad \ $(\Leftrightarrow)$ \ \ For any $w_i$ \textit{monomials}, $\alpha\in k$, s.t. \ok{if $LM(g)\nmid w_i$ for all $g\in G$, then $\sum_i \alpha_i w_i \notin I$}.
 
-    \quad \ok{Reduced Gröbner Basis}: If G is Gröbner basis of I and no \textit{proper subset} of G is Gröbner basis of I, then G is a \textit{reduced} GB of I.
+    \quad \ok{Reduced Gröbner Basis}: If G is Gröbner basis of I and no \textit{proper subset} of G is Gröbner basis of I, then G is a \textit{reduced} GB of $I$.
+    
+    \quad \ok{Method}: \small 尝试让 $G$ 中没有$LM(g_i)$ 是 $LM(g_j)$ 的 subword. \quad \imp{Note}: 一个 set $G$ 是 Gröbner basis of $I$, 那么他\textit{至少}可以\textit{生成} ideal $I$.
 \end{MyTh}
 
 }}
@@ -354,16 +356,16 @@
         \item For each $g_i\in G$, write $g_i=LC(g_i) \cdot LM(g_i)+h_i$
         \item For each pair $(g_i,g_j)$ in $G$, calculate $S(g_i,g_j)$ \ps{only $i>j$ or $i<j$ to avoid repetition} \quad \ok{Remark}: If $Ov(g_i,g_j)=1$, then $S(g_i,g_j)=0$, skip it.
         \item Reduce each $S(g_i,g_j)$: \ \  If $LM(g_k)$ divides any term of $S(g_i,g_j)$, \comment{substitute $LM(g_k)$ by $-h_k$}; until no $LM(g_k)$ divides any term.
-        \item If $S(g_i,g_j)\ne0$ after reduction, add it's \comment{leading term} to $G$ and go to \comment{step 2}. \qquad If all $S(g_i,g_j)=0$, stop and output $G$.
+        \item If $S(g_i,g_j)\ne0$ after reduction, add it's \comment{term} to $G$ and go to \comment{step 2}. \qquad If all $S(g_i,g_j)=0$, stop and output $G$.
     \end{enumerate}
 \end{MyTh}
 \vspace{2pt}
 
 \begin{MyTh}{Brönner Basis Application}
-    $k$ field, $I\triangleleft k[x_1,...,x_n]$, $G$ Gröbner basis of $I$. \ \ $L$ \comment{leading terms} of $G$. \ \ $W$ set of \comment{monomials not divisible by any element of $L$}. \ps{(i.e. don't contain any monomials in $L$ as a \textit{subword})}
+    $k$ field, $I\triangleleft k[x_1,...,x_n]$, $G$ Gröbner basis of $I$. \ \ $L$ \comment{leading terms} of $G$. \ \ $W$ set of \comment{monomials not divisible by any element of $L$}. \ps{(i.e. don't contain any monomials in $L$ as a \textit{subword})} \quad \ps{ps:$1$ is monomial}
     \qquad Then: 
     \begin{enumerate}
-        \item \ok{$\{w+I:w\in W\}$} is a \ok{basis of $k[x_1,...,x_n]/I$ as a vector space over $k$}.
+        \item \ok{$\{w+I:w\in W\}$} is a \ok{basis of $k[x_1,...,x_n]/I$ as a vector space over $k$}. \qquad\qquad\quad \ps{$\downarrow$ same as algorithm above: If $g_i$ is subword of $r$, replace it by $-h_i$}
         \item For each $g_i\in G$, write $g_i=LC(g_i) \cdot LM(g_i)+h_i$,  \ \ \ok{If $r\in k[x_1,...,x_n]$ can be reduced to $0$ by $g_i\to-h_i$, then $r\in I$}.
     \end{enumerate}
 \end{MyTh}
@@ -381,5 +383,6 @@
 \begin{MyTh}{2nd Def of Prime Ideal}
     $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$I$ prime ideal \ \ $\Leftrightarrow$ \ \ [$J,K$ ideals s.t. $JK\subseteq I$ $\Rightarrow$ $J\subseteq I$ or $K\subseteq I$] \ \ $\Leftrightarrow$  \ \ [$J\subsetneq I,K\subsetneq I$ $\Rightarrow$ $JK\subsetneq I$]}
 \end{MyTh}
+
 
 \end{document}
