@@ -3,6 +3,8 @@
 \DeclareMathAlphabet{\CMcal}{OMS}{cmsy}{m}{n}
 \newcommand{\specialI}{\CMcal{I}}
 
+\usepackage{diagbox}
+
 \title{CA Note}
 \author{}
 
@@ -345,6 +347,8 @@
     \quad \ok{Reduced Gröbner Basis}: If G is Gröbner basis of I and no \textit{proper subset} of G is Gröbner basis of I, then G is a \textit{reduced} GB of $I$.
     
     \quad \ok{Method}: \small 尝试让 $G$ 中没有$LM(g_i)$ 是 $LM(g_j)$ 的 subword. \quad \imp{Note}: 一个 set $G$ 是 Gröbner basis of $I$, 那么他\textit{至少}可以\textit{生成} ideal $I$.
+
+    \qquad \ok{Remark}: $G$ is Gröbner basis of $I$ if: $^1$ $G$ generates $I$; $^2$ S-polynomial of any pair in $G$ reduces to $0$ by $G$.
 \end{MyTh}
 
 }}
@@ -382,6 +386,22 @@
 
 \begin{MyTh}{2nd Def of Prime Ideal}
     $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$I$ prime ideal \ \ $\Leftrightarrow$ \ \ [$J,K$ ideals s.t. $JK\subseteq I$ $\Rightarrow$ $J\subseteq I$ or $K\subseteq I$] \ \ $\Leftrightarrow$  \ \ [$J\subsetneq I,K\subsetneq I$ $\Rightarrow$ $JK\subsetneq I$]}
+\end{MyTh}
+
+\begin{MyTh}{Well-Defined Ordering}
+    A \textit{well-defined} ordering $<$ on set $S$ if: \ \ \ok{O1}: $\forall a,b\in S$, $a\ne b$, then $a<b$ or $b<a$ \quad \ok{O2}: $\forall a,b,c\in S$, if $a<b$ and $b<c$, then $a<c$ \quad \ok{O3}: (For Grobner Basis) if $a<b$, then $ac<bc$ for any $c\in S$. \quad \ok{O4}: Every strictly decreasing sequence $a_1>a_2>a_3>...$ in $S$ is finite. (monomialsterminates)
+\end{MyTh}
+
+\begin{MyTh}{Examples of no/yes associative/communicative operators}
+    \\ \tiny 
+    \begin{tabular}{c|c|c}
+    \diagbox{交换}{结合} & Yes & No \\
+    \hline
+    Yes & $+$ on $\Z$ & $a*b=a^2+b^2$ \\
+    \hline
+    No & \ok{$a*b=a$} & $a*b=5a^2b-1$
+    \end{tabular}
+    
 \end{MyTh}
 
 
