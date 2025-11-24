@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  23 NOV 2025 20:39
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  24 NOV 2025 22:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1068,39 +1068,47 @@ Overfull \hbox (6.28317pt too wide) in paragraph at lines 629--630
  []
 
 
-Overfull \hbox (6.28317pt too wide) in paragraph at lines 653--654
+Overfull \hbox (8.43274pt too wide) in paragraph at lines 748--748
+[]
+ []
+
+
+Overfull \hbox (10.56023pt too wide) in paragraph at lines 748--748
+[]\TU/Cambria(0)/b/n/5.52061 1.[][]\TU/Cambria(0)/m/n/5.52061 Assume[]: $[] []  [] [] []$ 
+ []
+
+
+Overfull \hbox (6.28317pt too wide) in paragraph at lines 748--749
 [][] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 6.52437pt
-(hyperref)                replaced by space on input line 681.
+(hyperref)                replaced by space on input line 776.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 6.52437pt
-(hyperref)                replaced by space on input line 681.
+(hyperref)                replaced by space on input line 776.
 
 
-Overfull \hbox (6.28317pt too wide) in paragraph at lines 681--682
+Overfull \hbox (6.28317pt too wide) in paragraph at lines 776--777
 [][] 
  []
 
 
-Overfull \hbox (6.28317pt too wide) in paragraph at lines 690--691
+Overfull \hbox (6.28317pt too wide) in paragraph at lines 786--787
 [][] 
  []
 
 
-Overfull \hbox (6.28317pt too wide) in paragraph at lines 715--716
+Overfull \hbox (6.28317pt too wide) in paragraph at lines 811--812
 [][] 
  []
 
 
-Overfull \hbox (6.28317pt too wide) in paragraph at lines 737--738
-[][] 
- []
+Overfull \vbox (2.59828pt too high) has occurred while \output is active []
 
 
 Overfull \vbox (8.95917pt too high) has occurred while \output is active []
@@ -1114,7 +1122,7 @@ Overfull \vbox (8.95917pt too high) has occurred while \output is active []
 
 
 LaTeX Font Info:    Font shape `TU/Cambria(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 739.
+(Font)              Font shape `TU/Cambria(0)/m/it' tried instead on input line 813.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1129,21 +1137,34 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1
 
-] (./Note.aux)
+]
+Overfull \hbox (6.28317pt too wide) in paragraph at lines 842--843
+[][] 
+ []
+
+
+
+
+
+
+
+
+
+[2] (./Note.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `Note.out' has not changed.
-(rerunfilecheck)             Checksum: 04213F505FB1CE42ED4FD961BF6C48F0;1599.
+(rerunfilecheck)             Checksum: 06F9650FCE2F8D0C258DFEB322F6FA63;1688.
  ) 
 Here is how much of TeX's memory you used:
- 20853 strings out of 468441
- 408944 string characters out of 5435450
- 1318945 words of memory out of 5000000
- 49008 multiletter control sequences out of 15000+600000
+ 20874 strings out of 468441
+ 410340 string characters out of 5435450
+ 1347945 words of memory out of 5000000
+ 49029 multiletter control sequences out of 15000+600000
  632045 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,18n,125p,537b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Note.pdf (1 page).
+Output written on Note.pdf (2 pages).
