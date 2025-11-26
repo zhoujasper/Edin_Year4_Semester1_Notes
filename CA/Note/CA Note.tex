@@ -277,6 +277,8 @@
 
 \begin{MyTh}{Useful Tools}
     If \ok{$X=X_1\cup X_2\cup\cdots\cup X_m$}, then \ \ \ok{$\specialI(X)=\specialI(X_1)\cap \specialI(X_2)\cap \cdots \cap \specialI(X_m)$} \qquad $\cdot$ If $I_1\subseteq I_2$ ideals, then \ \ \ok{$\mathbf{V}(I_2)\subseteq \mathbf{V}(I_1)$}
+
+    \hspace{203pt} \ok{$V(I_1\cap I_2 \cap \cdots \cap I_m)=V(I_1)\cup V(I_2)\cup \cdots \cup V(I_m)$}
 \end{MyTh}
 
 
@@ -357,16 +359,16 @@
     For ideal $I=\langle f_1,f_2,...,f_m\rangle \triangleleft k[x_1,...,x_n]$, $k$ field. \ \ e.g. \ps{Buchberger's Algorithm}
     \begin{enumerate}
         \item Let $G=\{f_1,f_2,...,f_m\}$
-        \item For each $g_i\in G$, write $g_i=LC(g_i) \cdot LM(g_i)+h_i$
-        \item For each pair $(g_i,g_j)$ in $G$, calculate $S(g_i,g_j)$ \ps{only $i>j$ or $i<j$ to avoid repetition} \quad \ok{Remark}: If $Ov(g_i,g_j)=1$, then $S(g_i,g_j)=0$, skip it.
+        \item For each $g_i\in G$, write $g_i=LC(g_i) \cdot LM(g_i)+h_i$ \hspace{150pt} \ps{ps: $Ov(g_i,g_j)=Ov(LM(g_i),LM(g_j))$}
+        \item For each pair $(g_i,g_j)$ in $G$, calculate $S(g_i,g_j)$ \ps{only $i>j$ or $i<j$ to avoid repetition} \quad \ok{Remark}: If $Ov(g_i,g_j)=1$, then $S(g_i,g_j)\to0$, skip it.
         \item Reduce each $S(g_i,g_j)$: \ \  If $LM(g_k)$ divides any term of $S(g_i,g_j)$, \comment{substitute $LM(g_k)$ by $-h_k$}; until no $LM(g_k)$ divides any term.
-        \item If $S(g_i,g_j)\ne0$ after reduction, add it's \comment{term} to $G$ and go to \comment{step 2}. \qquad If all $S(g_i,g_j)=0$, stop and output $G$.
+        \item If $S(g_i,g_j)\ne0$ after reduction, add it's \comment{leading monomial} to $G$ and go to \comment{step 2}. \qquad If all $S(g_i,g_j)=0$, stop and output $G$.
     \end{enumerate}
 \end{MyTh}
 \vspace{2pt}
 
 \begin{MyTh}{Brönner Basis Application}
-    $k$ field, $I\triangleleft k[x_1,...,x_n]$, $G$ Gröbner basis of $I$. \ \ $L$ \comment{leading terms} of $G$. \ \ $W$ set of \comment{monomials not divisible by any element of $L$}. \ps{(i.e. don't contain any monomials in $L$ as a \textit{subword})} \quad \ps{ps:$1$ is monomial}
+    $k$ field, $I\triangleleft k[x_1,...,x_n]$, $G$ Gröbner basis of $I$. \ \ $L$ \comment{leading monomial} of $G$. \ \ $W$ set of \comment{monomials not divisible by any element of $L$}. \ps{(i.e. don't contain any monomials in $L$ as a \textit{subword})} \quad \ps{ps:$1$ is monomial}
     \qquad Then: 
     \begin{enumerate}
         \item \ok{$\{w+I:w\in W\}$} is a \ok{basis of $k[x_1,...,x_n]/I$ as a vector space over $k$}. \qquad\qquad\quad \ps{$\downarrow$ same as algorithm above: If $g_i$ is subword of $r$, replace it by $-h_i$}
