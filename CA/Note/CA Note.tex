@@ -278,7 +278,7 @@
 \begin{MyTh}{Useful Tools}
     If \ok{$X=X_1\cup X_2\cup\cdots\cup X_m$}, then \ \ \ok{$\specialI(X)=\specialI(X_1)\cap \specialI(X_2)\cap \cdots \cap \specialI(X_m)$} \qquad $\cdot$ If $I_1\subseteq I_2$ ideals, then \ \ \ok{$\mathbf{V}(I_2)\subseteq \mathbf{V}(I_1)$}
 
-    \hspace{203pt} \ok{$V(I_1\cap I_2 \cap \cdots \cap I_m)=V(I_1)\cup V(I_2)\cup \cdots \cup V(I_m)$}
+    \hspace{203pt} \ok{$V(I_1\cap I_2 \cap \cdots \cap I_m)=V(I_1)\cup V(I_2)\cup \cdots \cup V(I_m)$} \ps{\tiny (need proof, only valid for finite union)}
 \end{MyTh}
 
 
@@ -289,9 +289,11 @@
 
     \quad \ok{Weak Nullstellensatz} \ok{$(\Leftarrow)$} If $I$ is \textit{maximal ideal} and \underline{$\F$ is algebraically closed}, then \ok{$I=\langle x_1-a_1,...,x_n-a_n\rangle$} for some $a_i\in \F$.
 
-    \quad \ok{Fact I}: If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, then \ \ \ok{[ $f(a_1,...,a_n)=0$ \ \ $\Leftrightarrow$ \ \ $f\in I$ ]}
+    \quad \imp{Fact I: $I\subseteq \langle x_1-a_1,...,x_n-a_n\rangle$ \ \ $\Leftrightarrow$ \ \ $f(a_1,...,a_n)=0$ for all $f\in I$}. \ok{\footnotesize (i.e. \ \ $(a_1,...,a_n)\in V(I)$)}
 
-    \quad \ok{Fact II}: $k$ field, \ok{$(\Rightarrow)$} $I$ \comment{maximal ideal} then \ \ \ok{$\mathbf{V}(I)$ is a \textit{single point}}. \ \ \ps{(i.e. $\mathbf{V}(I)=\{(a_1,...,a_n)\}$)} \qquad \ok{\footnotesize $(\Leftarrow)$ if $k$ algebraically closed.} \ps{\tiny (ps:最好证明一下)}
+    \quad \imp{Fact II: If $I=\langle x_1-a_1,...,x_n-a_n\rangle$, then \ \ $V(I)=\{(a_1,...,a_n)\}$}
+
+    \quad \imp{*Fact III: $I=\specialI(\{(a_1,...,a_n)\})=\langle x_1-a_1,...,x_n-a_n\rangle$} \ps{\tiny need proof: $^1$ $J=\langle x_1-a_1,...,x_n-a_n\rangle\subseteq I$ \ \ $^2$ If $J\ne I$, as $J$ is maximal, $I=k[x_1,...,x_n]$, impossible.}
 \end{MyTh}
 
 \begin{MyTh}{Reformation of Weak Nullstellensatz}
@@ -303,11 +305,11 @@
 \begin{MyTh}{Reformation of Hilbert's Nullstellensatz}
     $k$ \textit{algebraically closed} field, $I$ ideal of $k[x_1,...,x_n]$. Then:
 
-    \quad $^1$ \ok{$\sqrt{I}=\bigcap$ (maximal ideals $\supseteq I$)} \qquad $\Leftrightarrow$ \qquad $^2$ \ok{$J(R/I)=\bigcap$ maximal ideals in $R/I$ = nil radical of $R/I = \sqrt{0_{R/I}}$}
+    \quad $^1$ \imp{$\sqrt{I}=\bigcap$ (maximal ideals $\supseteq I$)} \qquad $\Leftrightarrow$ \qquad $^2$ \ok{$J(R/I)=\bigcap$ maximal ideals in $R/I$ = nil radical of $R/I = \sqrt{0_{R/I}}$}
 \end{MyTh}
 
 \begin{MyTh}{2nd Def of Radical}
-    $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \ok{$\sqrt{I}=\bigcap$ (prime ideals $\supseteq I$)}\quad
+    $R$ commutative ring, $I$ ideal of $R$. \ \ Then: \ \ \imp{$\sqrt{I}=\bigcap$ (prime ideals $\supseteq I$)}\quad
 
     \quad
     \begin{MyTh}{Corollary}
