@@ -396,17 +396,29 @@
     A \textit{well-defined} ordering $<$ on set $S$ if: \ \ \ok{O1}: $\forall a,b\in S$, $a\ne b$, then $a<b$ or $b<a$ \quad \ok{O2}: $\forall a,b,c\in S$, if $a<b$ and $b<c$, then $a<c$ \quad \ok{O3}: (For Grobner Basis) if $a<b$, then $ac<bc$ for any $c\in S$. \quad \ok{O4}: Every strictly decreasing sequence $a_1>a_2>a_3>...$ in $S$ is finite. (monomialsterminates)
 \end{MyTh}
 
-\begin{MyTh}{Examples of no/yes associative/communicative operators}
-    \\ \tiny 
-    \begin{tabular}{c|c|c}
-    \diagbox{交换}{结合} & Yes & No \\
-    \hline
-    Yes & $+$ on $\Z$ & $a*b=a^2+b^2$ \\
-    \hline
-    No & \ok{$a*b=a$} & $a*b=5a^2b-1$
-    \end{tabular}
-    
-\end{MyTh}
+\begin{minipage}{0.32\textwidth}
+    \begin{MyTh}{Examples of no/yes associative/communicative operators}
+        \\ \tiny 
+        \begin{tabular}{c|c|c}
+        \diagbox{交换}{结合} & Yes & No \\
+        \hline
+        Yes & $+$ on $\Z$ & $a*b=a^2+b^2$ \\
+        \hline
+        No & \ok{$a*b=a$} & $a*b=5a^2b-1$
+        \end{tabular}
+        
+    \end{MyTh}
+\end{minipage}
+\hfill
+\begin{minipage}{0.68\textwidth}    
+    \begin{MyTh}{Show the Principal Ideal}
+        By using \ps{division algorithm}: $g(x)=q(x)f(x)+r(x)$, and choose $f(x)$ be smallest degree polynomial in $I$.
+    \end{MyTh}
 
+    \begin{MyTh}{$\specialI(V(\{a\}\times \F))$}
+        \ok{1. Basic}: $f(x_1,x_2,...,x_n)=f(a_1,...,a_n) + (x_1-a_1)s_1+\cdots+(x_n-a_n)s_n$
+        \ok{2. Free Variable}: $f(a,y)=\sum_{1\leq k_1,k_2\leq m} \alpha_{k_1,k_2}x^{k_1}y^{k_2}=\sum_{1\leq k_1\leq m} \alpha_{k_1,k_2}(x-a+a)^{k_1}y^{k_2}=\sum_{1\leq k_1\leq m} \alpha_{k_1,k_2}a^{k_1}y^{k_2} + (x-a)s_1(x,y)$
+    \end{MyTh}
+\end{minipage}
 
 \end{document}
