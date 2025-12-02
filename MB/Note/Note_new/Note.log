@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  26 NOV 2025 20:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.25)  2 DEC 2025 18:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1168,6 +1168,11 @@ Overfull \hbox (6.28317pt too wide) in paragraph at lines 1031--1032
  []
 
 
+Overfull \hbox (6.28317pt too wide) in paragraph at lines 1067--1068
+[][] 
+ []
+
+
 
 
 
@@ -1181,7 +1186,7 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `Note.out' has not changed.
-(rerunfilecheck)             Checksum: 4708A318E6CAC190CE87B49E6A76D231;2238.
+(rerunfilecheck)             Checksum: 6D441C1473E756DBC5671D06F307A073;2323.
  ) 
 Here is how much of TeX's memory you used:
  20874 strings out of 468441
