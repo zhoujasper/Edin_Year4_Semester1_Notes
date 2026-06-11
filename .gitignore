@@ -1,17 +1,46 @@
+# Keep this repository focused on note sources and release-ready materials
 */
 
 !/NLA/
 !/NLA/Note/
-
 !/MB/
 !/MB/Note/
 !/MB/Note/Note_new/
-
 !/CA/
 !/CA/Note/
 
-note.cls
-note.tex
-CA/CA - Final Exam Paper - Jingren Zhou.pdf
-MB/MB - Final Exam Paper - Jingren Zhou.pdf
-NLA/NLA - Final Exam Paper - Jingren Zhou.pdf
+!note.cls
+!note.tex
+!CA/CA - Final Exam Paper - Jingren Zhou.pdf
+!MB/MB - Final Exam Paper - Jingren Zhou.pdf
+!NLA/NLA - Final Exam Paper - Jingren Zhou.pdf
+
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Editor and OS files
+.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
