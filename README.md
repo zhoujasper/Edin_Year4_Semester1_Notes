@@ -13,7 +13,6 @@ This repository is intended as a polished archive of my own study materials. It 
 | Commutative Algebra | `CA/Note/` | Ideals, rings, modules, localisation-style ideas, theorem summaries, and exam preparation |
 | Numerical Linear Algebra | `NLA/Note/` | Matrix algorithms, numerical stability, iterative methods, and computational linear algebra revision |
 | Mathematical Biology | `MB/Note/` | Model-based summaries, equations, biological systems, and revision material |
-| Exam papers / final materials | `CA/`, `MB/`, `NLA/` PDFs where present | Selected final exam-style documents and polished outputs |
 
 > Geometry was part of my Year 4 Semester 1 study plan, but this repository currently appears to focus mainly on CA, NLA, and MB materials.
 
