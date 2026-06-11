@@ -14,8 +14,6 @@ This repository is intended as a polished archive of my own study materials. It 
 | Numerical Linear Algebra | `NLA/Note/` | Matrix algorithms, numerical stability, iterative methods, and computational linear algebra revision |
 | Mathematical Biology | `MB/Note/` | Model-based summaries, equations, biological systems, and revision material |
 
-> Geometry was part of my Year 4 Semester 1 study plan, but this repository currently appears to focus mainly on CA, NLA, and MB materials.
-
 ## Repository structure
 
 ```text
